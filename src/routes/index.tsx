@@ -4,6 +4,7 @@ import { ArrowUpRight, Download, Github, Layers, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
+import { Hero } from "@/components/site/hero";
 
 export const Route = createFileRoute("/")({
   head: () => ({
