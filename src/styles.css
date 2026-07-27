@@ -64,6 +64,9 @@
   --animate-reveal: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-aurora-slow: aurora-drift 26s ease-in-out infinite;
   --animate-aurora-slower: aurora-drift 38s ease-in-out infinite reverse;
+  --animate-orbit-slow: orbit-spin 64s linear infinite;
+  --animate-orbit-reverse: orbit-spin 92s linear infinite reverse;
+  --animate-node-pulse: node-pulse 3.2s ease-in-out infinite;
 }
 
 :root {
@@ -161,6 +164,28 @@
     opacity: 0.8;
   }
 }
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
 
 @layer base {
   * {
