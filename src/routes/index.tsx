@@ -46,7 +46,9 @@ const RESERVED = [
 function Index() {
   return (
     <div id="top">
+      <Hero />
       <Section
+
         id="platform"
         label="Design foundation"
         heading="The system every section will inherit"
