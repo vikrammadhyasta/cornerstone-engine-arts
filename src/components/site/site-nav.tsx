@@ -66,7 +66,7 @@ export function SiteNav() {
             <Hexagon className="h-4 w-4 text-primary" aria-hidden />
           </span>
           <span className="truncate font-display text-sm font-semibold tracking-tight">
-            Engineering Platform
+            Vikram Madhyasta
           </span>
         </a>
 
