@@ -188,6 +188,7 @@ export function CloudOpsCenter() {
             width={816}
             height={816}
             loading="eager"
+            decoding="async"
             className="h-full w-full object-cover opacity-95"
           />
           <span
