@@ -26,7 +26,7 @@ export function Hero() {
               Available for 2026 opportunities
             </span>
 
-            <h1 className="text-gradient-heading font-display text-[2rem] leading-[1.08] font-semibold sm:text-5xl xl:text-6xl">
+            <h1 className="text-gradient-heading font-display text-[1.875rem] leading-[1.12] font-semibold text-balance sm:text-4xl xl:text-[2.9rem] xl:leading-[1.1]">
               Engineering cloud platforms with Kubernetes, Infrastructure as Code, and automation.
             </h1>
 
