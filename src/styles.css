@@ -67,6 +67,11 @@
   --animate-orbit-slow: orbit-spin 64s linear infinite;
   --animate-orbit-reverse: orbit-spin 92s linear infinite reverse;
   --animate-node-pulse: node-pulse 3.2s ease-in-out infinite;
+  --animate-core-breathe: core-breathe 7.5s ease-in-out infinite;
+  --animate-core-drift: core-drift 18s ease-in-out infinite;
+  --animate-arc-sweep: arc-sweep 60s linear infinite;
+  --animate-arc-sweep-reverse: arc-sweep 60s linear infinite reverse;
+  --animate-status-shift: status-shift 6.5s ease-in-out infinite;
 }
 
 :root {
