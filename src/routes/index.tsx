@@ -49,7 +49,9 @@ function Index() {
   return (
     <div id="top">
       <Hero />
+      <EngineeringIdentity />
       <Section
+
 
         id="platform"
         label="Design foundation"
