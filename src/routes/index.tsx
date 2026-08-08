@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
 import { Hero } from "@/components/site/hero";
+import { EngineeringIdentity } from "@/components/site/engineering-identity";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,7 +49,9 @@ function Index() {
   return (
     <div id="top">
       <Hero />
+      <EngineeringIdentity />
       <Section
+
 
         id="platform"
         label="Design foundation"
