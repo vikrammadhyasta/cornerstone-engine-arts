@@ -94,11 +94,9 @@ export function EngineeringIdentity() {
               <li
                 key={pillar.id}
                 className="group relative flex gap-4 lg:block"
-                tabIndex={0}
-                style={{ outline: "none" }}
               >
                 {/* node */}
-                <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border-strong bg-background font-mono text-[0.625rem] text-primary transition-colors duration-300 group-hover:border-primary/60 group-focus-visible:border-primary/60">
+                <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border-strong bg-background font-mono text-[0.625rem] text-primary transition-colors duration-300 group-hover:border-primary/60">
                   {pillar.index}
                 </span>
 
@@ -118,10 +116,6 @@ export function EngineeringIdentity() {
                   </p>
                 </div>
 
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-x-3 -inset-y-2 rounded-xl ring-1 ring-primary/40 opacity-0 transition-opacity duration-300 group-focus-visible:opacity-100"
-                />
               </li>
             ))}
           </ol>
