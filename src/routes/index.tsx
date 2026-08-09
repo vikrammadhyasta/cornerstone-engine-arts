@@ -10,17 +10,17 @@ import { EngineeringIdentity } from "@/components/site/engineering-identity";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Design Foundation — Engineering Platform" },
+      { title: "Vikram Madhyasta — Cloud, DevOps & Platform Engineer" },
       {
         name: "description",
         content:
-          "The global design foundation: layout, navigation, typography, color, buttons, cards, section template and motion language.",
+          "Cloud & DevOps engineering portfolio featuring Kubernetes, Infrastructure as Code, automation, and platform engineering.",
       },
-      { property: "og:title", content: "Design Foundation — Engineering Platform" },
+      { property: "og:title", content: "Vikram Madhyasta — Cloud, DevOps & Platform Engineer" },
       {
         property: "og:description",
         content:
-          "Layout, navigation, typography, color, buttons, cards and motion language for a premium engineering platform.",
+          "Cloud & DevOps engineering portfolio featuring Kubernetes, Infrastructure as Code, automation, and platform engineering.",
       },
     ],
   }),
@@ -181,7 +181,7 @@ function Index() {
             <div
               key={slot.id}
               id={slot.id}
-              className="scroll-mt-28 rounded-2xl border border-dashed border-border-strong bg-surface/30 p-6"
+              className="scroll-mt-24 rounded-2xl border border-dashed border-border-strong bg-surface/30 p-6"
             >
               <SectionLabel>{slot.label}</SectionLabel>
               <p className="mt-4 text-sm text-muted-foreground">{slot.note}</p>

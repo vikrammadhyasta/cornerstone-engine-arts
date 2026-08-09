@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Platform", href: "#platform" },
   { label: "Projects", href: "#projects" },
-  { label: "Engineering", href: "#engineering" },
+  { label: "Engineering", href: "#identity" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -100,7 +100,7 @@ export function SiteNav() {
 
         <div className="ml-auto flex items-center gap-2 lg:ml-4">
           <Button variant="secondary" size="sm" className="hidden sm:inline-flex" asChild>
-            <a href="#resume">
+            <a href="/resume.pdf" download>
               Resume
               <ArrowUpRight />
             </a>
@@ -135,7 +135,7 @@ export function SiteNav() {
                 ))}
               </div>
               <Button className="mt-8 w-full" asChild>
-                <a href="#resume" onClick={() => setOpen(false)}>
+                <a href="/resume.pdf" download onClick={() => setOpen(false)}>
                   Resume
                   <ArrowUpRight />
                 </a>
