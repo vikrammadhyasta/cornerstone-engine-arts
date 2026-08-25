@@ -61,9 +61,9 @@ const PENDING_META = [
 ];
 
 const DONE_META = [
-  "push 8f3a2c1",
+  "push a41c9e2",
   "#249 · 2m 41s",
-  "image :8f3a2c1",
+  "image :a41c9e2",
   "digest sha256:9c4e",
   "healthy · synced",
   "3/3 pods ready",
@@ -72,7 +72,7 @@ const DONE_META = [
 function activeMeta(stage: number, f: number): string {
   switch (stage) {
     case 0:
-      return f < 0.5 ? "webhook · push 8f3a2c1" : "checkout main @ 8f3a2c1";
+      return f < 0.5 ? "webhook · push a41c9e2" : "checkout main @ a41c9e2";
     case 1: {
       const steps = ["checkout", "npm ci", "unit tests", "integration tests", "package"];
       return `#249 · ${steps[Math.min(steps.length - 1, Math.floor(f * steps.length))]}`;
@@ -162,7 +162,7 @@ function failureFrame(t: number): DemoFrame {
   const stages: StageRunState[] = [
     t < F_GIT
       ? { status: "active", meta: activeMeta(0, t / F_GIT), progress: t / F_GIT }
-      : { status: "completed", meta: "push 8f3a2c1", progress: null },
+      : { status: "completed", meta: "push a41c9e2", progress: null },
     t < jenkinsStart
       ? { status: "pending", meta: "awaiting trigger", progress: null }
       : t < T_FAIL
@@ -246,7 +246,7 @@ export function frameAt(mode: RunMode, t: number): DemoFrame {
 /** Frozen snapshot for prefers-reduced-motion — the original static design. */
 export const STATIC_FRAME: DemoFrame = {
   stages: [
-    { status: "completed", meta: "push 8f3a2c1", progress: null },
+    { status: "completed", meta: "push a41c9e2", progress: null },
     { status: "completed", meta: "#247 · 2m 41s", progress: null },
     { status: "active", meta: "layer 7 of 12", progress: 7 / 12 },
     { status: "pending", meta: "awaiting push", progress: null },
