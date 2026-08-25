@@ -332,7 +332,7 @@ function CloudMlPredictor() {
                 className={
                   "relative rounded-xl border p-5 " +
                   (item.tone === "problem"
-                    ? "border-warning/50 bg-warning/8"
+                    ? "border-warn/50 bg-warn/8"
                     : item.tone === "result"
                       ? "border-success/50 bg-success/8"
                       : "border-border bg-surface/50")
@@ -368,7 +368,7 @@ function CloudMlPredictor() {
               <p className="mt-1 text-[0.8125rem] text-muted-foreground">
                 Function bundled with scikit-learn and its numeric dependencies.
               </p>
-              <div aria-hidden className="mt-4 h-1.5 w-full rounded-full bg-warning/60" />
+              <div aria-hidden className="mt-4 h-1.5 w-full rounded-full bg-warn/60" />
             </div>
             <div className="rounded-xl border border-success/45 bg-success/8 p-5">
               <p className="font-mono text-[0.625rem] tracking-[0.18em] text-muted-foreground uppercase">
