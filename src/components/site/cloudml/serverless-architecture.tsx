@@ -91,51 +91,31 @@ const NODES: {
     name: "Client",
     kind: "Caller",
     note: "HTTPS request",
-    mark: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-        <rect x="3" y="4.5" width="18" height="12" rx="2" />
-        <path d="M8.5 20h7M12 16.5V20" strokeLinecap="round" />
-      </svg>
-    ),
+    mark: <ClientMark />,
   },
   {
     id: "apigw",
     name: "API Gateway",
     kind: "AWS · Edge",
     note: "REST route",
-    mark: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-        <path d="M12 3 20 7.5v9L12 21 4 16.5v-9L12 3Z" strokeLinejoin="round" />
-        <path d="M4.5 12h15M12 3v18" />
-      </svg>
-    ),
+    mark: <ApiGatewayBrandMark />,
   },
   {
     id: "lambda",
     name: "Lambda",
     kind: "AWS · Compute",
     note: "Inference handler",
-    mark: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-        <path d="M6 20 13 4h3.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M11 12.5 15 20" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    mark: <LambdaBrandMark />,
   },
   {
     id: "s3",
     name: "S3",
     kind: "AWS · Storage",
     note: "Model artifact",
-    mark: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-        <ellipse cx="12" cy="6.5" rx="7" ry="3" />
-        <path d="M5 6.5v11c0 1.7 3.1 3 7 3s7-1.3 7-3v-11" />
-        <path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
-      </svg>
-    ),
+    mark: <S3BrandMark />,
   },
 ];
+
 
 function useReducedMotion() {
   const [reduced, setReduced] = React.useState(false);
