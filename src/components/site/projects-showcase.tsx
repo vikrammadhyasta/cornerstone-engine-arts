@@ -49,6 +49,7 @@ const PROJECTS: Project[] = [
       "Serverless crop-yield prediction API using AWS Lambda, API Gateway, S3, CloudWatch and IAM.",
     tech: ["AWS S3", "AWS Lambda", "API Gateway", "CloudWatch", "IAM"],
     extra: 2,
+    href: "/projects/cloud-ml-predictor",
     cue: "cloud",
   },
   {
