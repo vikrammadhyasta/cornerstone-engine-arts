@@ -61,6 +61,24 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Delivery-pipeline semantics (AgriTech case study) */
+  --color-surface-2: var(--surface-elevated);
+  --color-pipe: var(--primary-glow);
+  --color-ok: var(--success);
+  --color-fail: var(--destructive);
+  --color-warn: var(--chart-5);
+
+  /* Technology brand tones (tuned for dark surfaces) */
+  --color-brand-github: oklch(0.93 0.01 250);
+  --color-brand-jenkins: oklch(0.62 0.2 25);
+  --color-brand-docker: oklch(0.65 0.14 235);
+  --color-brand-aws: oklch(0.76 0.14 65);
+  --color-brand-argo: oklch(0.71 0.14 45);
+  --color-brand-kubernetes: oklch(0.62 0.17 265);
+  --color-brand-openai: oklch(0.9 0.04 175);
+
+
+
   --animate-reveal: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-aurora-slow: aurora-drift 26s ease-in-out infinite;
   --animate-aurora-slower: aurora-drift 38s ease-in-out infinite reverse;
