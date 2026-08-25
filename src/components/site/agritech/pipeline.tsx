@@ -308,8 +308,10 @@ function Connector({
       aria-hidden
       className={cn(
         "flex items-center justify-start gap-1 py-1 pl-6 md:justify-center md:pl-0",
-        mdDir === "down" ? "md:flex-col md:py-2" : "md:flex-row md:px-2 md:py-0",
-        "lg:flex-row lg:px-3 lg:py-0",
+        mdDir === "down"
+          ? "md:flex-col md:py-2"
+          : "md:mt-7 md:flex-row md:self-start md:px-2 md:py-0",
+        "lg:mt-7 lg:flex-row lg:self-start lg:px-3 lg:py-0",
         mdDir === "left" && "md:flex-row-reverse lg:flex-row",
         tone,
         className,
