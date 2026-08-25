@@ -34,7 +34,7 @@ export const Route = createFileRoute("/projects/agritech-gitops")({
   component: AgritechGitops,
 });
 
-const REPO_URL = "https://github.com/vikrammadhyasta";
+const REPO_URL = "https://github.com/vikrammadhyasta/AgriTech.git";
 
 const BADGES = [
   { label: "Kubernetes", icon: KubernetesMark },
@@ -44,6 +44,8 @@ const BADGES = [
   { label: "AWS ECR", icon: EcrMark },
   { label: "Terraform", icon: TerraformMark },
 ];
+
+const FLOW_SUMMARY = ["Source", "CI", "Container", "Registry", "GitOps", "Kubernetes"];
 
 const METRICS = [
   { value: "6", label: "Automated stages", note: "Commit to running workload" },
@@ -238,6 +240,24 @@ function AgritechGitops() {
         heading="From commit to running workload"
         description="Select a stage to inspect what triggers it, what it does, and what it hands to the next stage. The pipeline reads left to right on desktop and top to bottom on mobile."
       >
+        <ol
+          aria-label="Architecture summary"
+          className="mb-8 flex flex-wrap items-center gap-x-2 gap-y-2 rounded-xl border border-border bg-surface/40 px-4 py-3"
+        >
+          {FLOW_SUMMARY.map((step, index) => (
+            <li key={step} className="flex items-center gap-2">
+              {index > 0 && (
+                <span aria-hidden className="font-mono text-xs text-border-strong">
+                  &rarr;
+                </span>
+              )}
+              <span className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase">
+                {step}
+              </span>
+            </li>
+          ))}
+        </ol>
+
         <DeliveryPipeline />
       </Section>
 
@@ -261,7 +281,7 @@ function AgritechGitops() {
       {/* 5. Challenges & solutions */}
       <Section
         bordered
-        label="Challenges"
+        label="Engineering challenges"
         heading="Failures, investigation and resolution"
         description="Problem → Investigation → Solution → Result for the issues that actually shaped the pipeline."
       >
