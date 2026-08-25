@@ -103,7 +103,7 @@ export function DeliveryPipeline() {
             className={cn(
               "mt-8 grid grid-cols-1 gap-0 md:mt-10 lg:mt-14",
               "md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-y-8",
-              "lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-y-0",
+              "lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-y-0",
             )}
           >
             {STAGES.map((stage, index) => {
