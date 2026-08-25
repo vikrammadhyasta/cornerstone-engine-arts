@@ -15,7 +15,6 @@ import {
   GitHubMark,
   JenkinsMark,
   KubernetesMark,
-  TerraformMark,
 } from "@/components/site/tech-marks";
 
 const TITLE = "AgriTech — GitOps CI/CD Platform | Vikram Madhyasta";
@@ -44,7 +43,7 @@ const BADGES = [
   { label: "Jenkins", icon: JenkinsMark },
   { label: "Docker", icon: DockerMark },
   { label: "AWS ECR", icon: EcrMark },
-  { label: "Terraform", icon: TerraformMark },
+  { label: "GitHub", icon: GitHubMark },
 ];
 
 const FLOW_SUMMARY = ["Source", "CI", "Container", "Registry", "GitOps", "Kubernetes"];
@@ -126,7 +125,6 @@ const STACK = [
   { name: "ArgoCD", role: "GitOps reconciliation", icon: ArgoMark },
   { name: "Kubernetes", role: "Orchestration & runtime", icon: KubernetesMark },
   { name: "AWS", role: "IAM, networking, compute", icon: AwsMark },
-  { name: "Terraform", role: "Infrastructure as Code", icon: TerraformMark },
 ];
 
 const OUTCOMES = [
