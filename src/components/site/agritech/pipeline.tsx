@@ -1,6 +1,38 @@
 import * as React from "react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { STAGES } from "./pipeline-data";
+
+/**
+ * Responsive topology:
+ * - mobile  : single column, downward connectors
+ * - tablet  : serpentine — row 1 left→right, elbow down, row 2 right→left
+ * - desktop : single row, left→right
+ */
+const STAGE_POS = [
+  "md:col-start-1 md:row-start-1 lg:col-start-1 lg:row-start-1",
+  "md:col-start-3 md:row-start-1 lg:col-start-3 lg:row-start-1",
+  "md:col-start-5 md:row-start-1 lg:col-start-5 lg:row-start-1",
+  "md:col-start-5 md:row-start-3 lg:col-start-7 lg:row-start-1",
+  "md:col-start-3 md:row-start-3 lg:col-start-9 lg:row-start-1",
+  "md:col-start-1 md:row-start-3 lg:col-start-11 lg:row-start-1",
+];
+
+const CONNECTOR_POS = [
+  "md:col-start-2 md:row-start-1 lg:col-start-2 lg:row-start-1",
+  "md:col-start-4 md:row-start-1 lg:col-start-4 lg:row-start-1",
+  "md:col-start-5 md:row-start-2 lg:col-start-6 lg:row-start-1",
+  "md:col-start-4 md:row-start-3 lg:col-start-8 lg:row-start-1",
+  "md:col-start-2 md:row-start-3 lg:col-start-10 lg:row-start-1",
+];
+
+const CONNECTOR_DIR: Array<"right" | "left" | "down"> = [
+  "right",
+  "right",
+  "down",
+  "left",
+  "left",
+];
 
 export function DeliveryPipeline() {
   const [activeId, setActiveId] = React.useState(STAGES[0].id);
@@ -37,12 +69,16 @@ export function DeliveryPipeline() {
         </p>
       </div>
 
-      {/* Stage rail */}
+      {/* Stage topology */}
       <div
         role="tablist"
         aria-label="Deployment pipeline stages"
         aria-orientation="horizontal"
-        className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-3 lg:flex lg:flex-row lg:items-stretch lg:gap-0"
+        className={cn(
+          "mt-6 grid grid-cols-1 gap-0",
+          "md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-y-1",
+          "lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)]",
+        )}
       >
         {STAGES.map((stage, index) => {
           const Icon = stage.icon;
@@ -50,7 +86,6 @@ export function DeliveryPipeline() {
           const isPassed = index < activeIndex;
           return (
             <React.Fragment key={stage.id}>
-              {index > 0 && <Connector active={index <= activeIndex} />}
               <button
                 ref={(el) => {
                   refs.current[index] = el;
@@ -65,7 +100,8 @@ export function DeliveryPipeline() {
                 onKeyDown={(e) => onKeyDown(e, index)}
                 className={cn(
                   "group relative flex w-full items-center gap-4 rounded-xl border p-4 text-left transition-colors duration-300",
-                  "lg:w-auto lg:flex-1 lg:flex-col lg:items-start lg:gap-3 lg:p-4",
+                  "md:h-full md:flex-col md:items-start md:gap-3",
+                  STAGE_POS[index],
                   isActive
                     ? "border-primary/45 bg-primary/8 shadow-[var(--shadow-glow)]"
                     : "border-border bg-surface/50 hover:border-border-strong hover:bg-surface/80",
@@ -84,12 +120,12 @@ export function DeliveryPipeline() {
                   <Icon className="h-5 w-5" />
                 </span>
 
-                <span className="min-w-0 flex-1">
+                <span className="min-w-0 flex-1 md:w-full md:flex-none">
                   <span className="flex items-baseline gap-2">
                     <span className="font-mono text-[0.625rem] tracking-[0.18em] text-muted-foreground uppercase">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-mono text-[0.625rem] tracking-[0.18em] text-primary uppercase">
+                    <span className="truncate font-mono text-[0.625rem] tracking-[0.18em] text-primary uppercase">
                       {stage.phase}
                     </span>
                   </span>
@@ -98,8 +134,9 @@ export function DeliveryPipeline() {
                   </span>
                   <span className="mt-1.5 flex items-center gap-1.5">
                     <span
+                      aria-hidden
                       className={cn(
-                        "h-1.5 w-1.5 rounded-full",
+                        "h-1.5 w-1.5 shrink-0 rounded-full",
                         stage.statusTone === "success" ? "bg-success" : "bg-primary",
                       )}
                     />
@@ -109,6 +146,14 @@ export function DeliveryPipeline() {
                   </span>
                 </span>
               </button>
+
+              {index < STAGES.length - 1 && (
+                <Connector
+                  className={CONNECTOR_POS[index]}
+                  mdDir={CONNECTOR_DIR[index]}
+                  active={index < activeIndex}
+                />
+              )}
             </React.Fragment>
           );
         })}
@@ -122,10 +167,31 @@ export function DeliveryPipeline() {
         tabIndex={0}
         className="mt-6 rounded-xl border border-border bg-surface/40 p-5 md:p-6"
       >
-        <h3 className="font-display text-lg font-semibold text-foreground">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="font-mono text-[0.625rem] tracking-[0.18em] text-primary uppercase">
+            Stage {String(activeIndex + 1).padStart(2, "0")}
+          </span>
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-2.5 py-1 text-[0.6875rem] text-muted-foreground"
+          >
+            <span
+              aria-hidden
+              className={cn(
+                "h-1.5 w-1.5 rounded-full",
+                active.statusTone === "success" ? "bg-success" : "bg-primary",
+              )}
+            />
+            {active.status}
+          </span>
+        </div>
+
+        <h3 className="mt-3 font-display text-lg font-semibold text-foreground">
           {active.phase} — {active.name}
         </h3>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-1 font-mono text-[0.6875rem] tracking-[0.14em] text-primary/90 uppercase">
+          {active.role}
+        </p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           {active.short}
         </p>
 
@@ -168,16 +234,41 @@ export function DeliveryPipeline() {
   );
 }
 
-function Connector({ active }: { active: boolean }) {
+function Connector({
+  className,
+  mdDir,
+  active,
+}: {
+  className?: string;
+  mdDir: "right" | "left" | "down";
+  active: boolean;
+}) {
+  const tone = active ? "text-primary/70" : "text-border-strong";
   return (
     <span
       aria-hidden
-      className="flex items-center justify-center py-1 md:hidden lg:flex lg:w-6 lg:py-0"
+      className={cn(
+        "flex items-center justify-center gap-1 py-1.5",
+        mdDir === "down" ? "md:flex-col md:py-1.5" : "md:flex-row md:px-1.5 md:py-0",
+        "lg:flex-row lg:px-1.5 lg:py-0",
+        mdDir === "left" && "md:flex-row-reverse lg:flex-row",
+        tone,
+        className,
+      )}
     >
       <span
         className={cn(
-          "h-5 w-px rounded-full transition-colors duration-500 lg:h-px lg:w-full",
-          active ? "bg-primary/60" : "bg-border-strong",
+          "block h-4 w-px shrink-0 rounded-full bg-current opacity-70",
+          mdDir === "down" ? "md:h-4 md:w-px" : "md:h-px md:w-4 md:min-w-4",
+          "lg:h-px lg:w-4 lg:min-w-4",
+        )}
+      />
+      <ChevronDown
+        className={cn(
+          "h-3.5 w-3.5 shrink-0",
+          mdDir === "right" && "md:-rotate-90",
+          mdDir === "left" && "md:rotate-90",
+          "lg:-rotate-90",
         )}
       />
     </span>
