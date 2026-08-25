@@ -3,6 +3,12 @@ import { Pause, Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import {
+  ApiGatewayBrandMark,
+  ClientMark,
+  LambdaBrandMark,
+  S3BrandMark,
+} from "@/components/site/cloudml/brand-marks";
 
 /**
  * Serverless request architecture for the Cloud ML Agriculture Predictor.
