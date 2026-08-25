@@ -34,8 +34,8 @@ const PROJECTS: Project[] = [
     title: "AgriTech GitOps CI/CD Platform",
     description:
       "End-to-end GitOps delivery platform from GitHub through Jenkins, Docker, AWS ECR, ArgoCD and Kubernetes, with AI-assisted failure diagnostics.",
-    tech: ["Jenkins", "Docker", "Kubernetes", "ArgoCD", "AWS ECR"],
-    extra: 3,
+    tech: ["Jenkins", "Docker", "Kubernetes", "ArgoCD", "AWS ECR", "AWS EC2", "Python", "OpenAI API"],
+    extra: 0,
     href: "/projects/agritech-gitops",
     repo: "https://github.com/vikrammadhyasta/AgriTech.git",
     cue: "pipeline",

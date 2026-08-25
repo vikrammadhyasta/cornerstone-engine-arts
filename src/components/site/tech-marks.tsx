@@ -96,3 +96,32 @@ export function AwsMark(props: MarkProps) {
     </svg>
   );
 }
+
+export function Ec2Mark(props: MarkProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="4" y="6" width="16" height="12" rx="2" />
+      <circle cx="8" cy="12" r="1.5" fill="currentColor" stroke="none" />
+      <path d="M12 12h6" />
+    </svg>
+  );
+}
+
+export function PythonMark(props: MarkProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 4c-2.5 0-3 1.5-3 3s1.5 3 3 3 3 1.5 3 3-1.5 3-3 3" />
+      <circle cx="12" cy="7" r="1" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="17" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function OpenAiMark(props: MarkProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 3l7 4v8l-7 4-7-4V7l7-4Z" />
+      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}

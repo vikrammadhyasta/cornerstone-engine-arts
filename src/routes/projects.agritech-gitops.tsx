@@ -12,9 +12,11 @@ import {
   AwsMark,
   DockerMark,
   EcrMark,
-  GitHubMark,
+  Ec2Mark,
   JenkinsMark,
   KubernetesMark,
+  OpenAiMark,
+  PythonMark,
 } from "@/components/site/tech-marks";
 
 const TITLE = "AgriTech — GitOps CI/CD Platform | Vikram Madhyasta";
