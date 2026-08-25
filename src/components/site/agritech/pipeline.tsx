@@ -15,20 +15,20 @@ import { STAGES } from "./pipeline-data";
  * only real surface on the page is the stage detail panel below the rail.
  */
 const STAGE_POS = [
-  "md:col-start-1 md:row-start-1 lg:col-start-1 lg:row-start-1",
-  "md:col-start-3 md:row-start-1 lg:col-start-3 lg:row-start-1",
-  "md:col-start-5 md:row-start-1 lg:col-start-5 lg:row-start-1",
-  "md:col-start-5 md:row-start-3 lg:col-start-7 lg:row-start-1",
-  "md:col-start-3 md:row-start-3 lg:col-start-9 lg:row-start-1",
-  "md:col-start-1 md:row-start-3 lg:col-start-11 lg:row-start-1",
+  "md:max-lg:col-start-1 md:max-lg:row-start-1 lg:col-start-1 lg:row-start-1",
+  "md:max-lg:col-start-3 md:max-lg:row-start-1 lg:col-start-3 lg:row-start-1",
+  "md:max-lg:col-start-5 md:max-lg:row-start-1 lg:col-start-5 lg:row-start-1",
+  "md:max-lg:col-start-5 md:max-lg:row-start-3 lg:col-start-7 lg:row-start-1",
+  "md:max-lg:col-start-3 md:max-lg:row-start-3 lg:col-start-9 lg:row-start-1",
+  "md:max-lg:col-start-1 md:max-lg:row-start-3 lg:col-start-11 lg:row-start-1",
 ];
 
 const CONNECTOR_POS = [
-  "md:col-start-2 md:row-start-1 lg:col-start-2 lg:row-start-1",
-  "md:col-start-4 md:row-start-1 lg:col-start-4 lg:row-start-1",
-  "md:col-start-5 md:row-start-2 lg:col-start-6 lg:row-start-1",
-  "md:col-start-4 md:row-start-3 lg:col-start-8 lg:row-start-1",
-  "md:col-start-2 md:row-start-3 lg:col-start-10 lg:row-start-1",
+  "md:max-lg:col-start-2 md:max-lg:row-start-1 lg:col-start-2 lg:row-start-1",
+  "md:max-lg:col-start-4 md:max-lg:row-start-1 lg:col-start-4 lg:row-start-1",
+  "md:max-lg:col-start-5 md:max-lg:row-start-2 lg:col-start-6 lg:row-start-1",
+  "md:max-lg:col-start-4 md:max-lg:row-start-3 lg:col-start-8 lg:row-start-1",
+  "md:max-lg:col-start-2 md:max-lg:row-start-3 lg:col-start-10 lg:row-start-1",
 ];
 
 const CONNECTOR_DIR: Array<"right" | "left" | "down"> = [
