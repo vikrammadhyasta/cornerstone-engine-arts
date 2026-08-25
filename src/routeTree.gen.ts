@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsCloudMlPredictorRouteImport } from './routes/projects.cloud-ml-predictor'
 import { Route as ProjectsAgritechGitopsRouteImport } from './routes/projects.agritech-gitops'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -23,6 +24,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsCloudMlPredictorRoute =
+  ProjectsCloudMlPredictorRouteImport.update({
+    id: '/projects/cloud-ml-predictor',
+    path: '/projects/cloud-ml-predictor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsAgritechGitopsRoute = ProjectsAgritechGitopsRouteImport.update({
   id: '/projects/agritech-gitops',
   path: '/projects/agritech-gitops',
@@ -33,30 +40,47 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/projects/agritech-gitops'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/projects/agritech-gitops'
+    | '/projects/cloud-ml-predictor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/projects/agritech-gitops'
-  id: '__root__' | '/' | '/sitemap.xml' | '/projects/agritech-gitops'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/projects/agritech-gitops'
+    | '/projects/cloud-ml-predictor'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/projects/agritech-gitops'
+    | '/projects/cloud-ml-predictor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProjectsAgritechGitopsRoute: typeof ProjectsAgritechGitopsRoute
+  ProjectsCloudMlPredictorRoute: typeof ProjectsCloudMlPredictorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +99,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/cloud-ml-predictor': {
+      id: '/projects/cloud-ml-predictor'
+      path: '/projects/cloud-ml-predictor'
+      fullPath: '/projects/cloud-ml-predictor'
+      preLoaderRoute: typeof ProjectsCloudMlPredictorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/agritech-gitops': {
       id: '/projects/agritech-gitops'
       path: '/projects/agritech-gitops'
@@ -89,6 +120,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProjectsAgritechGitopsRoute: ProjectsAgritechGitopsRoute,
+  ProjectsCloudMlPredictorRoute: ProjectsCloudMlPredictorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
