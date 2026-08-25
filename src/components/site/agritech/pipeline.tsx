@@ -102,7 +102,7 @@ export function DeliveryPipeline() {
             aria-orientation="horizontal"
             className={cn(
               "mt-8 grid grid-cols-1 gap-0 md:mt-10 lg:mt-14",
-              X,
+              "md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] md:items-start md:gap-y-10",
               "lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-y-0",
             )}
           >
