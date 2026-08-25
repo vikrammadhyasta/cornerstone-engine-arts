@@ -39,11 +39,11 @@ const TOKENS = [
 ];
 
 const RESERVED = [
-  { id: "projects", label: "Projects", note: "Case studies with architecture and outcomes." },
   { id: "engineering", label: "Engineering", note: "Capabilities, tooling and practices." },
   { id: "experience", label: "Experience", note: "Timeline, roles and certifications." },
   { id: "contact", label: "Contact", note: "Direct channels and availability." },
 ];
+
 
 function Index() {
   return (
