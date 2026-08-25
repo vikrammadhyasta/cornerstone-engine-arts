@@ -6,6 +6,8 @@ import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
 import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
+import { ProjectsShowcase } from "@/components/site/projects-showcase";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,17 +41,19 @@ const TOKENS = [
 ];
 
 const RESERVED = [
-  { id: "projects", label: "Projects", note: "Case studies with architecture and outcomes." },
   { id: "engineering", label: "Engineering", note: "Capabilities, tooling and practices." },
   { id: "experience", label: "Experience", note: "Timeline, roles and certifications." },
   { id: "contact", label: "Contact", note: "Direct channels and availability." },
 ];
+
 
 function Index() {
   return (
     <div id="top">
       <Hero />
       <EngineeringIdentity />
+      <ProjectsShowcase />
+
       <Section
 
 
