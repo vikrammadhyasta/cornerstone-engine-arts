@@ -152,7 +152,7 @@ function AgritechGitops() {
   return (
     <div id="top">
       {/* 1. Project hero */}
-      <section className="section-y pt-28 md:pt-36">
+      <section className="pt-24 pb-20 md:pt-28 md:pb-24 xl:pt-32 xl:pb-28">
         <div className="container-page">
           <Link
             to="/"
