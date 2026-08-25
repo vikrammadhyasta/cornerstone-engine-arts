@@ -127,6 +127,7 @@ export function DeliveryPipeline() {
                     className={cn(
                       "group flex w-full items-center gap-4 rounded-lg px-1 py-2 text-left transition-colors duration-300",
                       "md:flex-col md:items-center md:gap-3 md:px-2 md:py-0 md:text-center",
+                      STAGE_POS[index],
                     )}
                   >
                     {/* node marker with concentric geometry */}
