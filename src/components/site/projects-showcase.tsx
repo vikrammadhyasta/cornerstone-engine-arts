@@ -50,6 +50,7 @@ const PROJECTS: Project[] = [
     tech: ["AWS S3", "AWS Lambda", "API Gateway", "CloudWatch", "IAM"],
     extra: 2,
     href: "/projects/cloud-ml-predictor",
+    repo: "https://github.com/vikrammadhyasta/cloud-ml-agriculture-predictor",
     cue: "cloud",
   },
   {
