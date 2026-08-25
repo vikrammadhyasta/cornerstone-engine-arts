@@ -74,7 +74,7 @@ function activeMeta(stage: number, f: number): string {
     case 0:
       return f < 0.5 ? "webhook · push a41c9e2" : "checkout main @ a41c9e2";
     case 1: {
-      const steps = ["checkout", "npm ci", "unit tests", "integration tests", "package"];
+      const steps = ["checkout", "lint", "unit tests", "build image", "push to ECR"];
       return `#249 · ${steps[Math.min(steps.length - 1, Math.floor(f * steps.length))]}`;
     }
     case 2:
@@ -153,7 +153,7 @@ const T_FIX = T_CAUSE + 500;
 const T_CHIPS = T_FIX + 500;
 export const FAILURE_LOOP = T_CHIPS + 4200;
 
-const JENKINS_STEPS = ["checkout", "npm ci", "unit tests", "integration tests"];
+const JENKINS_STEPS = ["checkout", "lint", "unit tests", "build image", "push to ECR"];
 
 function failureFrame(t: number): DemoFrame {
   const jenkinsStart = F_GIT + F_TRAVEL;
