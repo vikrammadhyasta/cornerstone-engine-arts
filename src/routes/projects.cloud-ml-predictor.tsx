@@ -4,7 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
 import { ServerlessArchitecture } from "@/components/site/cloudml/serverless-architecture";
-import { AwsMark, PythonMark } from "@/components/site/tech-marks";
+import { CLOUD_ML_MARKS } from "@/components/site/cloudml/brand-marks";
+import { AwsMark } from "@/components/site/tech-marks";
 
 const TITLE = "Cloud ML Agriculture Predictor | Vikram Madhyasta";
 const DESCRIPTION =
@@ -201,13 +202,13 @@ function CloudMlPredictor() {
 
               <ul className="flex flex-wrap gap-2" aria-label="Technologies used">
                 {BADGES.map((label) => {
-                  const Icon = label === "Python" || label === "Scikit-learn" ? PythonMark : AwsMark;
+                  const Icon = CLOUD_ML_MARKS[label] ?? AwsMark;
                   return (
                     <li
                       key={label}
                       className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs text-muted-foreground"
                     >
-                      <Icon className="h-3.5 w-3.5 text-primary" />
+                      <Icon className="h-3.5 w-3.5" />
                       {label}
                     </li>
                   );
@@ -466,7 +467,7 @@ function CloudMlPredictor() {
       >
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
           {STACK.map((tech) => {
-            const Icon = tech.name === "Python" || tech.name === "Scikit-learn" ? PythonMark : AwsMark;
+            const Icon = CLOUD_ML_MARKS[tech.name] ?? AwsMark;
             return (
               <li
                 key={tech.name}
