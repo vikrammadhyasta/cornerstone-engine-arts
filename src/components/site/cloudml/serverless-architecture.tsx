@@ -187,7 +187,7 @@ function Connector({
           {live && animate && (
             <span
               className={cn(
-                "absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_10px_2px_hsl(var(--primary)/0.35)] lg:top-1/2 lg:-translate-y-1/2",
+                "absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-primary lg:top-1/2 lg:-translate-y-1/2",
                 back ? "animate-flow-up lg:animate-flow-left" : "animate-flow-down lg:animate-flow-right",
               )}
               style={{ animationDuration: `${PHASE_MS}ms` }}
