@@ -67,7 +67,7 @@ function FailureCard({ active }: { active: boolean }) {
               Jenkins Failure
             </p>
             <p className="font-mono text-[11px] text-muted-foreground">
-              build #248 · integration-tests
+              build #248 · push-image
             </p>
           </div>
         </div>
@@ -86,9 +86,9 @@ function FailureCard({ active }: { active: boolean }) {
       <dl className="mb-6 mt-5 space-y-2.5 font-mono text-[11px]">
         {[
           ["exit code", "1"],
-          ["duration", "4m 12s"],
-          ["failed step", "npm run test:integration"],
-          ["log capture", "2,314 lines"],
+          ["duration", "4m 07s"],
+          ["failed step", "docker push → ECR"],
+          ["log capture", "console output"],
         ].map(([k, v]) => (
           <div key={k} className="flex items-baseline justify-between gap-4">
             <dt className="shrink-0 text-muted-foreground/70">{k}</dt>
@@ -191,7 +191,7 @@ function TerminalCard({ diag }: { diag: DiagFrame }) {
       )}
 
       <div className="flex items-center justify-between border-t border-border/70 px-4 py-2 font-mono text-[10.5px] text-muted-foreground/80">
-        <span>{active ? "2,314 lines · 4m 12s" : "standby"}</span>
+        <span>{active ? "jenkins console · 4m 07s" : "standby"}</span>
         {active && (
           <span className="flex items-center gap-1.5">
             tail -f
@@ -230,7 +230,7 @@ function AnalysisCard({ diag }: { diag: DiagFrame }) {
               OpenAI Analysis
             </p>
             <p className="font-mono text-[11px] text-muted-foreground">
-              {active ? "root-cause · 2,314 lines in 6.2s" : "standby · no incidents"}
+              {active ? "root-cause · jenkins console log" : "standby · no incidents"}
             </p>
           </div>
         </div>
@@ -269,17 +269,17 @@ function AnalysisCard({ diag }: { diag: DiagFrame }) {
             </p>
             {diag.showRootCause ? (
               <p className="animate-fade-in mt-2 min-h-[60px] text-[13px] leading-relaxed text-foreground/85">
-                The Postgres test container was still starting when the
-                integration stage ran — payments.spec.ts hit{" "}
+                The ECR authorization token was minted in the pipeline
+                preamble and had expired by the time the image was pushed —{" "}
                 <span className="font-mono text-[12px] text-fail">
-                  ECONNREFUSED :5432
+                  denied: authorization token has expired
                 </span>
-                . A missing healthcheck, not a code regression.
+                . A credential-lifetime issue, not a build regression.
               </p>
             ) : (
               <div className="mt-2 min-h-[60px]">
                 <p className="text-[13px] text-muted-foreground/70">
-                  parsing 2,314 log lines…
+                  parsing captured console output…
                 </p>
                 <div className="mt-3 h-0.5 w-full overflow-hidden rounded-full bg-border/70">
                   <div
@@ -297,9 +297,9 @@ function AnalysisCard({ diag }: { diag: DiagFrame }) {
             </p>
             {diag.showFix ? (
               <p className="animate-fade-in mt-2 rounded-lg border border-border/70 bg-background/60 px-3 py-2 font-mono text-[11px] leading-relaxed text-foreground/80">
-                jenkins-compose.yml → healthcheck: pg_isready -U ci{" "}
-                <span className="text-muted-foreground">before stage</span>{" "}
-                integration-tests
+                Jenkinsfile → move{" "}
+                <span className="text-muted-foreground">aws ecr get-login-password</span>{" "}
+                into the push-image stage, immediately before docker push
               </p>
             ) : (
               <p className="mt-2 rounded-lg border border-dashed border-border/60 px-3 py-2 font-mono text-[11px] text-muted-foreground/50">
@@ -311,8 +311,7 @@ function AnalysisCard({ diag }: { diag: DiagFrame }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {diag.showChips ? (
               <>
-                <Chip tone="pipe">CONFIDENCE 92%</Chip>
-                <Chip>category · dependency</Chip>
+                <Chip tone="pipe">category · registry auth</Chip>
                 <Chip>severity · blocking</Chip>
               </>
             ) : (
