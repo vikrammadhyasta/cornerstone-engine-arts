@@ -4,7 +4,9 @@ import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
-import { DeliveryPipeline } from "@/components/site/agritech/pipeline";
+import { GitopsPipeline } from "@/components/site/agritech/gitops-pipeline";
+import { STAGES } from "@/components/site/agritech/pipeline-data";
+
 import {
   ArgoMark,
   AwsMark,
@@ -238,7 +240,7 @@ function AgritechGitops() {
         id="architecture"
         label="Architecture"
         heading="From commit to running workload"
-        description="Select a stage to inspect what triggers it, what it does, and what it hands to the next stage. The pipeline reads left to right on desktop and top to bottom on mobile."
+        description="A deterministic walkthrough of one deployment: the artifact travels the rail from GitHub to Kubernetes, and a failed build routes itself into the diagnostics branch. Switch between the successful and failed run to see both paths."
       >
         <ol
           aria-label="Architecture summary"
@@ -258,8 +260,64 @@ function AgritechGitops() {
           ))}
         </ol>
 
-        <DeliveryPipeline />
+        <GitopsPipeline />
       </Section>
+
+      {/* 3. Pipeline / workflow explanation */}
+      <Section
+        bordered
+        label="Workflow"
+        heading="What each stage is responsible for"
+        description="Trigger, work and hand-off for every stage of the delivery path."
+      >
+        <ol className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {STAGES.map((stage, index) => (
+            <li key={stage.id}>
+              <PanelCard interactive={false} className="h-full">
+                <CardEyebrow>
+                  Stage {String(index + 1).padStart(2, "0")} — {stage.phase}
+                </CardEyebrow>
+                <CardTitle className="mt-3">{stage.name}</CardTitle>
+                <p className="mt-1 font-mono text-[0.625rem] tracking-[0.16em] text-primary/90 uppercase">
+                  {stage.role}
+                </p>
+                <CardBody className="mt-3">{stage.short}</CardBody>
+                <ul className="mt-4 space-y-2">
+                  {stage.detail.work.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <dl className="mt-5 space-y-3 border-t border-border pt-4">
+                  {(
+                    [
+                      ["Trigger", stage.detail.trigger],
+                      ["Output", stage.detail.output],
+                    ] as const
+                  ).map(([term, value]) => (
+                    <div key={term} className="grid gap-1 sm:grid-cols-[5rem_minmax(0,1fr)] sm:gap-4">
+                      <dt className="font-mono text-[0.625rem] tracking-[0.18em] text-muted-foreground uppercase sm:pt-0.5">
+                        {term}
+                      </dt>
+                      <dd className="text-sm leading-relaxed text-foreground/85">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </PanelCard>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+
 
       {/* 4. Engineering decisions */}
       <Section
