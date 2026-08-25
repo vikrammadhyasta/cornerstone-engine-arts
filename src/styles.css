@@ -90,6 +90,70 @@
   --animate-arc-sweep: arc-sweep 60s linear infinite;
   --animate-arc-sweep-reverse: arc-sweep 60s linear infinite reverse;
   --animate-status-shift: status-shift 6.5s ease-in-out infinite;
+  --animate-flow-down: flow-down 1.9s linear infinite;
+  --animate-flow-up: flow-up 1.9s linear infinite;
+  --animate-flow-right: flow-right 1.9s linear infinite;
+  --animate-flow-left: flow-left 1.9s linear infinite;
+}
+
+@keyframes flow-down {
+  from {
+    top: -0.5rem;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  to {
+    top: calc(100% + 0.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes flow-up {
+  from {
+    top: calc(100% + 0.5rem);
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  to {
+    top: -0.5rem;
+    opacity: 0;
+  }
+}
+
+@keyframes flow-right {
+  from {
+    left: -0.5rem;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  to {
+    left: calc(100% + 0.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes flow-left {
+  from {
+    left: calc(100% + 0.5rem);
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  to {
+    left: -0.5rem;
+    opacity: 0;
+  }
 }
 
 :root {
