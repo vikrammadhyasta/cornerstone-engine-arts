@@ -40,12 +40,14 @@ export const Route = createFileRoute("/projects/agritech-gitops")({
 const REPO_URL = "https://github.com/vikrammadhyasta/AgriTech.git";
 
 const BADGES = [
-  { label: "Kubernetes", icon: KubernetesMark },
-  { label: "ArgoCD", icon: ArgoMark },
   { label: "Jenkins", icon: JenkinsMark },
   { label: "Docker", icon: DockerMark },
+  { label: "Kubernetes", icon: KubernetesMark },
+  { label: "ArgoCD", icon: ArgoMark },
   { label: "AWS ECR", icon: EcrMark },
-  { label: "GitHub", icon: GitHubMark },
+  { label: "AWS EC2", icon: Ec2Mark },
+  { label: "Python", icon: PythonMark },
+  { label: "OpenAI API", icon: OpenAiMark },
 ];
 
 const FLOW_SUMMARY = ["Source", "CI", "Container", "Registry", "GitOps", "Kubernetes"];
@@ -120,13 +122,14 @@ const CHALLENGES = [
 ];
 
 const STACK = [
-  { name: "GitHub", role: "Source control & webhooks", icon: GitHubMark },
   { name: "Jenkins", role: "Declarative CI pipeline", icon: JenkinsMark },
   { name: "Docker", role: "Multi-stage containerization", icon: DockerMark },
-  { name: "AWS ECR", role: "Private image registry", icon: EcrMark },
-  { name: "ArgoCD", role: "GitOps reconciliation", icon: ArgoMark },
   { name: "Kubernetes", role: "Orchestration & runtime", icon: KubernetesMark },
-  { name: "AWS", role: "IAM, networking, compute", icon: AwsMark },
+  { name: "ArgoCD", role: "GitOps reconciliation", icon: ArgoMark },
+  { name: "AWS ECR", role: "Private image registry", icon: EcrMark },
+  { name: "AWS EC2", role: "Application compute hosts", icon: Ec2Mark },
+  { name: "Python", role: "Application runtime & inference", icon: PythonMark },
+  { name: "OpenAI API", role: "AI-assisted failure diagnostics", icon: OpenAiMark },
 ];
 
 const OUTCOMES = [
