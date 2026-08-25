@@ -13,6 +13,7 @@ export interface PipelineStage {
   phase: string;
   name: string;
   short: string;
+  role: string;
   status: string;
   statusTone: "success" | "primary";
   icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement;
@@ -26,6 +27,7 @@ export interface PipelineStage {
 export const STAGES: PipelineStage[] = [
   {
     id: "source",
+    role: "Source control · Pipeline trigger",
     phase: "Source",
     name: "GitHub",
     short: "Commit to main triggers the delivery pipeline via webhook.",
@@ -44,6 +46,7 @@ export const STAGES: PipelineStage[] = [
   },
   {
     id: "build",
+    role: "CI orchestration · Build & test",
     phase: "Build",
     name: "Jenkins",
     short: "Declarative pipeline runs checks, then builds the artifact.",
@@ -62,6 +65,7 @@ export const STAGES: PipelineStage[] = [
   },
   {
     id: "container",
+    role: "Image creation · Reproducible runtime",
     phase: "Container",
     name: "Docker",
     short: "Multi-stage build produces a small, reproducible image.",
@@ -80,6 +84,7 @@ export const STAGES: PipelineStage[] = [
   },
   {
     id: "registry",
+    role: "Image registry · AWS integration",
     phase: "Registry",
     name: "AWS ECR",
     short: "Private registry stores every immutable, scanned image.",
@@ -98,6 +103,7 @@ export const STAGES: PipelineStage[] = [
   },
   {
     id: "gitops",
+    role: "GitOps reconciliation · Desired vs actual state",
     phase: "GitOps",
     name: "ArgoCD",
     short: "Git is the source of truth; Argo reconciles the cluster to it.",
@@ -116,6 +122,7 @@ export const STAGES: PipelineStage[] = [
   },
   {
     id: "runtime",
+    role: "Deployment runtime · Orchestration",
     phase: "Runtime",
     name: "Kubernetes",
     short: "Rolling update with probes gates traffic on readiness.",
