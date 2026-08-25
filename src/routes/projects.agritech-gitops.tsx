@@ -15,7 +15,6 @@ import {
   GitHubMark,
   JenkinsMark,
   KubernetesMark,
-  TerraformMark,
 } from "@/components/site/tech-marks";
 
 const TITLE = "AgriTech — GitOps CI/CD Platform | Vikram Madhyasta";
