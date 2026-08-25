@@ -242,7 +242,7 @@ function AgritechGitops() {
       >
         <ol
           aria-label="Architecture summary"
-          className="mb-8 flex flex-wrap items-center gap-x-2 gap-y-2 rounded-xl border border-border bg-surface/40 px-4 py-3"
+          className="mb-6 flex flex-wrap items-center gap-x-2 gap-y-2"
         >
           {FLOW_SUMMARY.map((step, index) => (
             <li key={step} className="flex items-center gap-2">
