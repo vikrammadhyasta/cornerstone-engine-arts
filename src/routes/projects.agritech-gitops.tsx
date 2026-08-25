@@ -4,7 +4,9 @@ import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, SectionLabel } from "@/components/site/section";
 import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/panel-card";
-import { DeliveryPipeline } from "@/components/site/agritech/pipeline";
+import { GitopsPipeline } from "@/components/site/agritech/gitops-pipeline";
+import { STAGES } from "@/components/site/agritech/pipeline-data";
+
 import {
   ArgoMark,
   AwsMark,
