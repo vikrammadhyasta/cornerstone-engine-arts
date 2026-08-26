@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -119,11 +120,36 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/** Scrolls to the anchor target whenever the location hash changes (incl. cross-route hash links). */
+function HashScroll() {
+  const location = useRouterState({ select: (s) => s.location });
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (!hash) return;
+    const scroll = () => {
+      const el = document.getElementById(hash);
+      if (!el) return false;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      return true;
+    };
+    if (scroll()) return;
+    const raf = requestAnimationFrame(() => {
+      if (!scroll()) setTimeout(scroll, 120);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [location.href, location.hash]);
+
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <HashScroll />
       <SiteBackground />
       <a
         href="#main"
