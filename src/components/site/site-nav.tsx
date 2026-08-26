@@ -72,15 +72,16 @@ export function SiteNav() {
           <span className="truncate font-display text-sm font-semibold tracking-tight">
             Vikram Madhyasta
           </span>
-        </a>
+        </Link>
 
         <div className="ml-auto hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map((item) => {
-            const isActive = active === item.href;
+            const isActive = onHome && active === item.hash;
             return (
-              <a
-                key={item.href}
-                href={item.href}
+              <Link
+                key={item.hash}
+                to="/"
+                hash={item.hash}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "relative rounded-md px-3 py-2 text-sm transition-colors duration-200",
