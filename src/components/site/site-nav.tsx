@@ -60,8 +60,9 @@ export function SiteNav() {
         aria-label="Primary"
         className="container-page flex h-16 items-center gap-4 md:h-20"
       >
-        <a
-          href="#top"
+        <Link
+          to="/"
+          hash="top"
           className="flex min-w-0 items-center gap-2.5 rounded-md text-foreground"
           aria-label="Back to top"
         >
