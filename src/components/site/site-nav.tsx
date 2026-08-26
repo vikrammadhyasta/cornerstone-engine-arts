@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, ArrowUpRight, Hexagon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -6,17 +7,19 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { label: "Platform", href: "#platform" },
-  { label: "Projects", href: "#projects" },
-  { label: "Engineering", href: "#identity" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Platform", hash: "platform" },
+  { label: "Projects", hash: "projects" },
+  { label: "Engineering", hash: "engineering" },
+  { label: "Experience", hash: "experience" },
+  { label: "Contact", hash: "contact" },
 ];
 
 export function SiteNav() {
   const [scrolled, setScrolled] = React.useState(false);
-  const [active, setActive] = React.useState<string>(NAV_ITEMS[0].href);
+  const [active, setActive] = React.useState<string>(NAV_ITEMS[0].hash);
   const [open, setOpen] = React.useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onHome = pathname === "/";
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
