@@ -63,6 +63,7 @@ const PROJECTS: Project[] = [
     tech: ["Terraform", "AWS VPC", "AWS ALB", "AWS ASG", "AWS EC2"],
     extra: 3,
     href: "/projects/terraform-aws-infrastructure",
+    repo: "https://github.com/vikrammadhyasta/terraform-aws-infra",
     cue: "grid",
   },
   {
