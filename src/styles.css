@@ -681,6 +681,17 @@
   animation: think 1.5s ease-in-out infinite;
 }
 
+@keyframes iac-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.iac-flow {
+  stroke-dasharray: 5 7;
+  animation: iac-dash 0.9s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-ring,
   .caret,
@@ -688,7 +699,9 @@
   .scan-line,
   .dash-line-y,
   .dash-line-x,
+  .iac-flow,
   .think-dot {
     animation: none !important;
   }
 }
+
