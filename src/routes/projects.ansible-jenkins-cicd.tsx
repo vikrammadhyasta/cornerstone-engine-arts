@@ -148,6 +148,7 @@ function AnsibleJenkinsCicd() {
         <div className="container-page">
           <Link
             to="/"
+            hash="projects"
             className="inline-flex items-center gap-2 rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
@@ -379,7 +380,7 @@ function AnsibleJenkinsCicd() {
             </a>
           </Button>
           <Button asChild variant="secondary">
-            <Link to="/">Back to all projects</Link>
+            <Link to="/" hash="projects">Back to all projects</Link>
           </Button>
         </div>
       </Section>
