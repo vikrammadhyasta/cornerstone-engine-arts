@@ -98,7 +98,7 @@ export function SiteNav() {
                     isActive ? "scale-x-100" : "scale-x-0",
                   )}
                 />
-              </a>
+              </Link>
             );
           })}
         </div>
