@@ -74,6 +74,8 @@ const PROJECTS: Project[] = [
       "Automated infrastructure provisioning and CI/CD workflow using Ansible, Jenkins, Docker and GitHub.",
     tech: ["Ansible", "Jenkins", "Docker", "GitHub", "CI/CD"],
     extra: 0,
+    href: "/projects/ansible-jenkins-cicd",
+    repo: "https://github.com/vikrammadhyasta/ansible-jenkins-docker-ci-cd",
     cue: "steps",
   },
 ];
