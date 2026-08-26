@@ -124,19 +124,20 @@ export function SiteNav() {
               <SheetTitle className="font-display text-base">Navigation</SheetTitle>
               <div className="mt-8 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
+                  <Link
+                    key={item.hash}
+                    to="/"
+                    hash={item.hash}
                     onClick={() => setOpen(false)}
                     className={cn(
                       "rounded-lg px-3 py-3 text-base transition-colors",
-                      active === item.href
+                      onHome && active === item.hash
                         ? "bg-surface text-foreground"
                         : "text-muted-foreground hover:bg-surface/70 hover:text-foreground",
                     )}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
               <Button className="mt-8 w-full" asChild>
