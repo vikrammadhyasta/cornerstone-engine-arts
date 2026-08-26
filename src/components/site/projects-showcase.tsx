@@ -62,6 +62,7 @@ const PROJECTS: Project[] = [
       "Modular AWS infrastructure provisioned with Terraform across networking, load balancing, security and compute.",
     tech: ["Terraform", "AWS VPC", "AWS ALB", "AWS ASG", "AWS EC2"],
     extra: 3,
+    href: "/projects/terraform-aws-infrastructure",
     cue: "grid",
   },
   {
