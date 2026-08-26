@@ -140,7 +140,7 @@ const BOXES: Box[] = [
   { id: "github", cx: 450, y: 24, w: 180, h: 54, label: "GitHub", meta: "terraform-aws-infra", icon: GitHubBrandMark },
   { id: "actions", cx: 780, y: 24, w: 180, h: 54, label: "GitHub Actions", meta: "terraform.yml", icon: GitHubActionsBrandMark },
 
-  { id: "aws", cx: 240, y: 372, w: 210, h: 54, label: "AWS Infrastructure", meta: "eu-north-1", icon: IamBrandMark },
+  { id: "aws", cx: 240, y: 372, w: 210, h: 54, label: "AWS Infrastructure", meta: "provisioned modules", icon: IamBrandMark },
   { id: "state", cx: 680, y: 372, w: 210, h: 54, label: "Remote State", meta: "backend \"s3\"", icon: TerraformBrandMark },
 
   { id: "vpc", cx: 150, y: 460, w: 160, h: 52, label: "VPC", meta: "10.0.0.0/16", icon: VpcBrandMark },
