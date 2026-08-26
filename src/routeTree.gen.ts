@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsTerraformAwsInfrastructureRouteImport } from './routes/projects.terraform-aws-infrastructure'
 import { Route as ProjectsCloudMlPredictorRouteImport } from './routes/projects.cloud-ml-predictor'
 import { Route as ProjectsAgritechGitopsRouteImport } from './routes/projects.agritech-gitops'
 
@@ -24,6 +25,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsTerraformAwsInfrastructureRoute =
+  ProjectsTerraformAwsInfrastructureRouteImport.update({
+    id: '/projects/terraform-aws-infrastructure',
+    path: '/projects/terraform-aws-infrastructure',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsCloudMlPredictorRoute =
   ProjectsCloudMlPredictorRouteImport.update({
     id: '/projects/cloud-ml-predictor',
@@ -41,12 +48,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
+  '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
+  '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -54,6 +63,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
+  '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -62,18 +72,21 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
     | '/projects/cloud-ml-predictor'
+    | '/projects/terraform-aws-infrastructure'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
     | '/projects/cloud-ml-predictor'
+    | '/projects/terraform-aws-infrastructure'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
     | '/projects/cloud-ml-predictor'
+    | '/projects/terraform-aws-infrastructure'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -81,6 +94,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProjectsAgritechGitopsRoute: typeof ProjectsAgritechGitopsRoute
   ProjectsCloudMlPredictorRoute: typeof ProjectsCloudMlPredictorRoute
+  ProjectsTerraformAwsInfrastructureRoute: typeof ProjectsTerraformAwsInfrastructureRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -97,6 +111,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/terraform-aws-infrastructure': {
+      id: '/projects/terraform-aws-infrastructure'
+      path: '/projects/terraform-aws-infrastructure'
+      fullPath: '/projects/terraform-aws-infrastructure'
+      preLoaderRoute: typeof ProjectsTerraformAwsInfrastructureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/cloud-ml-predictor': {
@@ -121,6 +142,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProjectsAgritechGitopsRoute: ProjectsAgritechGitopsRoute,
   ProjectsCloudMlPredictorRoute: ProjectsCloudMlPredictorRoute,
+  ProjectsTerraformAwsInfrastructureRoute:
+    ProjectsTerraformAwsInfrastructureRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
