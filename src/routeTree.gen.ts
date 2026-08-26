@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsTerraformAwsInfrastructureRouteImport } from './routes/projects.terraform-aws-infrastructure'
 import { Route as ProjectsCloudMlPredictorRouteImport } from './routes/projects.cloud-ml-predictor'
+import { Route as ProjectsAnsibleJenkinsCicdRouteImport } from './routes/projects.ansible-jenkins-cicd'
 import { Route as ProjectsAgritechGitopsRouteImport } from './routes/projects.agritech-gitops'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -37,6 +38,12 @@ const ProjectsCloudMlPredictorRoute =
     path: '/projects/cloud-ml-predictor',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsAnsibleJenkinsCicdRoute =
+  ProjectsAnsibleJenkinsCicdRouteImport.update({
+    id: '/projects/ansible-jenkins-cicd',
+    path: '/projects/ansible-jenkins-cicd',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsAgritechGitopsRoute = ProjectsAgritechGitopsRouteImport.update({
   id: '/projects/agritech-gitops',
   path: '/projects/agritech-gitops',
@@ -47,6 +54,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
   '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
@@ -54,6 +62,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
   '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
@@ -62,6 +71,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
+  '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
   '/projects/terraform-aws-infrastructure': typeof ProjectsTerraformAwsInfrastructureRoute
 }
@@ -71,6 +81,7 @@ export interface FileRouteTypes {
     | '/'
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
+    | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
     | '/projects/terraform-aws-infrastructure'
   fileRoutesByTo: FileRoutesByTo
@@ -78,6 +89,7 @@ export interface FileRouteTypes {
     | '/'
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
+    | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
     | '/projects/terraform-aws-infrastructure'
   id:
@@ -85,6 +97,7 @@ export interface FileRouteTypes {
     | '/'
     | '/sitemap.xml'
     | '/projects/agritech-gitops'
+    | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
     | '/projects/terraform-aws-infrastructure'
   fileRoutesById: FileRoutesById
@@ -93,6 +106,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProjectsAgritechGitopsRoute: typeof ProjectsAgritechGitopsRoute
+  ProjectsAnsibleJenkinsCicdRoute: typeof ProjectsAnsibleJenkinsCicdRoute
   ProjectsCloudMlPredictorRoute: typeof ProjectsCloudMlPredictorRoute
   ProjectsTerraformAwsInfrastructureRoute: typeof ProjectsTerraformAwsInfrastructureRoute
 }
@@ -127,6 +141,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsCloudMlPredictorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/ansible-jenkins-cicd': {
+      id: '/projects/ansible-jenkins-cicd'
+      path: '/projects/ansible-jenkins-cicd'
+      fullPath: '/projects/ansible-jenkins-cicd'
+      preLoaderRoute: typeof ProjectsAnsibleJenkinsCicdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/agritech-gitops': {
       id: '/projects/agritech-gitops'
       path: '/projects/agritech-gitops'
@@ -141,6 +162,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProjectsAgritechGitopsRoute: ProjectsAgritechGitopsRoute,
+  ProjectsAnsibleJenkinsCicdRoute: ProjectsAnsibleJenkinsCicdRoute,
   ProjectsCloudMlPredictorRoute: ProjectsCloudMlPredictorRoute,
   ProjectsTerraformAwsInfrastructureRoute:
     ProjectsTerraformAwsInfrastructureRoute,
