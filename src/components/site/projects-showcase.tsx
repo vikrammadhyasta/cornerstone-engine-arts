@@ -135,8 +135,7 @@ export function ProjectsShowcase() {
       bordered
       id="projects"
       className="scroll-mt-24"
-      label="02 — Projects"
-      heading="Selected Cloud & DevOps projects"
+      label="PROJECTS"
       description="A curated selection of Cloud & DevOps engineering projects spanning GitOps, AWS infrastructure, serverless systems, and automation."
     >
       <ul className="grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3">
