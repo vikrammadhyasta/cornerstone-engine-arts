@@ -87,15 +87,15 @@ export function CloudOpsCenter() {
         />
 
         {/* capability planes — layered depth with soft parallax.
-            The innermost (observability) plane is rendered later, anchored to
+            The innermost (observability) plane is kept static and anchored to
             the portrait so it does not drift independently from the photo. */}
         {LAYERS.map((layer, i) => (
           <div
             key={layer.id}
             aria-hidden
-            className={`absolute rounded-full border border-border animate-core-drift motion-reduce:animate-none ${
-              layer.compact ? "hidden sm:block" : ""
-            } ${layer.id === "observability" ? "invisible" : ""}`}
+            className={`absolute rounded-full border border-border ${
+              layer.id === "observability" ? "" : "animate-core-drift motion-reduce:animate-none"
+            } ${layer.compact ? "hidden sm:block" : ""}`}
             style={{
               inset: layer.inset,
               background:
