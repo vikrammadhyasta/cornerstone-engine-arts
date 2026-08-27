@@ -10,9 +10,9 @@ export function HeroAura() {
       <div className="aura-reveal absolute inset-0">
         {/* filament strands radiating from the core */}
         <div className="aura-anchor">
-          <div className="absolute inset-0 lg:translate-x-[16%]">
+          <div className="absolute inset-0 grid place-items-center lg:pl-[32%]">
           <div
-            className="aura-strands absolute mix-blend-screen top-1/2 left-1/2 h-[min(150vh,86rem)] w-[min(150vh,86rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="aura-strands absolute mix-blend-screen top-1/2 left-1/2 h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full"
             style={{
               background:
                 "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
@@ -26,7 +26,7 @@ export function HeroAura() {
 
           {/* turbulent outer nebula */}
           <div
-            className="aura-nebula absolute mix-blend-screen top-1/2 left-1/2 h-[min(140vh,80rem)] w-[min(140vh,80rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="aura-nebula absolute mix-blend-screen top-1/2 left-1/2 h-[min(140vh,80rem)] w-[min(140vh,80rem)] rounded-full"
             style={{
               background:
                 "conic-gradient(from 210deg at 50% 50%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 28%, color-mix(in oklab, var(--primary-glow) 26%, transparent) 52%, transparent 74%, color-mix(in oklab, var(--primary) 30%, transparent))",
@@ -40,7 +40,7 @@ export function HeroAura() {
 
           {/* corona ring */}
           <div
-            className="aura-corona absolute top-1/2 left-1/2 mix-blend-screen h-[min(92vh,52rem)] w-[min(92vh,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="aura-corona [grid-area:1/1] [grid-area:1/1] mix-blend-screen h-[min(92vh,52rem)] w-[min(92vh,52rem)] rounded-full"
             style={{
               background:
                 "radial-gradient(circle at 50% 50%, transparent 34%, color-mix(in oklab, var(--primary-glow) 90%, transparent) 44%, color-mix(in oklab, var(--primary) 62%, transparent) 56%, transparent 70%)",
@@ -50,7 +50,7 @@ export function HeroAura() {
 
           {/* dark core */}
           <div
-            className="aura-core absolute top-1/2 left-1/2 h-[min(40vh,22rem)] w-[min(40vh,22rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="aura-core [grid-area:1/1] h-[min(40vh,22rem)] w-[min(40vh,22rem)] rounded-full"
             style={{
               background:
                 "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 92%, black) 40%, color-mix(in oklab, var(--primary) 22%, transparent) 78%, transparent 100%)",
