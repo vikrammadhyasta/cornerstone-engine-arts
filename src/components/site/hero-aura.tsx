@@ -10,11 +10,12 @@ export function HeroAura() {
       <div className="aura-reveal absolute inset-0">
         {/* filament strands radiating from the core */}
         <div className="aura-anchor">
+          <div className="absolute inset-0 lg:translate-x-[16%]">
           <div
             className="aura-strands absolute top-1/2 left-1/2 h-[min(150vh,86rem)] w-[min(150vh,86rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
               background:
-                "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 26%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
+                "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
               maskImage:
                 "radial-gradient(circle at 50% 50%, transparent 17%, black 30%, transparent 62%)",
               WebkitMaskImage:
@@ -42,7 +43,7 @@ export function HeroAura() {
             className="aura-corona absolute top-1/2 left-1/2 h-[min(76vh,42rem)] w-[min(76vh,42rem)] -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
               background:
-                "radial-gradient(circle at 50% 50%, transparent 34%, color-mix(in oklab, var(--primary-glow) 55%, transparent) 46%, color-mix(in oklab, var(--primary) 26%, transparent) 58%, transparent 70%)",
+                "radial-gradient(circle at 50% 50%, transparent 34%, color-mix(in oklab, var(--primary-glow) 75%, transparent) 46%, color-mix(in oklab, var(--primary) 40%, transparent) 58%, transparent 70%)",
               filter: "blur(18px)",
             }}
           />
@@ -56,6 +57,7 @@ export function HeroAura() {
               boxShadow: "0 0 120px 20px color-mix(in oklab, var(--primary) 24%, transparent)",
             }}
           />
+          </div>
         </div>
       </div>
 
@@ -64,11 +66,11 @@ export function HeroAura() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 45%, transparent 20%, color-mix(in oklab, var(--background) 72%, transparent) 62%, var(--background) 100%)",
+            "radial-gradient(120% 90% at 50% 45%, transparent 26%, color-mix(in oklab, var(--background) 55%, transparent) 66%, var(--background) 100%)",
         }}
       />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-background to-transparent" />
-      <div className="absolute inset-y-0 left-0 w-[45%] bg-linear-to-r from-background/80 to-transparent lg:w-[38%]" />
+      <div className="absolute inset-y-0 left-0 w-[45%] bg-linear-to-r from-background/85 to-transparent lg:w-[38%]" />
     </div>
   );
 }
