@@ -6,15 +6,15 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero** — Vikram Madhyasta's recruiter-facing Hero, including the signature Platform Core visualization.
+**Hero visual anchoring fix** — prevent the innermost dark capability plane in `CloudOpsCenter` from drifting independently of the profile photo on desktop/tablet.
 
 ---
 
 ## Feature Status
 
-- **Repository audit:** completed (read-only inspection).
-- **Production Hero implementation / refinement:** COMPLETED and browser QA verified.
-- **Approved Hero design:** confirmed preserved in code (Lovable-sync source).
+- **Hero anchoring fix:** COMPLETED and browser-QA verified.
+- Innermost observability ring is now static; outer rings and arc illuminations continue their existing parallax/orbital animations.
+- No visual redesign, size change, or layout change introduced.
 
 ---
 
@@ -38,6 +38,7 @@ These are design decisions that are **already approved** and must not be changed
   - Capability layers: Cloud (AWS) → Platform (K8s) → Delivery (IaC) → Observability (SLO)
   - Operator portrait at center
   - Compact mobile legend replaces desktop capability markers below `sm`
+- **Inner observability ring:** must remain centered on the portrait at all times (no independent drift).
 
 ### Source of approved design
 
@@ -69,38 +70,32 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Created `CLAUDE.md`** (stable project instructions).
 - **Created `SESSION.md`** (this file).
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
+- **Hero anchoring fix:** Removed independent `animate-core-drift` from the innermost observability capability plane in `CloudOpsCenter` so it stays centered on the portrait while outer rings and arcs keep animating.
 
 ---
 
 ## Files Changed
 
-- `CLAUDE.md` — created.
-- `SESSION.md` — created and updated.
-- `public/resume.pdf` — added production resume asset.
-- `src/routes/__root.tsx` — fixed skip-link z-index (`focus:z-[60]`).
-- `src/components/site/cloud-ops-center.tsx` — added `decoding="async"` to portrait image.
+- `src/components/site/cloud-ops-center.tsx` — conditionally excluded `animate-core-drift` for the `observability` capability plane; updated comment to explain anchoring intent.
+- `SESSION.md` — updated current state.
 
 ---
 
 ## Validation Completed
 
-- Repository inspection: yes (files, package.json, tsconfig, vite.config, styles.css, hero, cloud-ops-center, site-nav, site-background, panel-card, section, root route, server entry, start entry, router factory, full `src/components/ui/` listing).
+- Repository inspection: yes (targeted read of `cloud-ops-center.tsx`).
 - `tsc --noEmit`: **PASS** (TypeScript compiles without errors).
-- `eslint .`: **NOT GREEN** due to pre-existing Prettier/formatting errors in Lovable-generated codebase (unrelated to Hero changes).
-- `vite build`: **PASS** (production build succeeds).
-- Browser / a11y testing: **PASS** (Firefox manual QA at 375px, 390px, 1440px viewport widths).
+- `eslint src/components/site/cloud-ops-center.tsx`: **NOT GREEN** due to pre-existing Prettier/formatting errors at lines 160–161 (unrelated to this fix; formatting cleanup is a separate feature).
+- `bun run build`: **PASS** (production build succeeds).
+- Browser QA: **PASS** (Playwright screenshots at 1280×900, 768×1024, 390×844; time-series screenshots at 0/4/9/13/18s confirm inner ring remains centered on portrait).
 
 ---
 
 ## Known Issues
 
-### Hero blockers (resolved in Sprint 2)
+### Hero blockers (resolved)
 
-- **`/resume.pdf` was missing** — now added at `public/resume.pdf` (340K PDF).
-- **Skip-link `z-100` may not resolve** — fixed with `focus:z-[60]` in `src/routes/__root.tsx`.
-- **Portrait lacked `decoding="async"`** — added to `<img>` in `src/components/site/cloud-ops-center.tsx`.
-- **Custom `focus:z-100` on skip-link** — resolved (see above).
-- **Lovable design-foundation placeholder sections remain** — deferred (not Hero blocker).
+- **Inner observability ring drifted independently of portrait** — fixed by removing its `animate-core-drift` class.
 
 ### Repository-wide deferred cleanup (audit findings, not Hero blockers)
 
@@ -108,8 +103,9 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Google Fonts blocking render:** external stylesheet; plan to switch to `@fontsource` self-hosted.
 - **Profile image not optimized:** no WebP/AVIF variants, no `srcset`, no `fetchpriority`. Replacement is part of the Portrait primitive proposal; not blocking the Hero visually.
 - **Hardcoded content** in `index.tsx` (`TOKENS`, `RESERVED`) — flagged for `src/content/` separation as a separate feature.
-- **Split `CloudOpsCenter`** — architectural refactor; justified only if it lands in this Hero milestone per the "do not mix unrelated cleanup" rule. Default-defer.
+- **Split `CloudOpsCenter`** — architectural refactor; justified only if it lands in its own refactor milestone per the "do not mix unrelated cleanup" rule. Default-defer.
 - **Test setup absent:** no Vitest, React Testing Library, or Playwright installed. Add as its own feature.
+- **Formatting/Prettier cleanup** of Lovable-generated codebase (separate from Hero scope; `eslint` currently fails on formatting in several files).
 
 ---
 
@@ -129,18 +125,16 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Final git diff review, then create the Sprint 2 Hero commit if the change set is clean.
+Await user review of the hero anchoring fix; if approved, commit the change.
 
 ---
 
 ## GIT STATE
 
 - **Branch:** `main`
-- **Working tree:** clean before this session; modified now by Sprint 2 Hero work (uncommitted).
+- **Working tree:** modified by this session.
 - **Files changed:**
   - `M src/components/site/cloud-ops-center.tsx`
-  - `M src/routes/__root.tsx`
-  - `A public/resume.pdf`
   - `M SESSION.md`
 - **Last commits:**
   - `c40648b` docs: add Claude project continuity system
