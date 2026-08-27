@@ -12,9 +12,10 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Feature Status
 
-- **Hero anchoring fix:** COMPLETED and browser-QA verified.
-- Innermost observability ring is now static; outer rings and arc illuminations continue their existing parallax/orbital animations.
-- No visual redesign, size change, or layout change introduced.
+- **Hero dark-core anchoring fix:** COMPLETED and browser-QA verified.
+- `aura-core` moved from `HeroAura` (drifting page-level anchor) into `CloudOpsCenter` (inset 18.75%, centered on portrait).
+- Measured center delta core-vs-portrait: 0.00px at 1440/1280/1024/768/390/320px, during entrance (200–1500ms) and after settle (2.5–12s).
+- Pulse, settle entrance, outer orbital rings/arcs, colors and layout unchanged; reduced-motion rules still apply via existing `.aura-core`/`.aura-reveal` classes.
 
 ---
 
