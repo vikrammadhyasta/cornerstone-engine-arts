@@ -3,7 +3,7 @@ import { ArrowUpRight, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { CloudOpsCenter } from "@/components/site/cloud-ops-center";
-import { HeroBoot } from "@/components/site/hero-boot";
+import { HeroAura } from "@/components/site/hero-aura";
 
 const FACTS = [
   { label: "Currently", value: "M.Tech Cloud Computing", short: "M.Tech Cloud Computing" },
