@@ -9,7 +9,7 @@ export function HeroAura() {
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
       <div className="aura-reveal absolute inset-0">
         <div className="aura-anchor">
-          <div className="absolute inset-0 grid place-items-center lg:pl-[30%]">
+          <div className="absolute top-1/2 left-1/2 grid [grid-template:0px/0px] place-items-center lg:left-[64%]">
             {/* filament strands radiating from the core */}
             <div
               className="aura-strands [grid-area:1/1] h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full mix-blend-screen"
