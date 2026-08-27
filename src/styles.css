@@ -853,30 +853,30 @@
 
 @keyframes aura-spin-slow {
   from {
-    transform: translate(-50%, -50%) rotate(0deg);
+    rotate: 0deg;
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    rotate: 360deg;
   }
 }
 
 @keyframes aura-spin-reverse {
   from {
-    transform: translate(-50%, -50%) rotate(360deg);
+    rotate: 360deg;
   }
   to {
-    transform: translate(-50%, -50%) rotate(0deg);
+    rotate: 0deg;
   }
 }
 
 @keyframes aura-pulse {
   0%,
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    scale: 1;
     opacity: 0.9;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.06);
+    scale: 1.06;
     opacity: 1;
   }
 }
@@ -928,6 +928,7 @@
   .aura-nebula,
   .aura-corona,
   .aura-core {
-    transform: translate(-50%, -50%) !important;
+    scale: 1 !important;
+    rotate: 0deg !important;
   }
 }
