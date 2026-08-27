@@ -6,15 +6,16 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero visual anchoring fix** — prevent the innermost dark capability plane in `CloudOpsCenter` from drifting independently of the profile photo on desktop/tablet.
+**Hero dark-core anchoring fix** — the soft dark radial disc (`aura-core`) previously lived in the page-level `HeroAura` backdrop and drifted independently of the profile photo. It is now structurally anchored inside `CloudOpsCenter` as a centered child of the same platform-core wrapper as the portrait, so disc and photo move/scale/reposition together on every viewport.
 
 ---
 
 ## Feature Status
 
-- **Hero anchoring fix:** COMPLETED and browser-QA verified.
-- Innermost observability ring is now static; outer rings and arc illuminations continue their existing parallax/orbital animations.
-- No visual redesign, size change, or layout change introduced.
+- **Hero dark-core anchoring fix:** COMPLETED and browser-QA verified.
+- `aura-core` moved from `HeroAura` (drifting page-level anchor) into `CloudOpsCenter` (inset 18.75%, centered on portrait).
+- Measured center delta core-vs-portrait: 0.00px at 1440/1280/1024/768/390/320px, during entrance (200–1500ms) and after settle (2.5–12s).
+- Pulse, settle entrance, outer orbital rings/arcs, colors and layout unchanged; reduced-motion rules still apply via existing `.aura-core`/`.aura-reveal` classes.
 
 ---
 
@@ -76,7 +77,8 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/components/site/cloud-ops-center.tsx` — conditionally excluded `animate-core-drift` for the `observability` capability plane; updated comment to explain anchoring intent.
+- `src/components/site/cloud-ops-center.tsx` — added the anchored `aura-core` disc (inset 18.75%) as a centered child of the platform-core wrapper.
+- `src/components/site/hero-aura.tsx` — removed the page-level dark core from the drifting aura anchor.
 - `SESSION.md` — updated current state.
 
 ---
