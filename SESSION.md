@@ -77,7 +77,8 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/components/site/cloud-ops-center.tsx` — conditionally excluded `animate-core-drift` for the `observability` capability plane; updated comment to explain anchoring intent.
+- `src/components/site/cloud-ops-center.tsx` — added the anchored `aura-core` disc (inset 18.75%) as a centered child of the platform-core wrapper.
+- `src/components/site/hero-aura.tsx` — removed the page-level dark core from the drifting aura anchor.
 - `SESSION.md` — updated current state.
 
 ---
