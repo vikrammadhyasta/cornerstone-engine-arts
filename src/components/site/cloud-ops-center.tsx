@@ -86,6 +86,21 @@ export function CloudOpsCenter() {
           }}
         />
 
+        {/* dark core — anchored to the portrait: both are centered children of
+            the same platform-core wrapper, so the core disc and the photo move,
+            scale and reposition together as one unit on every viewport.
+            Keeps its original appearance, pulse and entrance settle. */}
+        <div aria-hidden className="aura-reveal absolute inset-[18.75%] opacity-45 sm:opacity-70 lg:opacity-100">
+          <div
+            className="aura-core h-full w-full rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 88%, black) 42%, color-mix(in oklab, var(--primary) 26%, transparent) 80%, transparent 100%)",
+              boxShadow: "0 0 120px 24px color-mix(in oklab, var(--primary) 32%, transparent)",
+            }}
+          />
+        </div>
+
         {/* capability planes — layered depth with soft parallax.
             The innermost (observability) plane is kept static and anchored to
             the portrait so it does not drift independently from the photo. */}

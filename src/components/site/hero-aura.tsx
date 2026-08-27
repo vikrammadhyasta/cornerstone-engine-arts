@@ -48,15 +48,8 @@ export function HeroAura() {
               }}
             />
 
-            {/* dark core */}
-            <div
-              className="aura-core [grid-area:1/1] h-[min(38vh,20rem)] w-[min(38vh,20rem)] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 88%, black) 42%, color-mix(in oklab, var(--primary) 26%, transparent) 80%, transparent 100%)",
-                boxShadow: "0 0 120px 24px color-mix(in oklab, var(--primary) 32%, transparent)",
-              }}
-            />
+            {/* dark core now lives inside CloudOpsCenter, structurally
+                anchored to the operator portrait so they move as one unit */}
           </div>
         </div>
       </div>
