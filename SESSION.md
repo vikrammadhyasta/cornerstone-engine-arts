@@ -6,16 +6,19 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero dark-core anchoring fix** — the soft dark radial disc (`aura-core`) previously lived in the page-level `HeroAura` backdrop and drifted independently of the profile photo. It is now structurally anchored inside `CloudOpsCenter` as a centered child of the same platform-core wrapper as the portrait, so disc and photo move/scale/reposition together on every viewport.
+**Profile photo replacement** — swapped the placeholder portrait in the homepage technology ecosystem for the user's actual uploaded profile photo, served via Lovable CDN asset pointer. The orbital structure, dark core, glow, border, animations, and responsive centering remain unchanged.
+
 
 ---
 
 ## Feature Status
 
-- **Hero dark-core anchoring fix:** COMPLETED and browser-QA verified.
-- `aura-core` moved from `HeroAura` (drifting page-level anchor) into `CloudOpsCenter` (inset 18.75%, centered on portrait).
-- Measured center delta core-vs-portrait: 0.00px at 1440/1280/1024/768/390/320px, during entrance (200–1500ms) and after settle (2.5–12s).
-- Pulse, settle entrance, outer orbital rings/arcs, colors and layout unchanged; reduced-motion rules still apply via existing `.aura-core`/`.aura-reveal` classes.
+- **Profile photo replacement:** COMPLETED and browser-QA verified.
+- Replaced `src/assets/profile-photo.jpg` with `src/assets/profile-photo.jpg.asset.json` pointing to the uploaded photo on the Lovable CDN.
+- Updated `src/components/site/cloud-ops-center.tsx` import to use the asset URL.
+- No layout, text, routing, navigation, project pages, project cards, or other sections modified.
+- Orbital entrance/orbit animations, dark core anchoring, glow, and border preserved.
+
 
 ---
 
@@ -71,14 +74,16 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Created `CLAUDE.md`** (stable project instructions).
 - **Created `SESSION.md`** (this file).
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
-- **Hero anchoring fix:** Removed independent `animate-core-drift` from the innermost observability capability plane in `CloudOpsCenter` so it stays centered on the portrait while outer rings and arcs keep animating.
+- **Profile photo replacement:** swapped placeholder portrait for uploaded photo via Lovable CDN asset pointer; updated import in `CloudOpsCenter`.
+
 
 ---
 
 ## Files Changed
 
-- `src/components/site/cloud-ops-center.tsx` — added the anchored `aura-core` disc (inset 18.75%) as a centered child of the platform-core wrapper.
-- `src/components/site/hero-aura.tsx` — removed the page-level dark core from the drifting aura anchor.
+- `src/assets/profile-photo.jpg.asset.json` — new CDN asset pointer for the uploaded profile photo.
+- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL.
+
 - `SESSION.md` — updated current state.
 
 ---
@@ -95,9 +100,10 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Known Issues
 
-### Hero blockers (resolved)
+### Profile photo replacement blockers (resolved)
 
-- **Inner observability ring drifted independently of portrait** — fixed by removing its `animate-core-drift` class.
+- **Placeholder portrait needed replacement** — replaced with uploaded photo via Lovable CDN asset pointer; no visual distortion or overflow on desktop/tablet/mobile.
+
 
 ### Repository-wide deferred cleanup (audit findings, not Hero blockers)
 
@@ -127,7 +133,8 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the hero anchoring fix; if approved, commit the change.
+Await user review of the profile photo replacement; if approved, commit the change.
+
 
 ---
 
@@ -137,7 +144,10 @@ Await user review of the hero anchoring fix; if approved, commit the change.
 - **Working tree:** modified by this session.
 - **Files changed:**
   - `M src/components/site/cloud-ops-center.tsx`
+  - `A src/assets/profile-photo.jpg.asset.json`
+  - `D src/assets/profile-photo.jpg`
   - `M SESSION.md`
+
 - **Last commits:**
   - `c40648b` docs: add Claude project continuity system
   - `e0f295b` Add project README
