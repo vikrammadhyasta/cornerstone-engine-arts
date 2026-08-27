@@ -1,4 +1,12 @@
 import profilePhoto from "@/assets/profile-photo.jpg";
+import {
+  AI_TECH,
+  CORE_TECH,
+  SUPPORTING_TECH,
+  TechGlyph,
+  type TechLogo,
+} from "@/components/site/tech-logos";
+
 
 /**
  * Platform Core — an abstract, layered visualization of a cloud platform.
@@ -176,26 +184,18 @@ export function CloudOpsCenter() {
           <path d="M 26 32 A 30 30 0 0 1 74 34" fill="none" stroke="var(--border)" strokeWidth="0.3" />
         </svg>
 
-        {/* capability markers — desktop / tablet only, kept inside the frame */}
-        {LAYERS.map((layer) => (
-          <div
-            key={layer.id}
-            aria-hidden
-            className="absolute hidden -translate-x-1/2 -translate-y-1/2 sm:block"
-            style={{ left: `${layer.x}%`, top: `${layer.y}%` }}
-          >
-            <div className="flex items-center gap-2 rounded-full border border-border bg-surface/85 px-2.5 py-1 backdrop-blur-sm">
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-primary animate-status-shift motion-reduce:animate-none"
-                style={{ animationDelay: layer.delay }}
-              />
-              <span className="font-mono text-[0.625rem] tracking-[0.14em] text-muted-foreground uppercase">
-                {layer.label}
-              </span>
-              <span className="font-mono text-[0.625rem] text-foreground/70">{layer.state}</span>
-            </div>
-          </div>
-        ))}
+        {/* technology ecosystem — core cloud/devops rings dominate, the AI /
+            development ring sits further out and is deliberately quieter. */}
+        <div aria-hidden className="absolute inset-0 hidden sm:block">
+          <OrbitRing tech={CORE_TECH} radius={32} duration={128} size="lg" delay={0} />
+          <OrbitRing tech={SUPPORTING_TECH} radius={41.5} duration={168} reverse delay={0.5} offset={26} />
+          <OrbitRing tech={AI_TECH} radius={45.5} duration={210} size="sm" muted delay={1} offset={13} />
+        </div>
+
+        {/* mobile: dedicated compact composition — one ring, 7 core technologies */}
+        <div aria-hidden className="absolute inset-0 sm:hidden">
+          <OrbitRing tech={CORE_TECH} radius={41} duration={140} size="lg" delay={0} />
+        </div>
 
         {/* operator portrait — present, not dominant */}
         <div className="absolute inset-[40%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
@@ -215,22 +215,16 @@ export function CloudOpsCenter() {
         </div>
       </div>
 
-      {/* compact mobile legend — keeps every label inside the viewport */}
-      <ul aria-hidden className="grid w-full max-w-[19rem] grid-cols-2 gap-2 sm:hidden">
-        {LAYERS.map((layer) => (
+      {/* compact secondary technology list — mobile only, keeps the orbit clean */}
+      <ul aria-hidden className="flex w-full max-w-[19rem] flex-wrap justify-center gap-1.5 sm:hidden">
+        {[...SUPPORTING_TECH, ...AI_TECH].map((tech) => (
           <li
-            key={layer.id}
-            className="flex min-w-0 items-center gap-1.5 rounded-full border border-border bg-surface/60 px-2 py-1"
+            key={tech.name}
+            className="flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-2 py-1"
           >
-            <span
-              className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-status-shift motion-reduce:animate-none"
-              style={{ animationDelay: layer.delay }}
-            />
-            <span className="truncate font-mono text-[0.5625rem] tracking-[0.12em] text-muted-foreground uppercase">
-              {layer.label}
-            </span>
-            <span className="ml-auto shrink-0 font-mono text-[0.5625rem] text-foreground/70">
-              {layer.state}
+            <TechGlyph tech={tech} className="h-3 w-3 shrink-0" />
+            <span className="font-mono text-[0.5625rem] tracking-[0.1em] text-muted-foreground uppercase">
+              {tech.name}
             </span>
           </li>
         ))}
@@ -238,3 +232,95 @@ export function CloudOpsCenter() {
     </div>
   );
 }
+
+/**
+ * A single orbital ring of technology marks. The ring rotates slowly while each
+ * mark counter-rotates at the same rate, so logos stay upright and readable.
+ */
+function OrbitRing({
+  tech,
+  radius,
+  duration,
+  reverse,
+  size = "md",
+  muted,
+  delay = 0,
+  offset = 0,
+}: {
+  tech: TechLogo[];
+  /** distance from centre, in % of the square */
+  radius: number;
+  duration: number;
+  reverse?: boolean;
+  size?: "sm" | "md" | "lg";
+  muted?: boolean;
+  delay?: number;
+  /** phase offset in degrees, keeps rings from colliding when frozen */
+  offset?: number;
+}) {
+  const spin = `orbit-spin ${duration}s linear infinite${reverse ? " reverse" : ""}`;
+  const counterSpin = `orbit-spin ${duration}s linear infinite${reverse ? "" : " reverse"}`;
+  const box =
+    size === "lg" ? "h-9 w-9 sm:h-10 sm:w-10" : size === "md" ? "h-8 w-8" : "h-6.5 w-6.5";
+  const glyph = size === "lg" ? "h-5 w-5" : size === "md" ? "h-4 w-4" : "h-3 w-3";
+
+  return (
+    <>
+      <div
+        className="absolute rounded-full border border-border/70"
+        style={{ inset: `${50 - radius}%` }}
+      />
+      <div
+        className="absolute inset-0 motion-reduce:animate-none"
+        style={{ animation: spin, transformOrigin: "50% 50%" }}
+      >
+        {tech.map((item, i) => {
+          const angle = (360 / tech.length) * i + offset;
+          const rad = (angle * Math.PI) / 180;
+          const left = (50 + radius * Math.sin(rad)).toFixed(3);
+          const top = (50 - radius * Math.cos(rad)).toFixed(3);
+          return (
+            <div
+              key={item.name}
+              className="absolute"
+              style={{ left: `${left}%`, top: `${top}%` }}
+            >
+
+              <div
+                className="motion-reduce:animate-none"
+                style={{ animation: counterSpin, transformOrigin: "50% 50%" }}
+              >
+                <div
+                  className="animate-reveal motion-reduce:animate-none"
+                  style={{ animationDelay: `${delay + i * 0.09}s` }}
+                >
+                  <div
+                    className={`flex ${
+                      item.path || item.Mark ? box : "h-6 px-2 whitespace-nowrap"
+                    } -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface/85 backdrop-blur-sm ${
+                      muted
+                        ? "opacity-60 shadow-none"
+                        : "shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_60%,transparent)] animate-node-pulse motion-reduce:animate-none"
+                    }`}
+                    style={muted ? undefined : { animationDelay: `${i * 0.4}s` }}
+                    title={item.name}
+                  >
+                    {item.path || item.Mark ? (
+                      <TechGlyph tech={item} className={glyph} />
+                    ) : (
+                      <span className="font-mono text-[0.5rem] leading-none tracking-[0.06em] text-muted-foreground uppercase">
+                        {item.name}
+                      </span>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
