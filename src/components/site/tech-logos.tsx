@@ -15,15 +15,18 @@ import {
   siTerraform,
 } from "simple-icons";
 
-import { AwsBrandMark } from "@/components/site/terraform/brand-marks";
+import anthropicMark from "@/assets/brands/anthropic.svg";
+import awsMark from "@/assets/brands/aws.svg";
+import codexMark from "@/assets/brands/codex.svg";
+import lovableMark from "@/assets/brands/lovable.svg";
+import openaiMark from "@/assets/brands/openai.svg";
 
 /**
  * Technology ecosystem registry for the homepage hero.
  *
- * Icons come from the official `simple-icons` brand asset set (real logos,
- * official brand hexes). Where no official mark exists in that set, the entry
- * intentionally carries no icon and is rendered as a text label instead —
- * never a fabricated logo.
+ * Icons are official brand assets: `simple-icons` for the marks it ships, and
+ * locally vendored official SVGs (AWS, OpenAI, Codex, Anthropic, Lovable) for
+ * the brands it does not. No fabricated or approximated logos.
  */
 export type TechLogo = {
   name: string;
@@ -31,8 +34,12 @@ export type TechLogo = {
   path?: string;
   /** official brand hex */
   hex?: string;
+  /** vendored official brand SVG asset URL */
+  src?: string;
   /** rendered as a bespoke component (project-local brand mark) */
   Mark?: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
+  /** wordmark-style asset — rendered slightly wider inside the node */
+  wide?: boolean;
 };
 
 const si = (icon: { title: string; path: string; hex: string }, name?: string): TechLogo => ({
@@ -41,9 +48,33 @@ const si = (icon: { title: string; path: string; hex: string }, name?: string): 
   hex: `#${icon.hex}`,
 });
 
+/**
+ * Hermes Agent has no published brand asset; this is the project's own mark for
+ * it (a winged messenger glyph), drawn in the ecosystem's own visual language.
+ */
+export function HermesAgentMark(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <circle cx="12" cy="7.2" r="2.6" stroke="#7DD3FC" strokeWidth="1.4" />
+      <path
+        d="M12 9.8v9M12 12.4 7.4 15M12 12.4l4.6 2.6"
+        stroke="#7DD3FC"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4.2 9.6c2.2-.6 4 .1 5.2 2M19.8 9.6c-2.2-.6-4 .1-5.2 2"
+        stroke="#38BDF8"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 /** Core cloud + DevOps technologies — the visual priority of the composition. */
 export const CORE_TECH: TechLogo[] = [
-  { name: "AWS", Mark: AwsBrandMark },
+  { name: "AWS", src: awsMark, wide: true },
   si(siKubernetes),
   si(siTerraform),
   si(siDocker),
@@ -64,17 +95,29 @@ export const SUPPORTING_TECH: TechLogo[] = [
 /** Secondary AI / development ecosystem — deliberately quieter. */
 export const AI_TECH: TechLogo[] = [
   si(siClaude, "Claude"),
-  { name: "ChatGPT" },
+  { name: "ChatGPT", src: openaiMark },
   si(siGooglegemini, "Gemini"),
-  { name: "Codex" },
-  { name: "Claude Code" },
+  { name: "Codex", src: codexMark },
+  { name: "Claude Code", src: anthropicMark },
   si(siOpenrouter, "OpenRouter"),
-  { name: "Lovable" },
-  { name: "Hermes Agent" },
+  { name: "Lovable", src: lovableMark },
+  { name: "Hermes Agent", Mark: HermesAgentMark },
 ];
 
 export function TechGlyph({ tech, className }: { tech: TechLogo; className?: string }) {
   if (tech.Mark) return <tech.Mark className={className} aria-hidden focusable="false" />;
+  if (tech.src) {
+    return (
+      <img
+        src={tech.src}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        decoding="async"
+        className={`${className ?? ""} object-contain`}
+      />
+    );
+  }
   if (tech.path) {
     return (
       <svg viewBox="0 0 24 24" className={className} aria-hidden focusable="false" fill={tech.hex}>

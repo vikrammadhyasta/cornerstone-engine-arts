@@ -261,8 +261,9 @@ function OrbitRing({
   const spin = `orbit-spin ${duration}s linear infinite${reverse ? " reverse" : ""}`;
   const counterSpin = `orbit-spin ${duration}s linear infinite${reverse ? "" : " reverse"}`;
   const box =
-    size === "lg" ? "h-9 w-9 sm:h-10 sm:w-10" : size === "md" ? "h-8 w-8" : "h-6.5 w-6.5";
-  const glyph = size === "lg" ? "h-5 w-5" : size === "md" ? "h-4 w-4" : "h-3 w-3";
+    size === "lg" ? "h-9 w-9 sm:h-10 sm:w-10" : size === "md" ? "h-8 w-8" : "h-7 w-7";
+  const glyph = size === "lg" ? "h-5 w-5" : size === "md" ? "h-4 w-4" : "h-3.5 w-3.5";
+  const wideGlyph = size === "lg" ? "h-4 w-7" : size === "md" ? "h-3.5 w-6" : "h-3 w-5";
 
   return (
     <>
@@ -295,23 +296,37 @@ function OrbitRing({
                   style={{ animationDelay: `${delay + i * 0.09}s` }}
                 >
                   <div
-                    className={`flex ${
-                      item.path || item.Mark ? box : "h-6 px-2 whitespace-nowrap"
-                    } -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface/85 backdrop-blur-sm ${
-                      muted
-                        ? "opacity-60 shadow-none"
-                        : "shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_60%,transparent)] animate-node-pulse motion-reduce:animate-none"
-                    }`}
-                    style={muted ? undefined : { animationDelay: `${i * 0.4}s` }}
+                    className="group -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                     title={item.name}
                   >
-                    {item.path || item.Mark ? (
-                      <TechGlyph tech={item} className={glyph} />
-                    ) : (
-                      <span className="font-mono text-[0.5rem] leading-none tracking-[0.06em] text-muted-foreground uppercase">
-                        {item.name}
-                      </span>
-                    )}
+                    {/* ambient halo */}
+                    <span
+                      aria-hidden
+                      className={`pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md transition-opacity duration-300 ${
+                        size === "lg" ? "h-12 w-12" : size === "md" ? "h-10 w-10" : "h-8 w-8"
+                      } ${muted ? "opacity-25 group-hover:opacity-45" : "opacity-45 group-hover:opacity-80"}`}
+                      style={{
+                        background:
+                          "radial-gradient(circle, color-mix(in oklab, var(--primary) 26%, transparent), transparent 70%)",
+                      }}
+                    />
+                    <div
+                      className={`relative flex ${box} items-center justify-center rounded-full border bg-surface/85 backdrop-blur-sm transition-[transform,box-shadow,border-color,opacity] duration-300 group-hover:scale-110 ${
+                        muted
+                          ? "border-border/80 opacity-70 shadow-[0_0_12px_-8px_color-mix(in_oklab,var(--primary)_60%,transparent)] group-hover:opacity-100"
+                          : "border-border-strong/70 shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_60%,transparent)] animate-node-pulse motion-reduce:animate-none"
+                      } group-hover:border-primary/60 group-hover:shadow-[0_0_26px_-4px_color-mix(in_oklab,var(--primary)_75%,transparent)]`}
+                      style={muted ? undefined : { animationDelay: `${i * 0.4}s` }}
+                    >
+                      <TechGlyph tech={item} className={item.wide ? wideGlyph : glyph} />
+                    </div>
+                    <span
+                      className={`mt-1 max-w-[5.5rem] text-center font-mono text-[0.4375rem] leading-tight tracking-[0.1em] whitespace-nowrap uppercase transition-colors duration-300 group-hover:text-foreground ${
+                        muted ? "text-muted-foreground/60" : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
                   </div>
 
                 </div>
@@ -323,4 +338,5 @@ function OrbitRing({
     </>
   );
 }
+
 
