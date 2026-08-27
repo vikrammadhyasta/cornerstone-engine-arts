@@ -3,7 +3,7 @@ import { ArrowUpRight, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { CloudOpsCenter } from "@/components/site/cloud-ops-center";
-import { HeroBoot } from "@/components/site/hero-boot";
+import { HeroAura } from "@/components/site/hero-aura";
 
 const FACTS = [
   { label: "Currently", value: "M.Tech Cloud Computing", short: "M.Tech Cloud Computing" },
@@ -19,10 +19,10 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:min-h-[780px] lg:pt-32 lg:pb-24"
+      className="relative isolate overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 lg:min-h-[780px] lg:pt-32 lg:pb-24"
     >
-      <HeroBoot />
-      <div className="container-page">
+      <HeroAura />
+      <div className="container-page relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="flex flex-col gap-6">
             <span style={{ "--boot-delay": "620ms" } as CSSProperties} className="boot-item inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[0.625rem] tracking-[0.16em] text-muted-foreground uppercase backdrop-blur-sm sm:text-[0.6875rem] sm:tracking-[0.18em]">
