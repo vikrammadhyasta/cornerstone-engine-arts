@@ -1,4 +1,5 @@
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhotoAsset from "@/assets/profile-photo.jpg.asset.json";
+const profilePhoto = profilePhotoAsset.url;
 import {
   AI_TECH,
   CORE_TECH,
