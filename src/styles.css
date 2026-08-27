@@ -705,3 +705,128 @@
   }
 }
 
+
+/* ---------------------------------------------------------------
+   Hero boot sequence — one-shot "system coming online" entrance.
+   GPU-friendly: only opacity / transform / stroke-dashoffset.
+   --------------------------------------------------------------- */
+@keyframes boot-veil-out {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boot-node-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes boot-link-draw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  70% {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes boot-sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(-40%) scaleY(0.6);
+  }
+  35% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120%) scaleY(1);
+  }
+}
+
+@keyframes boot-status-in {
+  0%,
+  15% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boot-content-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.boot-veil {
+  animation: boot-veil-out 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.boot-node {
+  animation: boot-node-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center;
+}
+.boot-link {
+  stroke-dasharray: 100;
+  animation: boot-link-draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.boot-sweep {
+  animation: boot-sweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.boot-status {
+  animation: boot-status-in 1.3s ease-out both;
+}
+.boot-item {
+  animation: boot-content-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--boot-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-veil,
+  .boot-node,
+  .boot-link,
+  .boot-sweep,
+  .boot-status {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .boot-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
