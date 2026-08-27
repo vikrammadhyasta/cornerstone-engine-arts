@@ -8,55 +8,55 @@ export function HeroAura() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
       <div className="aura-reveal absolute inset-0">
-        {/* filament strands radiating from the core */}
         <div className="aura-anchor">
-          <div className="absolute inset-0 grid place-items-center lg:pl-[32%]">
-          <div
-            className="aura-strands absolute mix-blend-screen top-1/2 left-1/2 h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full"
-            style={{
-              background:
-                "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
-              maskImage:
-                "radial-gradient(circle at 50% 50%, transparent 17%, black 30%, transparent 62%)",
-              WebkitMaskImage:
-                "radial-gradient(circle at 50% 50%, transparent 17%, black 30%, transparent 62%)",
-              filter: "blur(3px)",
-            }}
-          />
+          <div className="absolute inset-0 grid place-items-center lg:pl-[30%]">
+            {/* filament strands radiating from the core */}
+            <div
+              className="aura-strands [grid-area:1/1] h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
+                filter: "blur(3px)",
+              }}
+            />
 
-          {/* turbulent outer nebula */}
-          <div
-            className="aura-nebula absolute mix-blend-screen top-1/2 left-1/2 h-[min(140vh,80rem)] w-[min(140vh,80rem)] rounded-full"
-            style={{
-              background:
-                "conic-gradient(from 210deg at 50% 50%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 28%, color-mix(in oklab, var(--primary-glow) 26%, transparent) 52%, transparent 74%, color-mix(in oklab, var(--primary) 30%, transparent))",
-              maskImage:
-                "radial-gradient(circle at 50% 50%, transparent 22%, black 44%, transparent 72%)",
-              WebkitMaskImage:
-                "radial-gradient(circle at 50% 50%, transparent 22%, black 44%, transparent 72%)",
-              filter: "blur(42px)",
-            }}
-          />
+            {/* turbulent outer nebula */}
+            <div
+              className="aura-nebula [grid-area:1/1] h-[min(140vh,80rem)] w-[min(140vh,80rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "conic-gradient(from 210deg at 50% 50%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 28%, color-mix(in oklab, var(--primary-glow) 30%, transparent) 52%, transparent 74%, color-mix(in oklab, var(--primary) 32%, transparent))",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
+                filter: "blur(46px)",
+              }}
+            />
 
-          {/* corona ring */}
-          <div
-            className="aura-corona [grid-area:1/1] [grid-area:1/1] mix-blend-screen h-[min(92vh,52rem)] w-[min(92vh,52rem)] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, transparent 34%, color-mix(in oklab, var(--primary-glow) 90%, transparent) 44%, color-mix(in oklab, var(--primary) 62%, transparent) 56%, transparent 70%)",
-              filter: "blur(18px)",
-            }}
-          />
+            {/* corona ring */}
+            <div
+              className="aura-corona [grid-area:1/1] h-[min(80vh,44rem)] w-[min(80vh,44rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, transparent 30%, color-mix(in oklab, var(--primary-glow) 85%, transparent) 41%, color-mix(in oklab, var(--primary) 55%, transparent) 52%, transparent 68%)",
+                filter: "blur(22px)",
+              }}
+            />
 
-          {/* dark core */}
-          <div
-            className="aura-core [grid-area:1/1] h-[min(40vh,22rem)] w-[min(40vh,22rem)] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 92%, black) 40%, color-mix(in oklab, var(--primary) 22%, transparent) 78%, transparent 100%)",
-              boxShadow: "0 0 120px 20px color-mix(in oklab, var(--primary) 24%, transparent)",
-            }}
-          />
+            {/* dark core */}
+            <div
+              className="aura-core [grid-area:1/1] h-[min(38vh,20rem)] w-[min(38vh,20rem)] rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 88%, black) 42%, color-mix(in oklab, var(--primary) 26%, transparent) 80%, transparent 100%)",
+                boxShadow: "0 0 120px 24px color-mix(in oklab, var(--primary) 32%, transparent)",
+              }}
+            />
           </div>
         </div>
       </div>
@@ -66,11 +66,11 @@ export function HeroAura() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 45%, transparent 26%, color-mix(in oklab, var(--background) 55%, transparent) 66%, var(--background) 100%)",
+            "radial-gradient(120% 90% at 50% 45%, transparent 28%, color-mix(in oklab, var(--background) 55%, transparent) 68%, var(--background) 100%)",
         }}
       />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-background to-transparent" />
-      <div className="absolute inset-y-0 left-0 w-[45%] bg-linear-to-r from-background/85 to-transparent lg:w-[38%]" />
+      <div className="absolute inset-y-0 left-0 w-[46%] bg-linear-to-r from-background/85 to-transparent lg:w-[40%]" />
     </div>
   );
 }
