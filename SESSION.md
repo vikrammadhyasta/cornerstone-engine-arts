@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero visual anchoring fix** — prevent the innermost dark capability plane in `CloudOpsCenter` from drifting independently of the profile photo on desktop/tablet.
+**Hero dark-core anchoring fix** — the soft dark radial disc (`aura-core`) previously lived in the page-level `HeroAura` backdrop and drifted independently of the profile photo. It is now structurally anchored inside `CloudOpsCenter` as a centered child of the same platform-core wrapper as the portrait, so disc and photo move/scale/reposition together on every viewport.
 
 ---
 
