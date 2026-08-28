@@ -99,7 +99,7 @@ export function CloudOpsCenter() {
             the same platform-core wrapper, so the core disc and the photo move,
             scale and reposition together as one unit on every viewport.
             Keeps its original appearance, pulse and entrance settle. */}
-        <div aria-hidden className="aura-reveal absolute inset-[18.75%] opacity-45 sm:opacity-70 lg:opacity-100">
+        <div aria-hidden className="aura-reveal absolute inset-[18.75%] opacity-45 sm:opacity-70 lg:opacity-100 hidden lg:block">
           <div
             className="aura-core h-full w-full rounded-full"
             style={{
