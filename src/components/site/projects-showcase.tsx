@@ -137,7 +137,8 @@ export function ProjectsShowcase() {
       id="projects"
       className="scroll-mt-24"
       label="PROJECTS"
-      description="A curated selection of Cloud & DevOps engineering projects spanning GitOps, AWS infrastructure, serverless systems, and automation."
+      heading="Engineering Registry"
+      description="A curated collection of cloud, DevOps, infrastructure, automation, and platform engineering systems I've built."
     >
       <ul className="grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROJECTS.map((project) => {
