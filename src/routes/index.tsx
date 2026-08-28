@@ -53,7 +53,9 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
+      <ExperienceShowcase />
       <ProjectsShowcase />
+
 
       <Section
 
