@@ -8,7 +8,7 @@ import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { ExperienceShowcase } from "@/components/site/experience-showcase";
-import { PlatformSystem } from "@/components/site/platform-system";
+import { PlatformArchitecture } from "@/components/site/platform-architecture";
 
 
 
@@ -55,7 +55,7 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
-      <PlatformSystem />
+      <PlatformArchitecture />
       <ExperienceShowcase />
       <ProjectsShowcase />
 
