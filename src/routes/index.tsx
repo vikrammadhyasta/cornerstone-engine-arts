@@ -7,6 +7,7 @@ import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/p
 import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
+import { ExperienceShowcase } from "@/components/site/experience-showcase";
 
 
 export const Route = createFileRoute("/")({
@@ -42,9 +43,9 @@ const TOKENS = [
 
 const RESERVED = [
   { id: "engineering", label: "Engineering", note: "Capabilities, tooling and practices." },
-  { id: "experience", label: "Experience", note: "Timeline, roles and certifications." },
   { id: "contact", label: "Contact", note: "Direct channels and availability." },
 ];
+
 
 
 function Index() {
@@ -52,7 +53,9 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
+      <ExperienceShowcase />
       <ProjectsShowcase />
+
 
       <Section
 

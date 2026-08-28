@@ -15,6 +15,7 @@ import { Route as ProjectsTerraformAwsInfrastructureRouteImport } from './routes
 import { Route as ProjectsCloudMlPredictorRouteImport } from './routes/projects.cloud-ml-predictor'
 import { Route as ProjectsAnsibleJenkinsCicdRouteImport } from './routes/projects.ansible-jenkins-cicd'
 import { Route as ProjectsAgritechGitopsRouteImport } from './routes/projects.agritech-gitops'
+import { Route as ExperienceSlugRouteImport } from './routes/experience.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -49,10 +50,16 @@ const ProjectsAgritechGitopsRoute = ProjectsAgritechGitopsRouteImport.update({
   path: '/projects/agritech-gitops',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceSlugRoute = ExperienceSlugRouteImport.update({
+  id: '/experience/$slug',
+  path: '/experience/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experience/$slug': typeof ExperienceSlugRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
@@ -61,6 +68,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experience/$slug': typeof ExperienceSlugRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experience/$slug': typeof ExperienceSlugRoute
   '/projects/agritech-gitops': typeof ProjectsAgritechGitopsRoute
   '/projects/ansible-jenkins-cicd': typeof ProjectsAnsibleJenkinsCicdRoute
   '/projects/cloud-ml-predictor': typeof ProjectsCloudMlPredictorRoute
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/experience/$slug'
     | '/projects/agritech-gitops'
     | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/sitemap.xml'
+    | '/experience/$slug'
     | '/projects/agritech-gitops'
     | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/experience/$slug'
     | '/projects/agritech-gitops'
     | '/projects/ansible-jenkins-cicd'
     | '/projects/cloud-ml-predictor'
@@ -105,6 +117,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ExperienceSlugRoute: typeof ExperienceSlugRoute
   ProjectsAgritechGitopsRoute: typeof ProjectsAgritechGitopsRoute
   ProjectsAnsibleJenkinsCicdRoute: typeof ProjectsAnsibleJenkinsCicdRoute
   ProjectsCloudMlPredictorRoute: typeof ProjectsCloudMlPredictorRoute
@@ -155,12 +168,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsAgritechGitopsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience/$slug': {
+      id: '/experience/$slug'
+      path: '/experience/$slug'
+      fullPath: '/experience/$slug'
+      preLoaderRoute: typeof ExperienceSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ExperienceSlugRoute: ExperienceSlugRoute,
   ProjectsAgritechGitopsRoute: ProjectsAgritechGitopsRoute,
   ProjectsAnsibleJenkinsCicdRoute: ProjectsAnsibleJenkinsCicdRoute,
   ProjectsCloudMlPredictorRoute: ProjectsCloudMlPredictorRoute,
