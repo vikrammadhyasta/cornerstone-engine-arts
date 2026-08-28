@@ -1,10 +1,7 @@
 import { cn } from "@/lib/utils";
-import { SYSTEM_SIGNALS } from "./data";
+import { SIGNALS } from "./data";
 
-/**
- * Illustrative architecture states — explicitly not live production telemetry.
- * State is communicated by text as well as colour.
- */
+/** Architectural states — explicitly not live telemetry. Text carries the state, not colour alone. */
 export function SystemSignals({
   reduced,
   hovered,
@@ -15,24 +12,18 @@ export function SystemSignals({
   onHover: (id: string | null) => void;
 }) {
   return (
-    <aside className="surface-panel h-fit rounded-2xl p-4 lg:sticky lg:top-24">
-      <p className="font-mono text-[0.625rem] tracking-[0.2em] text-primary uppercase">
-        System signals
-      </p>
-      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-        Illustrative architecture states, not live production telemetry.
-      </p>
-
+    <aside className="surface-panel h-fit rounded-2xl p-4">
+      <p className="font-mono text-[0.625rem] tracking-[0.2em] text-primary uppercase">System signals</p>
       <ul className="mt-4 space-y-2">
-        {SYSTEM_SIGNALS.map((signal) => {
-          const lit = hovered === null || hovered === signal.layer;
+        {SIGNALS.map((signal) => {
+          const lit = hovered === null || hovered === signal.node;
           return (
             <li
               key={signal.id}
-              onMouseEnter={() => onHover(signal.layer)}
+              onMouseEnter={() => onHover(signal.node)}
               onMouseLeave={() => onHover(null)}
               className={cn(
-                "flex items-center justify-between gap-3 rounded-xl border border-border bg-background/40 px-3 py-2 transition-all duration-300",
+                "flex items-center justify-between gap-3 rounded-xl border border-border bg-background/40 px-3 py-2 transition-opacity duration-300",
                 lit ? "opacity-100" : "opacity-40",
               )}
             >
@@ -55,9 +46,8 @@ export function SystemSignals({
           );
         })}
       </ul>
-
-      <p className="mt-4 border-t border-border pt-3 font-mono text-[0.5625rem] tracking-[0.16em] text-muted-foreground uppercase">
-        Observe → Understand → Improve → Deploy
+      <p className="mt-4 border-t border-border pt-3 text-[0.6875rem] leading-relaxed text-muted-foreground">
+        Illustrative architecture states — not live production telemetry.
       </p>
     </aside>
   );

@@ -932,3 +932,13 @@
     rotate: 0deg !important;
   }
 }
+
+@keyframes cp-dash {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+.cp-dash {
+  animation: cp-dash 3.4s linear infinite;
+}
