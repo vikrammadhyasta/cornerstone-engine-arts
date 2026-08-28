@@ -146,32 +146,6 @@ function ExperienceDetail() {
         </Section>
       )}
 
-      <Section
-        bordered
-        label="Engineering lessons"
-        heading="Takeaways"
-        description="Reserved for engineering takeaways from this training period."
-      >
-        {experience.lessons.length > 0 ? (
-          <ul className="grid list-none gap-4 md:grid-cols-2">
-            {experience.lessons.map((lesson) => (
-              <li key={lesson.title}>
-                <PanelCard className="h-full p-6">
-                  <p className="text-sm font-semibold text-foreground">{lesson.title}</p>
-                  <CardBody className="mt-2">{lesson.body}</CardBody>
-                </PanelCard>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="rounded-2xl border border-dashed border-border-strong bg-surface/30 p-6">
-            <SectionLabel>Placeholder</SectionLabel>
-            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-              Engineering takeaways for this experience will be added here.
-            </p>
-          </div>
-        )}
-      </Section>
 
       {EXPERIENCES.length > 1 && (
         <Section bordered label="More experience" heading="Other engagements">
