@@ -1,3 +1,4 @@
+import type { ComponentType, SVGProps } from "react";
 import {
   siAnsible,
   siArgo,
@@ -82,7 +83,7 @@ export interface ArchLayerDef {
 
 const icon = (
   name: string,
-  Mark: React.ComponentType<React.SVGProps<SVGSVGElement>>,
+  Mark: ComponentType<SVGProps<SVGSVGElement>>,
 ): TechLogo => ({ name, Mark: Mark as TechLogo["Mark"] });
 
 export const ARCH_LAYERS: ArchLayerDef[] = [
