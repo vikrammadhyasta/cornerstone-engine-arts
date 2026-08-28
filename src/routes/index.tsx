@@ -7,6 +7,7 @@ import { PanelCard, CardEyebrow, CardTitle, CardBody } from "@/components/site/p
 import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
+import { ExperienceShowcase } from "@/components/site/experience-showcase";
 
 
 export const Route = createFileRoute("/")({
