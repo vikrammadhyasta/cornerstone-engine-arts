@@ -129,33 +129,82 @@ function Node({
       </p>
 
       {node.core ? (
-        <div className="mt-2 flex items-center justify-center gap-3">
-          <span
-            className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-primary/40 bg-background/70"
-            style={{ boxShadow: `0 0 40px -12px ${tone}` }}
-          >
-            <TechGlyph tech={node.items[0]!} className="h-7 w-7" />
+        <>
+          <span className="absolute top-2 right-3 flex items-center gap-1.5">
+            <span
+              aria-hidden
+              className={cn(
+                "h-1 w-1 rounded-full bg-success",
+                !reduced && "animate-[node-pulse_2.8s_ease-in-out_infinite]",
+              )}
+            />
+            <span className="font-mono text-[0.4375rem] tracking-[0.18em] text-success uppercase">
+              Operational
+            </span>
           </span>
-          <span className="flex flex-col gap-1">
-            <span className="font-display text-sm font-semibold text-foreground">Kubernetes</span>
-            <span className="flex gap-1.5">
-              {["Deployments", "Services", "Pods", "Config", "Secrets"].map((p, i) => (
+
+          <div className="mt-2 flex items-center gap-4">
+            <span className="flex flex-col items-center gap-2">
+              <span
+                className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-primary/40 bg-background/70 transition-shadow duration-500"
+                style={{
+                  boxShadow:
+                    state === "lit" ? `0 0 54px -6px ${tone}` : `0 0 40px -12px ${tone}`,
+                }}
+              >
                 <span
-                  key={p}
-                  title={p}
-                  className={cn(
-                    "h-4 w-6 rounded-[0.25rem] border border-primary/30 bg-primary/10",
-                    !reduced && "animate-[node-pulse_3.6s_ease-in-out_infinite]",
-                  )}
-                  style={{ animationDelay: `${i * 0.35}s` }}
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-3 rounded-full"
+                  style={{
+                    background: `radial-gradient(circle, color-mix(in oklab, ${tone} 26%, transparent), transparent 70%)`,
+                    opacity: state === "lit" ? 0.9 : 0.55,
+                  }}
                 />
-              ))}
+                <TechGlyph tech={node.items[0]!} className="relative h-7 w-7" />
+              </span>
+              <span aria-hidden className="grid grid-cols-6 gap-[3px]">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className={cn(
+                      "h-[5px] w-[5px] rounded-[1px] border border-primary/40 bg-primary/25 transition-[background-color,transform] duration-500",
+                      state === "lit" && "scale-110 bg-primary/50",
+                      !reduced && "animate-[node-pulse_3.6s_ease-in-out_infinite]",
+                    )}
+                    style={{ animationDelay: `${i * 0.18}s` }}
+                  />
+                ))}
+              </span>
             </span>
-            <span className="font-mono text-[0.5rem] tracking-[0.16em] text-muted-foreground uppercase">
-              Scheduled · scaled · self-healed
+
+            <span className="flex min-w-0 flex-1 flex-col gap-1">
+              <span className="font-display text-sm leading-none font-semibold text-foreground">
+                Kubernetes
+              </span>
+              <span className="mt-1 flex flex-col gap-[3px]">
+                {[
+                  ["Pods", "12/12"],
+                  ["Replicas", "6/6"],
+                  ["Rollout", "Stable"],
+                ].map(([k, v]) => (
+                  <span
+                    key={k}
+                    className="flex items-center justify-between gap-2 border-b border-border/60 pb-[2px] font-mono text-[0.5rem] tracking-[0.14em] uppercase"
+                  >
+                    <span className="text-muted-foreground">{k}</span>
+                    <span className="text-foreground">{v}</span>
+                  </span>
+                ))}
+              </span>
+              <span className="font-mono text-[0.4375rem] tracking-[0.16em] text-primary uppercase">
+                Healthy · Scaled · Self-healing
+              </span>
+              <span className="font-mono text-[0.4375rem] tracking-[0.12em] text-muted-foreground uppercase">
+                Illustrative runtime state
+              </span>
             </span>
-          </span>
-        </div>
+          </div>
+        </>
       ) : (
         <div className="mt-2 flex flex-wrap items-start justify-center gap-x-3 gap-y-2">
           {node.items.map((item) => (
