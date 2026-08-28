@@ -2,7 +2,6 @@ import type { ComponentType, SVGProps } from "react";
 import {
   siAnsible,
   siArgo,
-  siClaude,
   siDocker,
   siGithub,
   siGithubactions,
@@ -104,7 +103,6 @@ export const ARCH_LAYERS: ArchLayerDef[] = [
           { name: "OpenRouter", note: "Multi-model", logo: si(siOpenrouter, "OpenRouter") },
           { name: "Lovable", note: "Interface", logo: { name: "Lovable", src: lovableMark } },
           { name: "Hermes Agent", note: "Automation", logo: { name: "Hermes Agent", Mark: HermesAgentMark } },
-          { name: "Claude", note: "Reasoning", logo: si(siClaude, "Claude") },
         ],
       },
     ],
