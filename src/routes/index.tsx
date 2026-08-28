@@ -53,8 +53,10 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
+      <PlatformSystem />
       <ExperienceShowcase />
       <ProjectsShowcase />
+
 
 
       <Section
