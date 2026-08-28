@@ -43,9 +43,9 @@ const TOKENS = [
 
 const RESERVED = [
   { id: "engineering", label: "Engineering", note: "Capabilities, tooling and practices." },
-  { id: "experience", label: "Experience", note: "Timeline, roles and certifications." },
   { id: "contact", label: "Contact", note: "Direct channels and availability." },
 ];
+
 
 
 function Index() {
