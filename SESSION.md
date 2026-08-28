@@ -85,7 +85,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 ## Files Changed
 
 - `src/assets/profile-photo.jpg.asset.json` — new CDN asset pointer for the uploaded profile photo.
-- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL.
+- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL; added `hidden lg:block` to the `aura-reveal` dark-radial-disc wrapper so it hides on tablet/mobile while desktop/laptop keep the original glow and animation.
 
 - `SESSION.md` — updated current state.
 
