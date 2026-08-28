@@ -16,8 +16,11 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 - **Profile photo replacement:** COMPLETED and browser-QA verified.
 - Replaced `src/assets/profile-photo.jpg` with `src/assets/profile-photo.jpg.asset.json` pointing to the uploaded photo on the Lovable CDN.
 - Updated `src/components/site/cloud-ops-center.tsx` import to use the asset URL.
+- **Responsive dark core visibility:** COMPLETED and browser-QA verified.
+- Targeted the `aura-reveal` wrapper containing `aura-core` in `cloud-ops-center.tsx` with `hidden lg:block`.
+- Desktop/laptop: dark radial disc remains visible with original size, glow, and animation.
+- Tablet/mobile: only the dark radial disc is hidden; orbital rings, technology icons, portrait, and all animations remain.
 - No layout, text, routing, navigation, project pages, project cards, or other sections modified.
-- Orbital entrance/orbit animations, dark core anchoring, glow, and border preserved.
 
 
 ---
