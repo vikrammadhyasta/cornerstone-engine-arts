@@ -139,7 +139,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the profile photo replacement; if approved, commit the change.
+Await user review of the responsive dark core visibility change; if approved, commit the change.
 
 
 ---
