@@ -34,11 +34,11 @@ export function EngineeringControlPlane() {
       label="Engineering control plane"
       heading={
         <>
-          Where engineering systems
-          <br className="hidden sm:block" /> come together.
+          Engineering systems that think,
+          <br className="hidden sm:block" /> ship, and recover.
         </>
       }
-      description="AI-assisted development, cloud infrastructure, automated delivery, GitOps, and observability working together as one system."
+      description="AI-assisted engineering, cloud infrastructure, automated delivery, and observability working together as one platform."
     >
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-8">
         <div className="min-w-0">
