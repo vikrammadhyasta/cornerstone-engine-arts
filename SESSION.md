@@ -97,7 +97,10 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `tsc --noEmit`: **PASS** (TypeScript compiles without errors).
 - `eslint src/components/site/cloud-ops-center.tsx`: **NOT GREEN** due to pre-existing Prettier/formatting errors at lines 160–161 (unrelated to this fix; formatting cleanup is a separate feature).
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright screenshots at 1280×900, 768×1024, 390×844; time-series screenshots at 0/4/9/13/18s confirm inner ring remains centered on portrait).
+- Browser QA: **PASS** — Playwright verification at 1280×900, 768×1024, 390×844 confirms:
+  - Desktop: dark radial core visible; orbital rings, portrait visible.
+  - Tablet: dark radial core hidden; orbital rings, portrait visible.
+  - Mobile: dark radial core hidden; mobile orbit ring and portrait visible; desktop orbit correctly switches to compact mobile composition.
 
 ---
 
