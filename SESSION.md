@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Profile photo replacement** — swapped the placeholder portrait in the homepage technology ecosystem for the user's actual uploaded profile photo, served via Lovable CDN asset pointer. The orbital structure, dark core, glow, border, animations, and responsive centering remain unchanged.
+**Responsive dark core visibility** — the large dark radial disc behind the portrait/orbit in the homepage Platform Core is now hidden on tablet and mobile, while the orbital rings, technology icons, and portrait remain fully visible. No layout, animation, or desktop appearance changed.
 
 
 ---
