@@ -8,6 +8,8 @@ import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { ExperienceShowcase } from "@/components/site/experience-showcase";
+import { PlatformSystem } from "@/components/site/platform-system";
+
 
 
 export const Route = createFileRoute("/")({
