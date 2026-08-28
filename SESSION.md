@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Profile photo replacement** — swapped the placeholder portrait in the homepage technology ecosystem for the user's actual uploaded profile photo, served via Lovable CDN asset pointer. The orbital structure, dark core, glow, border, animations, and responsive centering remain unchanged.
+**Responsive dark core visibility** — the large dark radial disc behind the portrait/orbit in the homepage Platform Core is now hidden on tablet and mobile, while the orbital rings, technology icons, and portrait remain fully visible. No layout, animation, or desktop appearance changed.
 
 
 ---
@@ -16,8 +16,11 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 - **Profile photo replacement:** COMPLETED and browser-QA verified.
 - Replaced `src/assets/profile-photo.jpg` with `src/assets/profile-photo.jpg.asset.json` pointing to the uploaded photo on the Lovable CDN.
 - Updated `src/components/site/cloud-ops-center.tsx` import to use the asset URL.
+- **Responsive dark core visibility:** COMPLETED and browser-QA verified.
+- Targeted the `aura-reveal` wrapper containing `aura-core` in `cloud-ops-center.tsx` with `hidden lg:block`.
+- Desktop/laptop: dark radial disc remains visible with original size, glow, and animation.
+- Tablet/mobile: only the dark radial disc is hidden; orbital rings, technology icons, portrait, and all animations remain.
 - No layout, text, routing, navigation, project pages, project cards, or other sections modified.
-- Orbital entrance/orbit animations, dark core anchoring, glow, and border preserved.
 
 
 ---
@@ -82,7 +85,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 ## Files Changed
 
 - `src/assets/profile-photo.jpg.asset.json` — new CDN asset pointer for the uploaded profile photo.
-- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL.
+- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL; added `hidden lg:block` to the `aura-reveal` dark-radial-disc wrapper so it hides on tablet/mobile while desktop/laptop keep the original glow and animation.
 
 - `SESSION.md` — updated current state.
 
@@ -94,7 +97,10 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `tsc --noEmit`: **PASS** (TypeScript compiles without errors).
 - `eslint src/components/site/cloud-ops-center.tsx`: **NOT GREEN** due to pre-existing Prettier/formatting errors at lines 160–161 (unrelated to this fix; formatting cleanup is a separate feature).
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright screenshots at 1280×900, 768×1024, 390×844; time-series screenshots at 0/4/9/13/18s confirm inner ring remains centered on portrait).
+- Browser QA: **PASS** — Playwright verification at 1280×900, 768×1024, 390×844 confirms:
+  - Desktop: dark radial core visible; orbital rings, portrait visible.
+  - Tablet: dark radial core hidden; orbital rings, portrait visible.
+  - Mobile: dark radial core hidden; mobile orbit ring and portrait visible; desktop orbit correctly switches to compact mobile composition.
 
 ---
 
@@ -133,7 +139,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the profile photo replacement; if approved, commit the change.
+Await user review of the responsive dark core visibility change; if approved, commit the change.
 
 
 ---
