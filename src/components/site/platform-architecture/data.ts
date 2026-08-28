@@ -80,7 +80,10 @@ export interface ArchLayerDef {
   essential: boolean;
 }
 
-const icon = (name: string, Mark: TechLogo["Mark"]): TechLogo => ({ name, Mark });
+const icon = (
+  name: string,
+  Mark: React.ComponentType<React.SVGProps<SVGSVGElement>>,
+): TechLogo => ({ name, Mark: Mark as TechLogo["Mark"] });
 
 export const ARCH_LAYERS: ArchLayerDef[] = [
   {
