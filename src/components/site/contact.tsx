@@ -11,8 +11,6 @@ const EMAIL = "vikrammadyasta@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/vikram-madhyasta";
 const GITHUB = "https://github.com/vikrammadhyasta";
 
-
-
 type Field = "name" | "email" | "message";
 type Errors = Partial<Record<Field, string>>;
 
