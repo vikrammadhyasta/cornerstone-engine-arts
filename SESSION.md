@@ -6,17 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Remove dummy/placeholder credential records from Credential Registry** — surgical data cleanup. Removed all placeholder records from `src/lib/credentials.ts` so the registry now contains only real certifications. No UI, layout, filters, cards, modal, or other sections were changed.
+**Credentials section content and filter cleanup** — updated the Credentials section description and simplified category filters to only All, Cloud, and AI. Removed DevOps, Software, and Other filter buttons. No credential data, cards, modal, viewer, layout, or other sections were changed.
 
 ---
 
 ## Feature Status
 
-- **Placeholder credential removal:** COMPLETED and verified.
-- Removed `placeholder-featured`, `placeholder-devops`, `placeholder-ai`, `placeholder-software`, and `placeholder-other` records from `src/lib/credentials.ts`.
-- Registry now contains 9 real credentials: 6 Cloud, 3 AI, 0 DevOps, 0 Software, 0 Other.
-- Category counts and filters automatically reflect the remaining real credentials.
-- No "Placeholder", "PLACEHOLDER ISSUER", or "Date pending" text remains in the Credentials section.
+- **Credentials description update:** COMPLETED — replaced description with "A record of cloud, AI, and software engineering credentials earned through structured training and hands-on learning."
+- **Filter simplification:** COMPLETED — `CREDENTIAL_CATEGORIES` now contains only All, Cloud, and AI.
+- **Dynamic counts preserved:** counts are calculated from real credential data (All = 9, Cloud = 6, AI = 3).
+- **Filter behavior verified:** All shows 9 credentials, Cloud shows 6, AI shows 3.
+- No DevOps, Software, or Other filter buttons remain in the Credentials section.
 
 ---
 
@@ -79,20 +79,18 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/assets/certificates/forage-genai-data-analytics.pdf.asset.json` — new CDN asset pointer for the uploaded Forage certificate PDF.
-- `src/assets/certificates/forage-genai-data-analytics.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
-- `src/lib/credentials.ts` — added imports and one new `forage-genai-data-analytics` credential record.
+- `src/components/site/credentials/index.tsx` — updated Credentials section description.
+- `src/lib/credentials.ts` — removed DevOps, Software, and Other from `CREDENTIAL_CATEGORIES`.
 - `SESSION.md` — updated current state.
 
 ---
 
 ## Validation Completed
 
-- Repository inspection: yes (targeted read of `src/lib/credentials.ts`, certificate PDF text extraction, and asset pointer verification).
+- Repository inspection: yes (targeted read of `src/lib/credentials.ts` and `src/components/site/credentials/index.tsx`).
 - `bunx tsc --noEmit`: **PASS**.
-- `bunx eslint src/lib/credentials.ts`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright verified card appears under All and AI filters, modal opens once, certificate renders at original aspect ratio `1650×1166`, no duplicate "View credential" inside modal, no "Verify credential" button because the certificate provides no verification URL).
+- No DevOps, Software, or Other filter text remains in the Credentials section.
 
 ---
 
@@ -130,7 +128,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Forage · Tata GenAI Powered Data Analytics Job Simulation credential addition.
+Await user review of the Credentials section description and filter cleanup.
 
 ---
 
