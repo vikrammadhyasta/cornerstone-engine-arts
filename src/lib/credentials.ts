@@ -98,6 +98,20 @@ export const CREDENTIALS: Credential[] = [
     status: "verified",
   },
   {
+    id: "aws-cloud-practitioner-essentials",
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "AWS Training and Certification",
+    type: "Course Certificate",
+    category: "cloud",
+    date: "January 2024",
+    year: 2024,
+    description:
+      "Completed AWS Cloud Practitioner Essentials, covering foundational AWS cloud concepts, core services, security, architecture, pricing, and cloud fundamentals.",
+    image: awsCloudPractitionerEssentialsPng.url,
+    document: awsCloudPractitionerEssentialsPdf.url,
+    status: "completed",
+  },
+  {
     id: "placeholder-ai",
     title: "Placeholder credential — AI track",
     issuer: "Placeholder issuer",
