@@ -12,7 +12,7 @@ export function ExperienceShowcase() {
       bordered
       id="experience"
       className="scroll-mt-24"
-      label="03 · Experience"
+      label="Experience"
       heading="Engineering experience beyond personal projects."
       description="Hands-on experience building, deploying, troubleshooting, and automating cloud-native systems."
     >

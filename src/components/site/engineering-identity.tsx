@@ -62,6 +62,7 @@ export function EngineeringIdentity() {
         {/* Narrative — the hero of this section */}
         <header className="animate-reveal flex max-w-3xl flex-col gap-5">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[0.625rem] tracking-[0.18em] text-muted-foreground uppercase backdrop-blur-sm sm:text-[0.6875rem]">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-primary" />
             Engineering identity
           </span>
 
