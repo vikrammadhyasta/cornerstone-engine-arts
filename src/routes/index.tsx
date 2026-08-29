@@ -49,28 +49,7 @@ function Index() {
       <ProjectsShowcase />
       <CredentialsRegistry />
       <AcademicFoundation />
-
-
-
-      <Section
-        bordered
-        label="Reserved"
-        heading="Slots awaiting content"
-        description="Section anchors are wired into the navigation and scroll spy. Each will be filled in a later pass using this exact template."
-      >
-        <div className="grid gap-4 md:grid-cols-2">
-          {RESERVED.map((slot) => (
-            <div
-              key={slot.id}
-              id={slot.id}
-              className="scroll-mt-24 rounded-2xl border border-dashed border-border-strong bg-surface/30 p-6"
-            >
-              <SectionLabel>{slot.label}</SectionLabel>
-              <p className="mt-4 text-sm text-muted-foreground">{slot.note}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <Contact />
     </div>
   );
 }
