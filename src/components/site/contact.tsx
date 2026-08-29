@@ -1,8 +1,5 @@
 import * as React from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { ArrowUpRight, Check, Copy, Github, Linkedin, Loader2, Mail, MapPin } from "lucide-react";
-
-import { submitContactMessage } from "@/lib/contact.functions";
 
 import { Section } from "@/components/site/section";
 import { Button } from "@/components/ui/button";
@@ -60,7 +57,6 @@ function SocialLink({
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
-  const submit = useServerFn(submitContactMessage);
   const [values, setValues] = React.useState<Record<Field, string>>({
     name: "",
     email: "",
@@ -94,13 +90,19 @@ export function Contact() {
 
     setStatus("submitting");
     try {
-      await submit({
-        data: {
+      const response = await fetch("https://formspree.io/f/mjyvkalp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
           name: values.name.trim(),
           email: values.email.trim(),
           message: values.message.trim(),
-        },
+        }),
       });
+      if (!response.ok) throw new Error("Formspree submission failed");
       setValues({ name: "", email: "", message: "" });
       setTouched({});
       setErrors({});
