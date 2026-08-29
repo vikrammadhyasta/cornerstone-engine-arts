@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Academic Foundation section** — added a new compact education section with two premium dark elevated cards using the existing visual system. Placed between Engineering Identity and Experience on the homepage. Used only the education data provided; no extra achievements, coursework, rankings, or fake information added.
+**Homepage section reorder** — moved the existing Academic Foundation section to appear immediately after the Credentials section. No component, content, styling, or data changes were made to Academic Foundation, Credentials, or any other section.
 
 ---
 
