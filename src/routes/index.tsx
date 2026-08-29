@@ -44,11 +44,11 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
-      <AcademicFoundation />
       <ExperienceShowcase />
       <EngineeringControlPlane />
       <ProjectsShowcase />
       <CredentialsRegistry />
+      <AcademicFoundation />
 
 
 

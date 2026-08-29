@@ -6,17 +6,16 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Academic Foundation section** — added a new compact education section with two premium dark elevated cards using the existing visual system. Placed between Engineering Identity and Experience on the homepage. Used only the education data provided; no extra achievements, coursework, rankings, or fake information added.
+**Homepage section reorder** — moved the existing Academic Foundation section to appear immediately after the Credentials section. No component, content, styling, or data changes were made to Academic Foundation, Credentials, or any other section.
 
 ---
 
 ## Feature Status
 
-- **Academic Foundation component:** COMPLETED — `src/components/site/academic-foundation.tsx` created with typed `EDUCATION` data.
-- **Homepage integration:** COMPLETED — `<AcademicFoundation />` rendered after `EngineeringIdentity` and before `ExperienceShowcase` in `src/routes/index.tsx`.
-- **Card design:** COMPLETED — two side-by-side cards on desktop, stacked on mobile, using `PanelCard` with existing hover-lift + subtle ambient glow overlay.
-- **Data accuracy:** COMPLETED — exact degree, specialization, CGPA, institution, university, and duration values used as provided.
-- **No existing sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
+- **Section reorder:** COMPLETED — `<AcademicFoundation />` now renders immediately after `<CredentialsRegistry />` in `src/routes/index.tsx`.
+- **Academic Foundation preserved:** component, heading, content, typography, cards, spacing, animations, colors, and responsive behavior unchanged.
+- **No other sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
+- **Anchor behavior preserved:** `#academic-foundation` id and scroll anchor remain intact.
 
 ---
 
@@ -76,23 +75,23 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, Coursera Azure Cloud Services, Coursera AWS AI/ML Solutions, Anthropic AI Fluency, and Forage · Tata GenAI Powered Data Analytics Job Simulation credentials using real uploaded certificates and verification URLs where provided.
 - **Credentials filter cleanup:** Simplified filters to All, Cloud, and AI; updated section description.
 - **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
+- **Academic Foundation reorder:** Moved the section to render immediately after Credentials on the homepage.
 
 ---
 
 ## Files Changed
 
-- `src/components/site/academic-foundation.tsx` — new Academic Foundation section component.
-- `src/routes/index.tsx` — imported and rendered `<AcademicFoundation />` between Engineering Identity and Experience.
+- `src/routes/index.tsx` — reordered homepage sections so `<AcademicFoundation />` renders immediately after `<CredentialsRegistry />`.
 - `SESSION.md` — updated current state.
 
 ---
 
 ## Validation Completed
 
-- Repository inspection: yes (read `src/styles.css`, `src/routes/index.tsx`, `src/components/site/section.tsx`, `src/components/site/panel-card.tsx`).
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Playwright visual QA: desktop and mobile screenshots confirm two-card layout, correct data, stacked mobile view, no horizontal scroll.
+- Playwright DOM-order check: section ids appear as `hero → identity → experience → system → projects → credentials → academic-foundation → engineering → contact`; Academic Foundation immediately follows Credentials.
+- Playwright visual QA: desktop and mobile screenshots confirm Academic Foundation still renders correctly after the move.
 
 ---
 
@@ -130,7 +129,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Academic Foundation section placement and design.
+Await user review of the reordered homepage layout.
 
 ---
 
