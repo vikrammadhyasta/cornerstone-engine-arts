@@ -129,24 +129,24 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Forage · Tata GenAI Powered Data Analytics Job Simulation credential addition; if approved, commit the change.
+Await user review of the Forage · Tata GenAI Powered Data Analytics Job Simulation credential addition.
 
 ---
 
 ## GIT STATE
 
-- **Branch:** `main`
-- **Working tree:** modified by this session.
-- **Files changed:**
+- **Branch:** `edit/edt-4d1bbaf4-6728-4da7-978f-8c99c51e59a1`
+- **Working tree:** clean (changes auto-committed by the platform).
+- **Files changed this session:**
   - `A src/assets/certificates/forage-genai-data-analytics.pdf.asset.json`
   - `A src/assets/certificates/forage-genai-data-analytics.png.asset.json`
   - `M src/lib/credentials.ts`
   - `M SESSION.md`
 
 - **Last commits:**
-  - `c40648b` docs: add Claude project continuity system
-  - `e0f295b` Add project README
-  - `36a0807` Refined hero and nav polish
-  - `f6740b5` Changes
-  - `fe5f895` Work in progress
-  - `bc49716` Refined Hero with new copy
+  - `1367758` Changes (SESSION.md update)
+  - `81706d2` Changes (credential record addition)
+  - `71c3b84` Changes
+  - `3bdc90d` Changes
+  - `bc04ee7` Changes
+  - `6413f90` Changes
