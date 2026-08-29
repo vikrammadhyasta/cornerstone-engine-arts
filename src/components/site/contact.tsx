@@ -1,5 +1,8 @@
 import * as React from "react";
-import { ArrowUpRight, Check, Copy, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Loader2, Mail, MapPin } from "lucide-react";
+
+import { submitContactMessage } from "@/lib/contact.functions";
 
 import { Section } from "@/components/site/section";
 import { Button } from "@/components/ui/button";
@@ -8,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const EMAIL = "vikrammadyasta@gmail.com";
-const LINKEDIN = "https://linkedin.com/in/vikram-madhyastha";
+const LINKEDIN = "https://www.linkedin.com/in/vikram-madhyasta";
 const GITHUB = "https://github.com/vikrammadhyasta";
 
 const OPPORTUNITIES = ["Cloud Engineering", "DevOps", "Platform Engineering", "SRE"];
@@ -54,7 +57,10 @@ function SocialLink({
   );
 }
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export function Contact() {
+  const submit = useServerFn(submitContactMessage);
   const [values, setValues] = React.useState<Record<Field, string>>({
     name: "",
     email: "",
@@ -62,8 +68,9 @@ export function Contact() {
   });
   const [errors, setErrors] = React.useState<Errors>({});
   const [touched, setTouched] = React.useState<Partial<Record<Field, boolean>>>({});
-  const [initialized, setInitialized] = React.useState(false);
+  const [status, setStatus] = React.useState<Status>("idle");
   const [copied, setCopied] = React.useState(false);
+  const initialized = status === "success";
 
   const setField = (field: Field) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const next = { ...values, [field]: event.target.value };
@@ -76,19 +83,31 @@ export function Contact() {
     setErrors(validate(values));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (status === "submitting") return;
+
     const nextErrors = validate(values);
     setErrors(nextErrors);
     setTouched({ name: true, email: true, message: true });
     if (Object.keys(nextErrors).length > 0) return;
 
-    const subject = encodeURIComponent(`Portfolio Contact — ${values.name.trim()}`);
-    const body = encodeURIComponent(
-      `Name:\n${values.name.trim()}\n\nEmail:\n${values.email.trim()}\n\nMessage:\n${values.message.trim()}\n`,
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setInitialized(true);
+    setStatus("submitting");
+    try {
+      await submit({
+        data: {
+          name: values.name.trim(),
+          email: values.email.trim(),
+          message: values.message.trim(),
+        },
+      });
+      setValues({ name: "", email: "", message: "" });
+      setTouched({});
+      setErrors({});
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   const copyEmail = async () => {
@@ -251,30 +270,59 @@ export function Contact() {
                 aria-live="polite"
                 className={cn(
                   "flex items-center gap-2 font-mono text-[0.6875rem] tracking-[0.14em] uppercase transition-colors duration-300 motion-reduce:transition-none",
-                  initialized ? "text-success" : "text-muted-foreground",
+                  status === "success" && "text-success",
+                  status === "error" && "text-destructive",
+                  (status === "idle" || status === "submitting") && "text-muted-foreground",
                 )}
               >
                 <span
                   className={cn(
                     "h-1.5 w-1.5 rounded-full",
-                    initialized ? "bg-success" : "bg-border-strong",
+                    status === "success"
+                      ? "bg-success"
+                      : status === "error"
+                        ? "bg-destructive"
+                        : "bg-border-strong",
                   )}
                   aria-hidden
                 />
-                {initialized ? "Connection initialized" : "Ready"}
+                {status === "success"
+                  ? "Connection initialized"
+                  : status === "error"
+                    ? "Transmission failed"
+                    : status === "submitting"
+                      ? "Sending"
+                      : "Ready"}
               </p>
-              <Button type="submit" size="lg" className="h-12 w-full px-6 font-mono text-xs tracking-[0.16em] uppercase sm:w-auto">
-                Initialize Connection
-                <ArrowUpRight />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={status === "submitting"}
+                aria-busy={status === "submitting"}
+                className="h-12 w-full px-6 font-mono text-xs tracking-[0.16em] uppercase sm:w-auto"
+              >
+                {status === "submitting" ? "Sending" : "Initialize Connection"}
+                {status === "submitting" ? (
+                  <Loader2 className="animate-spin motion-reduce:animate-none" />
+                ) : (
+                  <ArrowUpRight />
+                )}
               </Button>
             </div>
 
-            {initialized && (
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                Your email client was opened with the message pre-filled — send it from there to
-                reach me.
-              </p>
-            )}
+            <div aria-live="polite">
+              {status === "success" && (
+                <p className="text-xs leading-relaxed text-success">
+                  ✓ Connection initialized successfully. I&apos;ll get back to you soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs leading-relaxed text-destructive">
+                  ⚠ Something went wrong while sending your message. Please try again, or email me
+                  directly at {EMAIL}.
+                </p>
+              )}
+            </div>
           </form>
         </div>
       </div>
