@@ -24,34 +24,34 @@ const PILLARS: {
     stage: "Automation",
     title: "Infrastructure as Code",
     icon: FileCode2,
-    body: "Environments provisioned declaratively — reproducible and reviewable.",
+    body: "Infrastructure defined once and reproduced consistently.",
     meta: "Terraform · Ansible",
   },
   {
     id: "delivery-automation",
     index: "03",
     stage: "Delivery",
-    title: "Delivery & Automation",
+    title: "CI/CD & GitOps",
     icon: GitBranch,
-    body: "Builds and releases driven from Git, not from a console.",
-    meta: "Docker · GitHub Actions · ArgoCD",
+    body: "Delivery workflows that move changes from code to deployment.",
+    meta: "Jenkins · GitHub Actions · Docker · Argo CD",
   },
   {
     id: "platform-reliability",
     index: "04",
     stage: "Reliability",
-    title: "Platform & Reliability",
+    title: "Containers & Kubernetes",
     icon: Boxes,
-    body: "Workloads run with observability and failure paths designed in.",
-    meta: "Kubernetes · Observability",
+    body: "Containerized workloads built to remain observable and reliable.",
+    meta: "Kubernetes · k3s · Docker · Observability",
   },
 ];
 
-const PHILOSOPHY = [
-  "Reproducible infrastructure",
+const PRINCIPLES = [
+  "Reproducibility over manual configuration",
   "Automation over repetition",
-  "Observable systems",
   "Design for failure",
+  "Observability before assumptions",
   "Maintainability over cleverness",
 ];
 
@@ -62,18 +62,15 @@ export function EngineeringIdentity() {
         {/* Narrative — the hero of this section */}
         <header className="animate-reveal flex max-w-3xl flex-col gap-5">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[0.625rem] tracking-[0.18em] text-muted-foreground uppercase backdrop-blur-sm sm:text-[0.6875rem]">
-            <span className="text-primary">01</span>
-            <span className="h-3 w-px bg-border-strong" />
             Engineering identity
           </span>
 
           <h2 className="text-gradient-heading font-display text-3xl leading-[1.1] font-semibold text-balance sm:text-4xl lg:text-5xl">
-            Building reliable systems, not just deploying applications.
+            Engineering cloud systems from infrastructure to reliable delivery.
           </h2>
 
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            My work sits below the application layer: the infrastructure it runs on, the code that
-            provisions it, the pipelines that deliver it and the signals that prove it is healthy.
+            I design, automate, and operate cloud-native systems with a focus on reproducible infrastructure, automated delivery, containerization, and operational reliability.
           </p>
         </header>
 
@@ -128,7 +125,7 @@ export function EngineeringIdentity() {
               Engineering principles
             </h3>
             <ul className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-6">
-              {PHILOSOPHY.map((item) => (
+              {PRINCIPLES.map((item) => (
                 <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/90">
                   <span aria-hidden className="h-1 w-1 shrink-0 rounded-full bg-primary" />
                   {item}
@@ -142,8 +139,7 @@ export function EngineeringIdentity() {
               AI-assisted workflow
             </h3>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              AI is part of how I work, not what I build — research, scaffolding and refactors move
-              faster while architecture and review stay mine.
+              I use AI to accelerate research, implementation, debugging, and iteration — while architecture, technical decisions, validation, and final review remain engineering responsibilities.
             </p>
             <p className="mt-3 font-mono text-[0.625rem] tracking-[0.06em] text-muted-foreground/70">
               Claude Code · Codex · MCP · APIs · OpenRouter
