@@ -8,6 +8,7 @@ import { ExperienceShowcase } from "@/components/site/experience-showcase";
 import { EngineeringControlPlane } from "@/components/site/control-plane";
 import { CredentialsRegistry } from "@/components/site/credentials";
 import { Contact } from "@/components/site/contact";
+import { SiteFooter } from "@/components/site/site-footer";
 
 
 
@@ -45,6 +46,7 @@ function Index() {
       <CredentialsRegistry />
       <AcademicFoundation />
       <Contact />
+      <SiteFooter />
     </div>
   );
 }
