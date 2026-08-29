@@ -199,39 +199,7 @@ export const CREDENTIALS: Credential[] = [
     document: forageGenaiDataAnalyticsPdf.url,
     status: "completed",
   },
-  {
-    id: "placeholder-ai",
-    title: "Placeholder credential — AI track",
-    issuer: "Placeholder issuer",
-    type: "Learning Program",
-    category: "ai",
-    date: "Date pending",
-    year: 2,
-    description: "Reserved registry slot for an AI-assisted engineering credential.",
-    status: "in-progress",
-  },
-  {
-    id: "placeholder-software",
-    title: "Placeholder credential — Software track",
-    issuer: "Placeholder issuer",
-    type: "Job Simulation",
-    category: "software",
-    date: "Date pending",
-    year: 2,
-    description: "Reserved registry slot for a software engineering credential.",
-    status: "completed",
-  },
-  {
-    id: "placeholder-other",
-    title: "Placeholder credential — Other",
-    issuer: "Placeholder issuer",
-    type: "Other",
-    category: "other",
-    date: "Date pending",
-    year: 1,
-    description: "Reserved registry slot for any additional professional learning record.",
-    status: "completed",
-  },
+];
 ];
 
 export function getFeaturedCredential(list: Credential[] = CREDENTIALS): Credential | undefined {
