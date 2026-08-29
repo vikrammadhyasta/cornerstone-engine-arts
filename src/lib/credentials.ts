@@ -11,6 +11,8 @@ import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-p
 import awsCloudPractitionerEssentialsPng from "@/assets/certificates/aws-cloud-practitioner-essentials.png.asset.json";
 import awsCloudFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud-foundations-badge.pdf.asset.json";
 import awsCloudFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-foundations-badge.png.asset.json";
+import awsCloudOperationsBadgePdf from "@/assets/certificates/aws-academy-cloud-operations-badge.pdf.asset.json";
+import awsCloudOperationsBadgePng from "@/assets/certificates/aws-academy-cloud-operations-badge.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
@@ -98,6 +100,21 @@ export const CREDENTIALS: Credential[] = [
     document: awsAcademyBadgePdf.url,
     verificationUrl: "https://www.credly.com/go/LvxkKTch",
     status: "verified",
+  },
+  {
+    id: "aws-academy-cloud-operations",
+    title: "AWS Academy Graduate – Cloud Operations – Training Badge",
+    issuer: "AWS Academy",
+    type: "Training Badge",
+    category: "cloud",
+    date: "April 2026",
+    year: 2026,
+    description:
+      "AWS Academy Graduate – Cloud Operations training badge covering AWS cloud operations and foundational operational practices. 40 course hours completed.",
+    image: awsCloudOperationsBadgePng.url,
+    document: awsCloudOperationsBadgePdf.url,
+    verificationUrl: "https://www.credly.com/go/guhRkzqy",
+    status: "completed",
   },
   {
     id: "aws-academy-cloud-foundations",
