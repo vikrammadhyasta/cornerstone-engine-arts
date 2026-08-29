@@ -80,19 +80,31 @@ export function Contact() {
     setErrors(validate(values));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (status === "submitting") return;
+
     const nextErrors = validate(values);
     setErrors(nextErrors);
     setTouched({ name: true, email: true, message: true });
     if (Object.keys(nextErrors).length > 0) return;
 
-    const subject = encodeURIComponent(`Portfolio Contact — ${values.name.trim()}`);
-    const body = encodeURIComponent(
-      `Name:\n${values.name.trim()}\n\nEmail:\n${values.email.trim()}\n\nMessage:\n${values.message.trim()}\n`,
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setInitialized(true);
+    setStatus("submitting");
+    try {
+      await submit({
+        data: {
+          name: values.name.trim(),
+          email: values.email.trim(),
+          message: values.message.trim(),
+        },
+      });
+      setValues({ name: "", email: "", message: "" });
+      setTouched({});
+      setErrors({});
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   const copyEmail = async () => {
