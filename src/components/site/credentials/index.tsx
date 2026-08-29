@@ -44,7 +44,7 @@ export function CredentialsRegistry() {
       className="scroll-mt-24"
       label="CREDENTIALS"
       heading="Credentials that support the engineering."
-      description="A record of technical training, professional learning, and hands-on programs across cloud, DevOps, AI, and software engineering."
+      description="A record of cloud, AI, and software engineering credentials earned through structured training and hands-on learning."
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase">

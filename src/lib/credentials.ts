@@ -61,10 +61,7 @@ export interface Credential {
 export const CREDENTIAL_CATEGORIES: { id: "all" | CredentialCategory; label: string }[] = [
   { id: "all", label: "All" },
   { id: "cloud", label: "Cloud" },
-  { id: "devops", label: "DevOps" },
   { id: "ai", label: "AI" },
-  { id: "software", label: "Software" },
-  { id: "other", label: "Other" },
 ];
 
 export const CREDENTIALS: Credential[] = [
