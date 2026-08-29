@@ -6,15 +6,15 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Add Azure credential to Credential Registry** — added one new credential record (`Introduction to Microsoft Azure Cloud Services`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
+**Add AWS AI/ML credential to Credential Registry** — added one new credential record (`Fundamentals of AWS AI and ML Solutions`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
 
 ---
 
 ## Feature Status
 
-- **Azure credential addition:** COMPLETED and browser-QA verified.
-- Added `coursera-azure.pdf.asset.json` and `coursera-azure.png.asset.json` Lovable CDN asset pointers.
-- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Microsoft · Coursera`), category (`Cloud`), type (`Course Certificate`), completion date (`October 2025`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/ULFLM8H71L2A`).
+- **AWS AI/ML credential addition:** COMPLETED and browser-QA verified.
+- Added `coursera-aws-ai-ml.pdf.asset.json` and `coursera-aws-ai-ml.png.asset.json` Lovable CDN asset pointers.
+- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Whizlabs · Coursera`), category (`AI`), type (`Course Certificate`), completion date (`March 2026`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/DDV1GHRJQMHA`).
 - Existing credentials, registry layout, card design, modal, and certificate viewer remain unchanged.
 
 ---
@@ -72,15 +72,15 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Created `SESSION.md`** (this file).
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
 - **Profile photo replacement:** swapped placeholder portrait for uploaded photo via Lovable CDN asset pointer; updated import in `CloudOpsCenter`.
-- **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, and Coursera Azure Cloud Services credentials using real uploaded certificates and verification URLs.
+- **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, Coursera Azure Cloud Services, and Coursera AWS AI/ML Solutions credentials using real uploaded certificates and verification URLs.
 
 ---
 
 ## Files Changed
 
-- `src/assets/certificates/coursera-azure.pdf.asset.json` — new CDN asset pointer for the uploaded Azure certificate PDF.
-- `src/assets/certificates/coursera-azure.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
-- `src/lib/credentials.ts` — added imports and one new `coursera-azure-cloud-services` credential record.
+- `src/assets/certificates/coursera-aws-ai-ml.pdf.asset.json` — new CDN asset pointer for the uploaded AWS AI/ML certificate PDF.
+- `src/assets/certificates/coursera-aws-ai-ml.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
+- `src/lib/credentials.ts` — added imports and one new `coursera-aws-ai-ml-solutions` credential record.
 - `SESSION.md` — updated current state.
 
 ---
@@ -91,13 +91,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bunx tsc --noEmit`: **PASS**.
 - `bunx eslint src/lib/credentials.ts`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright verified card appears under All and Cloud filters, modal opens once, certificate renders at original aspect ratio `2200x1700`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/ULFLM8H71L2A` with `target="_blank"`).
+- Browser QA: **PASS** (Playwright verified card appears under All and AI filters, modal opens once, certificate renders at original aspect ratio `1650x1275`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/DDV1GHRJQMHA` with `target="_blank"`).
 
 ---
 
 ## Known Issues
 
-### Azure credential addition blockers (resolved)
+### AWS AI/ML credential addition blockers (resolved)
 
 - **New certificate needed asset upload and data record** — completed; PDF and PNG pointers created, record added, and preview verified.
 
@@ -129,7 +129,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Azure credential addition; if approved, commit the change.
+Await user review of the AWS AI/ML credential addition; if approved, commit the change.
 
 ---
 
@@ -138,8 +138,8 @@ Await user review of the Azure credential addition; if approved, commit the chan
 - **Branch:** `main`
 - **Working tree:** modified by this session.
 - **Files changed:**
-  - `A src/assets/certificates/coursera-azure.pdf.asset.json`
-  - `A src/assets/certificates/coursera-azure.png.asset.json`
+  - `A src/assets/certificates/coursera-aws-ai-ml.pdf.asset.json`
+  - `A src/assets/certificates/coursera-aws-ai-ml.png.asset.json`
   - `M src/lib/credentials.ts`
   - `M SESSION.md`
 
