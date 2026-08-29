@@ -5,6 +5,8 @@
  * No UI change should ever be required.
  */
 
+import anthropicAiFluencyPdf from "@/assets/certificates/anthropic-ai-fluency.pdf.asset.json";
+import anthropicAiFluencyPng from "@/assets/certificates/anthropic-ai-fluency.png.asset.json";
 import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
 import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
 import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-practitioner-essentials.pdf.asset.json";
