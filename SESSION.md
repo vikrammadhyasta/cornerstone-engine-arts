@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (opportunities, mailto + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, mailto fallback to vikrammadyasta@gmail.com, and READY → CONNECTION INITIALIZED status. No other section changed. `bunx tsc --noEmit` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
+**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (intro paragraph, email + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, Formspree submission to `https://formspree.io/f/mjyvkalp`, and READY → CONNECTION INITIALIZED status. The "Open to opportunities" sub-list was removed and left-card spacing rebalanced. No other section changed. `bunx tsc --noEmit` and `bun run build` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
 
 ---
 
@@ -82,6 +82,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 ## Files Changed
 
 - `src/routes/index.tsx` — reordered homepage sections so `<AcademicFoundation />` renders immediately after `<CredentialsRegistry />`.
+- `src/components/site/contact.tsx` — removed "Open to opportunities" block from the left contact card; rebalanced internal spacing (`gap-8`, `pt-8`); Formspree submission preserved.
 - `SESSION.md` — updated current state.
 
 ---
@@ -92,6 +93,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bun run build`: **PASS** (production build succeeds).
 - Playwright DOM-order check: section ids appear as `hero → identity → experience → system → projects → credentials → academic-foundation → engineering → contact`; Academic Foundation immediately follows Credentials.
 - Playwright visual QA: desktop and mobile screenshots confirm Academic Foundation still renders correctly after the move.
+- Contact section visual QA: desktop/mobile screenshots confirm the left card no longer renders the "Open to opportunities" block and retains intro paragraph, email, social links, and location.
 
 ---
 
@@ -129,7 +131,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the reordered homepage layout.
+Await user review of the updated contact section.
 
 ---
 

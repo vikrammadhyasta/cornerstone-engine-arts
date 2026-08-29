@@ -11,8 +11,6 @@ const EMAIL = "vikrammadyasta@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/vikram-madhyasta";
 const GITHUB = "https://github.com/vikrammadhyasta";
 
-const OPPORTUNITIES = ["Cloud Engineering", "DevOps", "Platform Engineering", "SRE"];
-
 type Field = "name" | "email" | "message";
 type Errors = Partial<Record<Field, string>>;
 
@@ -133,29 +131,12 @@ export function Contact() {
     >
       <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
         {/* Left — status + channels */}
-        <div className="flex flex-col gap-6 rounded-2xl border border-border bg-surface/50 p-6 backdrop-blur-sm md:p-8">
+        <div className="flex flex-col gap-8 rounded-2xl border border-border bg-surface/50 p-6 backdrop-blur-sm md:p-8">
           <p className="text-sm leading-relaxed text-muted-foreground">
             Ideas, challenges, and opportunities often begin with a conversation. If there&apos;s something worth building, solving, or improving, let&apos;s talk.
           </p>
 
-          <div>
-            <h3 className="font-mono text-[0.6875rem] tracking-[0.18em] text-muted-foreground uppercase">
-              Open to opportunities
-            </h3>
-            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-              {OPPORTUNITIES.map((item) => (
-                <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
-                  <span className="relative flex h-1.5 w-1.5 shrink-0">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-60 animate-node-pulse motion-reduce:animate-none" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="hairline-top pt-6">
+          <div className="hairline-top pt-8">
             <div className="flex flex-wrap items-center gap-2">
               <a
                 href={`mailto:${EMAIL}`}
