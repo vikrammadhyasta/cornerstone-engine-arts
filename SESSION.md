@@ -75,6 +75,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, Coursera Azure Cloud Services, Coursera AWS AI/ML Solutions, Anthropic AI Fluency, and Forage · Tata GenAI Powered Data Analytics Job Simulation credentials using real uploaded certificates and verification URLs where provided.
 - **Credentials filter cleanup:** Simplified filters to All, Cloud, and AI; updated section description.
 - **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
+- **Academic Foundation reorder:** Moved the section to render immediately after Credentials on the homepage.
 
 ---
 
