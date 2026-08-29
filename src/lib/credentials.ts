@@ -134,6 +134,21 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
+    id: "aws-academy-cloud-security-foundations",
+    title: "AWS Academy Graduate – Cloud Security Foundations – Training Badge",
+    issuer: "AWS Academy",
+    type: "Training Badge",
+    category: "cloud",
+    date: "May 2026",
+    year: 2026,
+    description:
+      "AWS Academy Graduate – Cloud Security Foundations training badge covering foundational cloud security concepts. 20 course hours completed.",
+    image: awsCloudSecurityFoundationsBadgePng.url,
+    document: awsCloudSecurityFoundationsBadgePdf.url,
+    verificationUrl: "https://www.credly.com/go/nq5DrYHU",
+    status: "completed",
+  },
+  {
     id: "aws-cloud-practitioner-essentials",
     title: "AWS Cloud Practitioner Essentials",
     issuer: "AWS Training and Certification",
