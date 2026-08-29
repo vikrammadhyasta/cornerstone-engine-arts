@@ -72,7 +72,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Created `SESSION.md`** (this file).
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
 - **Profile photo replacement:** swapped placeholder portrait for uploaded photo via Lovable CDN asset pointer; updated import in `CloudOpsCenter`.
-- **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, and Coursera Azure Cloud Services credentials using real uploaded certificates and verification URLs.
+- **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, Coursera Azure Cloud Services, and Coursera AWS AI/ML Solutions credentials using real uploaded certificates and verification URLs.
 
 ---
 
