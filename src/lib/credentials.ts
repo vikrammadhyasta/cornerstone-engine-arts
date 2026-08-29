@@ -15,6 +15,8 @@ import awsCloudOperationsBadgePdf from "@/assets/certificates/aws-academy-cloud-
 import awsCloudOperationsBadgePng from "@/assets/certificates/aws-academy-cloud-operations-badge.png.asset.json";
 import awsCloudSecurityFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.pdf.asset.json";
 import awsCloudSecurityFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.png.asset.json";
+import courseraAwsAiMlPdf from "@/assets/certificates/coursera-aws-ai-ml.pdf.asset.json";
+import courseraAwsAiMlPng from "@/assets/certificates/coursera-aws-ai-ml.png.asset.json";
 import courseraAzurePdf from "@/assets/certificates/coursera-azure.pdf.asset.json";
 import courseraAzurePng from "@/assets/certificates/coursera-azure.png.asset.json";
 
