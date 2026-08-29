@@ -28,6 +28,7 @@ export type CredentialType =
   | "Professional Certification"
   | "Training Badge"
   | "Course Certificate"
+  | "Certificate of Completion"
   | "Learning Program"
   | "Job Simulation"
   | "Other";
