@@ -46,6 +46,7 @@ function Index() {
       <CredentialsRegistry />
       <AcademicFoundation />
       <Contact />
+      <SiteFooter />
     </div>
   );
 }
