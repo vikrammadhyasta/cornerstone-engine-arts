@@ -76,13 +76,14 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Credentials filter cleanup:** Simplified filters to All, Cloud, and AI; updated section description.
 - **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
 - **Academic Foundation reorder:** Moved the section to render immediately after Credentials on the homepage.
+- **Footer update:** Added minimal premium footer with exact requested copyright/tagline copy, no extra links, and responsive dark styling.
 
 ---
 
 ## Files Changed
 
-- `src/routes/index.tsx` — reordered homepage sections so `<AcademicFoundation />` renders immediately after `<CredentialsRegistry />`.
-- `src/components/site/contact.tsx` — removed "Open to opportunities" block from the left contact card; rebalanced internal spacing (`gap-8`, `pt-8`); Formspree submission preserved.
+- `src/components/site/site-footer.tsx` — new minimal footer component with exact requested copy.
+- `src/routes/index.tsx` — renders `<SiteFooter />` after `<Contact />` on the homepage.
 - `SESSION.md` — updated current state.
 
 ---
@@ -91,9 +92,8 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Playwright DOM-order check: section ids appear as `hero → identity → experience → system → projects → credentials → academic-foundation → engineering → contact`; Academic Foundation immediately follows Credentials.
-- Playwright visual QA: desktop and mobile screenshots confirm Academic Foundation still renders correctly after the move.
-- Contact section visual QA: desktop/mobile screenshots confirm the left card no longer renders the "Open to opportunities" block and retains intro paragraph, email, social links, and location.
+- Playwright desktop footer visual QA: footer renders centered, dark background, primary copyright line and smaller muted tagline, no extra links.
+- Playwright mobile footer visual QA: text wraps cleanly and remains centered on a 390×844 viewport.
 
 ---
 
