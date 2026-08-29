@@ -91,7 +91,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bunx tsc --noEmit`: **PASS**.
 - `bunx eslint src/lib/credentials.ts`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright verified card appears under All and Cloud filters, modal opens once, certificate renders at original aspect ratio `2200x1700`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/ULFLM8H71L2A` with `target="_blank"`).
+- Browser QA: **PASS** (Playwright verified card appears under All and AI filters, modal opens once, certificate renders at original aspect ratio `1650x1275`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/DDV1GHRJQMHA` with `target="_blank"`).
 
 ---
 
