@@ -5,17 +5,15 @@ import {
   CREDENTIALS,
   CREDENTIAL_CATEGORIES,
   filterByCategory,
-  getFeaturedCredential,
   sortByDateDesc,
   type Credential,
 } from "@/lib/credentials";
 import { CredentialCard } from "./credential-card";
 import { CredentialDialog } from "./credential-dialog";
 import { CredentialFilters, type FilterValue } from "./credential-filters";
-import { FeaturedCredential } from "./featured-credential";
 
 /**
- * Credential Registry — featured credential + filterable compact registry.
+ * Credential Registry — filterable compact registry.
  * All content comes from src/lib/credentials.ts.
  */
 export function CredentialsRegistry() {
@@ -23,20 +21,16 @@ export function CredentialsRegistry() {
   const [active, setActive] = React.useState<Credential | null>(null);
   const [open, setOpen] = React.useState(false);
 
-  const featured = React.useMemo(() => getFeaturedCredential(CREDENTIALS), []);
-  const rest = React.useMemo(
-    () => sortByDateDesc(CREDENTIALS.filter((c) => c.id !== featured?.id)),
-    [featured],
-  );
-  const visible = React.useMemo(() => filterByCategory(rest, filter), [rest, filter]);
+  const all = React.useMemo(() => sortByDateDesc(CREDENTIALS), []);
+  const visible = React.useMemo(() => filterByCategory(all, filter), [all, filter]);
 
   const counts = React.useMemo(() => {
     const map: Record<string, number> = {};
     for (const { id } of CREDENTIAL_CATEGORIES) {
-      map[id] = filterByCategory(rest, id).length;
+      map[id] = filterByCategory(all, id).length;
     }
     return map;
-  }, [rest]);
+  }, [all]);
 
   const openCredential = React.useCallback((credential: Credential) => {
     setActive(credential);
@@ -52,9 +46,7 @@ export function CredentialsRegistry() {
       heading="Credentials that support the engineering."
       description="A record of technical training, professional learning, and hands-on programs across cloud, DevOps, AI, and software engineering."
     >
-      {featured && <FeaturedCredential credential={featured} onOpen={openCredential} />}
-
-      <div className="mt-10 flex flex-col gap-4 border-t border-border pt-8 md:mt-12 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase">
           Credential registry · {visible.length} record{visible.length === 1 ? "" : "s"}
         </p>
