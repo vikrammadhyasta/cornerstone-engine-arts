@@ -15,6 +15,8 @@ import awsCloudOperationsBadgePdf from "@/assets/certificates/aws-academy-cloud-
 import awsCloudOperationsBadgePng from "@/assets/certificates/aws-academy-cloud-operations-badge.png.asset.json";
 import awsCloudSecurityFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.pdf.asset.json";
 import awsCloudSecurityFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.png.asset.json";
+import courseraAzurePdf from "@/assets/certificates/coursera-azure.pdf.asset.json";
+import courseraAzurePng from "@/assets/certificates/coursera-azure.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
@@ -160,6 +162,21 @@ export const CREDENTIALS: Credential[] = [
       "Completed AWS Cloud Practitioner Essentials, covering foundational AWS cloud concepts, core services, security, architecture, pricing, and cloud fundamentals.",
     image: awsCloudPractitionerEssentialsPng.url,
     document: awsCloudPractitionerEssentialsPdf.url,
+    status: "completed",
+  },
+  {
+    id: "coursera-azure-cloud-services",
+    title: "Introduction to Microsoft Azure Cloud Services",
+    issuer: "Microsoft · Coursera",
+    type: "Course Certificate",
+    category: "cloud",
+    date: "October 2025",
+    year: 2025,
+    description:
+      "An online course authorized by Microsoft and delivered through Coursera covering foundational Microsoft Azure cloud services.",
+    image: courseraAzurePng.url,
+    document: courseraAzurePdf.url,
+    verificationUrl: "https://coursera.org/verify/ULFLM8H71L2A",
     status: "completed",
   },
   {
