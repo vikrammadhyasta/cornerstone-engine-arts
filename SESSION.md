@@ -12,11 +12,10 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Feature Status
 
-- **Academic Foundation component:** COMPLETED — `src/components/site/academic-foundation.tsx` created with typed `EDUCATION` data.
-- **Homepage integration:** COMPLETED — `<AcademicFoundation />` rendered after `EngineeringIdentity` and before `ExperienceShowcase` in `src/routes/index.tsx`.
-- **Card design:** COMPLETED — two side-by-side cards on desktop, stacked on mobile, using `PanelCard` with existing hover-lift + subtle ambient glow overlay.
-- **Data accuracy:** COMPLETED — exact degree, specialization, CGPA, institution, university, and duration values used as provided.
-- **No existing sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
+- **Section reorder:** COMPLETED — `<AcademicFoundation />` now renders immediately after `<CredentialsRegistry />` in `src/routes/index.tsx`.
+- **Academic Foundation preserved:** component, heading, content, typography, cards, spacing, animations, colors, and responsive behavior unchanged.
+- **No other sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
+- **Anchor behavior preserved:** `#academic-foundation` id and scroll anchor remain intact.
 
 ---
 
