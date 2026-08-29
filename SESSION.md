@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (opportunities, mailto + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, mailto fallback to vikrammadyasta@gmail.com, and READY → CONNECTION INITIALIZED status. No other section changed. `bunx tsc --noEmit` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
+**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (intro paragraph, email + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, Formspree submission to `https://formspree.io/f/mjyvkalp`, and READY → CONNECTION INITIALIZED status. The "Open to opportunities" sub-list was removed and left-card spacing rebalanced. No other section changed. `bunx tsc --noEmit` and `bun run build` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
 
 ---
 
