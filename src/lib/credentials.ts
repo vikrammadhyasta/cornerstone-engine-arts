@@ -7,6 +7,8 @@
 
 import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
 import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
+import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-practitioner-essentials.pdf.asset.json";
+import awsCloudPractitionerEssentialsPng from "@/assets/certificates/aws-cloud-practitioner-essentials.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
