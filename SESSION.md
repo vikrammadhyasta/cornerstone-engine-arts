@@ -88,10 +88,10 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Validation Completed
 
-- Repository inspection: yes (read `src/styles.css`, `src/routes/index.tsx`, `src/components/site/section.tsx`, `src/components/site/panel-card.tsx`).
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Playwright visual QA: desktop and mobile screenshots confirm two-card layout, correct data, stacked mobile view, no horizontal scroll.
+- Playwright DOM-order check: section ids appear as `hero → identity → experience → system → projects → credentials → academic-foundation → engineering → contact`; Academic Foundation immediately follows Credentials.
+- Playwright visual QA: desktop and mobile screenshots confirm Academic Foundation still renders correctly after the move.
 
 ---
 
