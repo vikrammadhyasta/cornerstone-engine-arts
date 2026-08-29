@@ -165,6 +165,21 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
+    id: "coursera-azure-cloud-services",
+    title: "Introduction to Microsoft Azure Cloud Services",
+    issuer: "Microsoft · Coursera",
+    type: "Course Certificate",
+    category: "cloud",
+    date: "October 2025",
+    year: 2025,
+    description:
+      "An online course authorized by Microsoft and delivered through Coursera covering foundational Microsoft Azure cloud services.",
+    image: courseraAzurePng.url,
+    document: courseraAzurePdf.url,
+    verificationUrl: "https://coursera.org/verify/ULFLM8H71L2A",
+    status: "completed",
+  },
+  {
     id: "placeholder-ai",
     title: "Placeholder credential — AI track",
     issuer: "Placeholder issuer",
