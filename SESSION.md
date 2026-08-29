@@ -78,9 +78,9 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/assets/certificates/coursera-azure.pdf.asset.json` — new CDN asset pointer for the uploaded Azure certificate PDF.
-- `src/assets/certificates/coursera-azure.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
-- `src/lib/credentials.ts` — added imports and one new `coursera-azure-cloud-services` credential record.
+- `src/assets/certificates/coursera-aws-ai-ml.pdf.asset.json` — new CDN asset pointer for the uploaded AWS AI/ML certificate PDF.
+- `src/assets/certificates/coursera-aws-ai-ml.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
+- `src/lib/credentials.ts` — added imports and one new `coursera-aws-ai-ml-solutions` credential record.
 - `SESSION.md` — updated current state.
 
 ---
