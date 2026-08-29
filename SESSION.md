@@ -6,15 +6,15 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Add AWS AI/ML credential to Credential Registry** — added one new credential record (`Fundamentals of AWS AI and ML Solutions`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
+**Add Anthropic AI Fluency credential to Credential Registry** — added one new credential record (`AI Fluency: Framework & Foundations` by Anthropic) to the existing data-driven Credential Registry, using the uploaded Anthropic certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
 
 ---
 
 ## Feature Status
 
-- **AWS AI/ML credential addition:** COMPLETED and browser-QA verified.
-- Added `coursera-aws-ai-ml.pdf.asset.json` and `coursera-aws-ai-ml.png.asset.json` Lovable CDN asset pointers.
-- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Whizlabs · Coursera`), category (`AI`), type (`Course Certificate`), completion date (`March 2026`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/DDV1GHRJQMHA`).
+- **Anthropic AI Fluency credential addition:** COMPLETED and browser-QA verified.
+- Added `anthropic-ai-fluency.pdf.asset.json` and `anthropic-ai-fluency.png.asset.json` Lovable CDN asset pointers.
+- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Anthropic`), category (`AI`), type (`Certificate of Completion`), no displayed completion date (certificate provides none), status (`completed`), description, document/preview URLs, and no verification URL (certificate provides none).
 - Existing credentials, registry layout, card design, modal, and certificate viewer remain unchanged.
 
 ---
