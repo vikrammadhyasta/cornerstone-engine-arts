@@ -46,9 +46,7 @@ export function CredentialsRegistry() {
       heading="Credentials that support the engineering."
       description="A record of technical training, professional learning, and hands-on programs across cloud, DevOps, AI, and software engineering."
     >
-      {featured && <FeaturedCredential credential={featured} onOpen={openCredential} />}
-
-      <div className="mt-10 flex flex-col gap-4 border-t border-border pt-8 md:mt-12 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase">
           Credential registry · {visible.length} record{visible.length === 1 ? "" : "s"}
         </p>
