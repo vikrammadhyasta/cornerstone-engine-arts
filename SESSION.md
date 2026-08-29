@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (intro paragraph, email + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, Formspree submission to `https://formspree.io/f/mjyvkalp`, and READY → CONNECTION INITIALIZED status. The "Open to opportunities" sub-list was removed and left-card spacing rebalanced. No other section changed. `bunx tsc --noEmit` and `bun run build` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
+**Footer update** — added a minimal, premium `SiteFooter` component (`src/components/site/site-footer.tsx`) rendered after `<Contact />` in `src/routes/index.tsx`. Footer contains the exact requested copy: "© 2026 Vikram Madhyasta. All rights reserved." as the primary line and "Designed, built, and continuously improved as an engineering portfolio." as a smaller, muted secondary line. No navigation links or additional text. Preserves the existing dark background, typography, and subtle top-border treatment. Contact section and all other portfolio sections unchanged.
 
 ---
 
