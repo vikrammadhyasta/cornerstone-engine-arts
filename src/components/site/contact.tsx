@@ -263,7 +263,7 @@ export function Contact() {
                 />
                 {initialized ? "Connection initialized" : "Ready"}
               </p>
-              <Button type="submit" size="lg" className="h-12 w-full px-6 sm:w-auto">
+              <Button type="submit" size="lg" className="h-12 w-full px-6 font-mono text-xs tracking-[0.16em] uppercase sm:w-auto">
                 Initialize Connection
                 <ArrowUpRight />
               </Button>
