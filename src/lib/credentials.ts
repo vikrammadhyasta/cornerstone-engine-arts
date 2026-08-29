@@ -5,6 +5,8 @@
  * No UI change should ever be required.
  */
 
+import anthropicAiFluencyPdf from "@/assets/certificates/anthropic-ai-fluency.pdf.asset.json";
+import anthropicAiFluencyPng from "@/assets/certificates/anthropic-ai-fluency.png.asset.json";
 import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
 import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
 import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-practitioner-essentials.pdf.asset.json";
@@ -26,6 +28,7 @@ export type CredentialType =
   | "Professional Certification"
   | "Training Badge"
   | "Course Certificate"
+  | "Certificate of Completion"
   | "Learning Program"
   | "Job Simulation"
   | "Other";
@@ -194,6 +197,19 @@ export const CREDENTIALS: Credential[] = [
     image: courseraAwsAiMlPng.url,
     document: courseraAwsAiMlPdf.url,
     verificationUrl: "https://coursera.org/verify/DDV1GHRJQMHA",
+    status: "completed",
+  },
+  {
+    id: "anthropic-ai-fluency",
+    title: "AI Fluency: Framework & Foundations",
+    issuer: "Anthropic",
+    type: "Certificate of Completion",
+    category: "ai",
+    date: "",
+    year: 2026,
+    description: "Certificate of completion for AI Fluency: Framework & Foundations by Anthropic.",
+    image: anthropicAiFluencyPng.url,
+    document: anthropicAiFluencyPdf.url,
     status: "completed",
   },
   {
