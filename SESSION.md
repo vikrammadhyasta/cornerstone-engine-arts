@@ -97,7 +97,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Known Issues
 
-### Azure credential addition blockers (resolved)
+### AWS AI/ML credential addition blockers (resolved)
 
 - **New certificate needed asset upload and data record** — completed; PDF and PNG pointers created, record added, and preview verified.
 
