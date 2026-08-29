@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Section, SectionLabel } from "@/components/site/section";
 import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { AcademicFoundation } from "@/components/site/academic-foundation";
@@ -8,6 +7,7 @@ import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { ExperienceShowcase } from "@/components/site/experience-showcase";
 import { EngineeringControlPlane } from "@/components/site/control-plane";
 import { CredentialsRegistry } from "@/components/site/credentials";
+import { Contact } from "@/components/site/contact";
 
 
 
@@ -32,11 +32,6 @@ export const Route = createFileRoute("/")({
 });
 
 
-const RESERVED = [
-  { id: "engineering", label: "Engineering", note: "Capabilities, tooling and practices." },
-  { id: "contact", label: "Contact", note: "Direct channels and availability." },
-];
-
 
 
 function Index() {
@@ -49,28 +44,7 @@ function Index() {
       <ProjectsShowcase />
       <CredentialsRegistry />
       <AcademicFoundation />
-
-
-
-      <Section
-        bordered
-        label="Reserved"
-        heading="Slots awaiting content"
-        description="Section anchors are wired into the navigation and scroll spy. Each will be filled in a later pass using this exact template."
-      >
-        <div className="grid gap-4 md:grid-cols-2">
-          {RESERVED.map((slot) => (
-            <div
-              key={slot.id}
-              id={slot.id}
-              className="scroll-mt-24 rounded-2xl border border-dashed border-border-strong bg-surface/30 p-6"
-            >
-              <SectionLabel>{slot.label}</SectionLabel>
-              <p className="mt-4 text-sm text-muted-foreground">{slot.note}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <Contact />
     </div>
   );
 }
