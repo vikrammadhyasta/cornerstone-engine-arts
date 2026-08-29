@@ -6,17 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Credentials section content and filter cleanup** — updated the Credentials section description and simplified category filters to only All, Cloud, and AI. Removed DevOps, Software, and Other filter buttons. No credential data, cards, modal, viewer, layout, or other sections were changed.
+**Academic Foundation section** — added a new compact education section with two premium dark elevated cards using the existing visual system. Placed between Engineering Identity and Experience on the homepage. Used only the education data provided; no extra achievements, coursework, rankings, or fake information added.
 
 ---
 
 ## Feature Status
 
-- **Credentials description update:** COMPLETED — replaced description with "A record of cloud, AI, and software engineering credentials earned through structured training and hands-on learning."
-- **Filter simplification:** COMPLETED — `CREDENTIAL_CATEGORIES` now contains only All, Cloud, and AI.
-- **Dynamic counts preserved:** counts are calculated from real credential data (All = 9, Cloud = 6, AI = 3).
-- **Filter behavior verified:** All shows 9 credentials, Cloud shows 6, AI shows 3.
-- No DevOps, Software, or Other filter buttons remain in the Credentials section.
+- **Academic Foundation component:** COMPLETED — `src/components/site/academic-foundation.tsx` created with typed `EDUCATION` data.
+- **Homepage integration:** COMPLETED — `<AcademicFoundation />` rendered after `EngineeringIdentity` and before `ExperienceShowcase` in `src/routes/index.tsx`.
+- **Card design:** COMPLETED — two side-by-side cards on desktop, stacked on mobile, using `PanelCard` with existing hover-lift + subtle ambient glow overlay.
+- **Data accuracy:** COMPLETED — exact degree, specialization, CGPA, institution, university, and duration values used as provided.
+- **No existing sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
 
 ---
 
@@ -74,23 +74,25 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
 - **Profile photo replacement:** swapped placeholder portrait for uploaded photo via Lovable CDN asset pointer; updated import in `CloudOpsCenter`.
 - **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, Coursera Azure Cloud Services, Coursera AWS AI/ML Solutions, Anthropic AI Fluency, and Forage · Tata GenAI Powered Data Analytics Job Simulation credentials using real uploaded certificates and verification URLs where provided.
+- **Credentials filter cleanup:** Simplified filters to All, Cloud, and AI; updated section description.
+- **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
 
 ---
 
 ## Files Changed
 
-- `src/components/site/credentials/index.tsx` — updated Credentials section description.
-- `src/lib/credentials.ts` — removed DevOps, Software, and Other from `CREDENTIAL_CATEGORIES`.
+- `src/components/site/academic-foundation.tsx` — new Academic Foundation section component.
+- `src/routes/index.tsx` — imported and rendered `<AcademicFoundation />` between Engineering Identity and Experience.
 - `SESSION.md` — updated current state.
 
 ---
 
 ## Validation Completed
 
-- Repository inspection: yes (targeted read of `src/lib/credentials.ts` and `src/components/site/credentials/index.tsx`).
+- Repository inspection: yes (read `src/styles.css`, `src/routes/index.tsx`, `src/components/site/section.tsx`, `src/components/site/panel-card.tsx`).
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- No DevOps, Software, or Other filter text remains in the Credentials section.
+- Playwright visual QA: desktop and mobile screenshots confirm two-card layout, correct data, stacked mobile view, no horizontal scroll.
 
 ---
 
@@ -105,7 +107,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **UI kit / dependency bloat:** `src/components/ui/**` (~36 dead files) and many unused Radix/RHF/chart/recharts/calendar packages under `node_modules`. Removal is a **separate feature** after evaluating each for future value. Do not bundle into credential work.
 - **Google Fonts blocking render:** external stylesheet; plan to switch to `@fontsource` self-hosted.
 - **Profile image not optimized:** no WebP/AVIF variants, no `srcset`, no `fetchpriority`. Replacement is part of the Portrait primitive proposal; not blocking the Hero visually.
-- **Hardcoded content** in `index.tsx` (`TOKENS`, `RESERVED`) — flagged for `src/content/` separation as a separate feature.
+- **Hardcoded content** in `index.tsx` (`RESERVED`) — flagged for `src/content/` separation as a separate feature.
 - **Split `CloudOpsCenter`** — architectural refactor; justified only if it lands in its own refactor milestone per the "do not mix unrelated cleanup" rule. Default-defer.
 - **Test setup absent:** no Vitest, React Testing Library, or Playwright installed. Add as its own feature.
 - **Formatting/Prettier cleanup** of Lovable-generated codebase (separate from credential scope; `eslint` currently passes on the modified file).
@@ -128,7 +130,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Credentials section description and filter cleanup.
+Await user review of the Academic Foundation section placement and design.
 
 ---
 
@@ -137,15 +139,9 @@ Await user review of the Credentials section description and filter cleanup.
 - **Branch:** `edit/edt-4d1bbaf4-6728-4da7-978f-8c99c51e59a1`
 - **Working tree:** clean (changes auto-committed by the platform).
 - **Files changed this session:**
-  - `A src/assets/certificates/forage-genai-data-analytics.pdf.asset.json`
-  - `A src/assets/certificates/forage-genai-data-analytics.png.asset.json`
-  - `M src/lib/credentials.ts`
+  - `A src/components/site/academic-foundation.tsx`
+  - `M src/routes/index.tsx`
   - `M SESSION.md`
 
 - **Last commits:**
-  - `1367758` Changes (SESSION.md update)
-  - `81706d2` Changes (credential record addition)
-  - `71c3b84` Changes
-  - `3bdc90d` Changes
-  - `bc04ee7` Changes
-  - `6413f90` Changes
+  - (pending platform auto-commit)
