@@ -182,6 +182,21 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
+    id: "coursera-aws-ai-ml-solutions",
+    title: "Fundamentals of AWS AI and ML Solutions",
+    issuer: "Whizlabs · Coursera",
+    type: "Course Certificate",
+    category: "ai",
+    date: "March 2026",
+    year: 2026,
+    description:
+      "An online course authorized by Whizlabs and offered through Coursera, covering fundamentals of AWS AI and machine learning solutions.",
+    image: courseraAwsAiMlPng.url,
+    document: courseraAwsAiMlPdf.url,
+    verificationUrl: "https://coursera.org/verify/DDV1GHRJQMHA",
+    status: "completed",
+  },
+  {
     id: "placeholder-ai",
     title: "Placeholder credential — AI track",
     issuer: "Placeholder issuer",
