@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const EMAIL = "vikrammadyasta@gmail.com";
-const LINKEDIN = "https://linkedin.com/in/vikram-madhyastha";
+const LINKEDIN = "https://www.linkedin.com/in/vikram-madhyasta";
 const GITHUB = "https://github.com/vikrammadhyasta";
 
 const OPPORTUNITIES = ["Cloud Engineering", "DevOps", "Platform Engineering", "SRE"];
