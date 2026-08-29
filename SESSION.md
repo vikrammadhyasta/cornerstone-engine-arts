@@ -6,19 +6,16 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Profile photo replacement** — swapped the placeholder portrait in the homepage technology ecosystem for the user's actual uploaded profile photo, served via Lovable CDN asset pointer. The orbital structure, dark core, glow, border, animations, and responsive centering remain unchanged.
-
+**Add Azure credential to Credential Registry** — added one new credential record (`Introduction to Microsoft Azure Cloud Services`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
 
 ---
 
 ## Feature Status
 
-- **Profile photo replacement:** COMPLETED and browser-QA verified.
-- Replaced `src/assets/profile-photo.jpg` with `src/assets/profile-photo.jpg.asset.json` pointing to the uploaded photo on the Lovable CDN.
-- Updated `src/components/site/cloud-ops-center.tsx` import to use the asset URL.
-- No layout, text, routing, navigation, project pages, project cards, or other sections modified.
-- Orbital entrance/orbit animations, dark core anchoring, glow, and border preserved.
-
+- **Azure credential addition:** COMPLETED and browser-QA verified.
+- Added `coursera-azure.pdf.asset.json` and `coursera-azure.png.asset.json` Lovable CDN asset pointers.
+- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Microsoft · Coursera`), category (`Cloud`), type (`Course Certificate`), completion date (`October 2025`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/ULFLM8H71L2A`).
+- Existing credentials, registry layout, card design, modal, and certificate viewer remain unchanged.
 
 ---
 
@@ -75,45 +72,44 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Created `SESSION.md`** (this file).
 - **Sprint 2 Hero productionization:** Implemented browser-verified production Hero with accessibility and performance improvements.
 - **Profile photo replacement:** swapped placeholder portrait for uploaded photo via Lovable CDN asset pointer; updated import in `CloudOpsCenter`.
-
+- **Credential Registry population:** Added AWS Academy Cloud Architecting, AWS Cloud Practitioner Essentials, AWS Academy Cloud Foundations, AWS Academy Cloud Operations, AWS Academy Cloud Security Foundations, and Coursera Azure Cloud Services credentials using real uploaded certificates and verification URLs.
 
 ---
 
 ## Files Changed
 
-- `src/assets/profile-photo.jpg.asset.json` — new CDN asset pointer for the uploaded profile photo.
-- `src/components/site/cloud-ops-center.tsx` — changed portrait import to use the asset pointer URL.
-
+- `src/assets/certificates/coursera-azure.pdf.asset.json` — new CDN asset pointer for the uploaded Azure certificate PDF.
+- `src/assets/certificates/coursera-azure.png.asset.json` — new CDN asset pointer for the rendered PNG preview.
+- `src/lib/credentials.ts` — added imports and one new `coursera-azure-cloud-services` credential record.
 - `SESSION.md` — updated current state.
 
 ---
 
 ## Validation Completed
 
-- Repository inspection: yes (targeted read of `cloud-ops-center.tsx`).
-- `tsc --noEmit`: **PASS** (TypeScript compiles without errors).
-- `eslint src/components/site/cloud-ops-center.tsx`: **NOT GREEN** due to pre-existing Prettier/formatting errors at lines 160–161 (unrelated to this fix; formatting cleanup is a separate feature).
+- Repository inspection: yes (targeted read of `src/lib/credentials.ts` and certificate PDF text extraction).
+- `bunx tsc --noEmit`: **PASS**.
+- `bunx eslint src/lib/credentials.ts`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright screenshots at 1280×900, 768×1024, 390×844; time-series screenshots at 0/4/9/13/18s confirm inner ring remains centered on portrait).
+- Browser QA: **PASS** (Playwright verified card appears under All and Cloud filters, modal opens once, certificate renders at original aspect ratio `2200x1700`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/ULFLM8H71L2A` with `target="_blank"`).
 
 ---
 
 ## Known Issues
 
-### Profile photo replacement blockers (resolved)
+### Azure credential addition blockers (resolved)
 
-- **Placeholder portrait needed replacement** — replaced with uploaded photo via Lovable CDN asset pointer; no visual distortion or overflow on desktop/tablet/mobile.
+- **New certificate needed asset upload and data record** — completed; PDF and PNG pointers created, record added, and preview verified.
 
+### Repository-wide deferred cleanup (audit findings, not credential blockers)
 
-### Repository-wide deferred cleanup (audit findings, not Hero blockers)
-
-- **UI kit / dependency bloat:** `src/components/ui/**` (~36 dead files) and many unused Radix/RHF/chart/recharts/calendar packages under `node_modules`. Removal is a **separate feature** after evaluating each for future value. Do not bundle into Hero work.
+- **UI kit / dependency bloat:** `src/components/ui/**` (~36 dead files) and many unused Radix/RHF/chart/recharts/calendar packages under `node_modules`. Removal is a **separate feature** after evaluating each for future value. Do not bundle into credential work.
 - **Google Fonts blocking render:** external stylesheet; plan to switch to `@fontsource` self-hosted.
 - **Profile image not optimized:** no WebP/AVIF variants, no `srcset`, no `fetchpriority`. Replacement is part of the Portrait primitive proposal; not blocking the Hero visually.
 - **Hardcoded content** in `index.tsx` (`TOKENS`, `RESERVED`) — flagged for `src/content/` separation as a separate feature.
 - **Split `CloudOpsCenter`** — architectural refactor; justified only if it lands in its own refactor milestone per the "do not mix unrelated cleanup" rule. Default-defer.
 - **Test setup absent:** no Vitest, React Testing Library, or Playwright installed. Add as its own feature.
-- **Formatting/Prettier cleanup** of Lovable-generated codebase (separate from Hero scope; `eslint` currently fails on formatting in several files).
+- **Formatting/Prettier cleanup** of Lovable-generated codebase (separate from credential scope; `eslint` currently passes on the modified file).
 
 ---
 
@@ -127,14 +123,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - Phase 6 — Vitest + RTL component tests.
 - Phase 7 — CI: `bun run check` script (`tsc --noEmit && eslint .`).
 - Repository audit sections N + M (Files to modify / create / delete) — open table; Phase 1 will pick from it.
-- Formatting/Prettier cleanup of Lovable-generated codebase (separate from Hero scope).
+- Formatting/Prettier cleanup of Lovable-generated codebase (separate from credential scope).
 
 ---
 
 ## NEXT EXACT STEP
 
-Await user review of the profile photo replacement; if approved, commit the change.
-
+Await user review of the Azure credential addition; if approved, commit the change.
 
 ---
 
@@ -143,9 +138,9 @@ Await user review of the profile photo replacement; if approved, commit the chan
 - **Branch:** `main`
 - **Working tree:** modified by this session.
 - **Files changed:**
-  - `M src/components/site/cloud-ops-center.tsx`
-  - `A src/assets/profile-photo.jpg.asset.json`
-  - `D src/assets/profile-photo.jpg`
+  - `A src/assets/certificates/coursera-azure.pdf.asset.json`
+  - `A src/assets/certificates/coursera-azure.png.asset.json`
+  - `M src/lib/credentials.ts`
   - `M SESSION.md`
 
 - **Last commits:**
