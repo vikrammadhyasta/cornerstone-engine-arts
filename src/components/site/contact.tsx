@@ -270,30 +270,59 @@ export function Contact() {
                 aria-live="polite"
                 className={cn(
                   "flex items-center gap-2 font-mono text-[0.6875rem] tracking-[0.14em] uppercase transition-colors duration-300 motion-reduce:transition-none",
-                  initialized ? "text-success" : "text-muted-foreground",
+                  status === "success" && "text-success",
+                  status === "error" && "text-destructive",
+                  (status === "idle" || status === "submitting") && "text-muted-foreground",
                 )}
               >
                 <span
                   className={cn(
                     "h-1.5 w-1.5 rounded-full",
-                    initialized ? "bg-success" : "bg-border-strong",
+                    status === "success"
+                      ? "bg-success"
+                      : status === "error"
+                        ? "bg-destructive"
+                        : "bg-border-strong",
                   )}
                   aria-hidden
                 />
-                {initialized ? "Connection initialized" : "Ready"}
+                {status === "success"
+                  ? "Connection initialized"
+                  : status === "error"
+                    ? "Transmission failed"
+                    : status === "submitting"
+                      ? "Sending"
+                      : "Ready"}
               </p>
-              <Button type="submit" size="lg" className="h-12 w-full px-6 font-mono text-xs tracking-[0.16em] uppercase sm:w-auto">
-                Initialize Connection
-                <ArrowUpRight />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={status === "submitting"}
+                aria-busy={status === "submitting"}
+                className="h-12 w-full px-6 font-mono text-xs tracking-[0.16em] uppercase sm:w-auto"
+              >
+                {status === "submitting" ? "Sending" : "Initialize Connection"}
+                {status === "submitting" ? (
+                  <Loader2 className="animate-spin motion-reduce:animate-none" />
+                ) : (
+                  <ArrowUpRight />
+                )}
               </Button>
             </div>
 
-            {initialized && (
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                Your email client was opened with the message pre-filled — send it from there to
-                reach me.
-              </p>
-            )}
+            <div aria-live="polite">
+              {status === "success" && (
+                <p className="text-xs leading-relaxed text-success">
+                  ✓ Connection initialized successfully. I&apos;ll get back to you soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs leading-relaxed text-destructive">
+                  ⚠ Something went wrong while sending your message. Please try again, or email me
+                  directly at {EMAIL}.
+                </p>
+              )}
+            </div>
           </form>
         </div>
       </div>
