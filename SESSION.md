@@ -93,6 +93,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bun run build`: **PASS** (production build succeeds).
 - Playwright DOM-order check: section ids appear as `hero → identity → experience → system → projects → credentials → academic-foundation → engineering → contact`; Academic Foundation immediately follows Credentials.
 - Playwright visual QA: desktop and mobile screenshots confirm Academic Foundation still renders correctly after the move.
+- Contact section visual QA: desktop/mobile screenshots confirm the left card no longer renders the "Open to opportunities" block and retains intro paragraph, email, social links, and location.
 
 ---
 
