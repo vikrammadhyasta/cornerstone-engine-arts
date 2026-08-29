@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section, SectionLabel } from "@/components/site/section";
 import { Hero } from "@/components/site/hero";
 import { EngineeringIdentity } from "@/components/site/engineering-identity";
+import { AcademicFoundation } from "@/components/site/academic-foundation";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { ExperienceShowcase } from "@/components/site/experience-showcase";
 import { EngineeringControlPlane } from "@/components/site/control-plane";
@@ -43,6 +44,7 @@ function Index() {
     <div id="top">
       <Hero />
       <EngineeringIdentity />
+      <AcademicFoundation />
       <ExperienceShowcase />
       <EngineeringControlPlane />
       <ProjectsShowcase />
