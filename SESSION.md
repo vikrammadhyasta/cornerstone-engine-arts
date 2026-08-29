@@ -82,6 +82,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 ## Files Changed
 
 - `src/routes/index.tsx` — reordered homepage sections so `<AcademicFoundation />` renders immediately after `<CredentialsRegistry />`.
+- `src/components/site/contact.tsx` — removed "Open to opportunities" block from the left contact card; rebalanced internal spacing (`gap-8`, `pt-8`); Formspree submission preserved.
 - `SESSION.md` — updated current state.
 
 ---
