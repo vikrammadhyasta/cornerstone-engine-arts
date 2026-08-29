@@ -5,6 +5,9 @@
  * No UI change should ever be required.
  */
 
+import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
+import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
+
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
 export type CredentialType =
@@ -78,15 +81,19 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
-    id: "placeholder-cloud",
-    title: "Placeholder credential — Cloud track",
-    issuer: "Placeholder issuer",
-    type: "Course Certificate",
+    id: "aws-academy-cloud-architecting",
+    title: "AWS Academy Cloud Architecting",
+    issuer: "AWS Academy",
+    type: "Training Badge",
     category: "cloud",
-    date: "Date pending",
-    year: 3,
-    description: "Reserved registry slot for a cloud infrastructure credential.",
-    status: "completed",
+    date: "January 2026",
+    year: 2026,
+    description:
+      "AWS Academy Graduate — Cloud Architecting training badge covering the design of scalable, highly available, and fault-tolerant systems on AWS. 60 course hours completed.",
+    image: awsAcademyBadgePng.url,
+    document: awsAcademyBadgePdf.url,
+    verificationUrl: "https://www.credly.com/go/LvxkKTch",
+    status: "verified",
   },
   {
     id: "placeholder-ai",
