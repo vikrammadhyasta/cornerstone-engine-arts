@@ -131,7 +131,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the reordered homepage layout.
+Await user review of the updated contact section.
 
 ---
 
