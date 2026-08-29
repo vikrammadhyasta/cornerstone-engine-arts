@@ -200,6 +200,20 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
+    id: "anthropic-ai-fluency",
+    title: "AI Fluency: Framework & Foundations",
+    issuer: "Anthropic",
+    type: "Certificate of Completion",
+    category: "ai",
+    date: "",
+    year: 2026,
+    description:
+      "Certificate of completion for AI Fluency: Framework & Foundations by Anthropic.",
+    image: anthropicAiFluencyPng.url,
+    document: anthropicAiFluencyPdf.url,
+    status: "completed",
+  },
+  {
     id: "placeholder-ai",
     title: "Placeholder credential — AI track",
     issuer: "Placeholder issuer",
