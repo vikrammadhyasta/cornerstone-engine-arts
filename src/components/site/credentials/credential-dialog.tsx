@@ -1,4 +1,4 @@
-import { ExternalLink, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -33,7 +33,10 @@ export function CredentialDialog({
               </DialogDescription>
             </DialogHeader>
 
-            <CertificatePreview credential={credential} ratio="aspect-[16/10]" />
+            <CertificatePreview
+              credential={credential}
+              className="max-h-[min(24rem,50vh)] bg-surface/60"
+            />
 
             <dl className="grid gap-3 font-mono text-xs text-muted-foreground sm:grid-cols-2">
               <div className="flex justify-between gap-2 sm:block">
@@ -62,32 +65,16 @@ export function CredentialDialog({
               </p>
             )}
 
-            <div className="flex flex-wrap justify-end gap-2">
-              {credential.document || credential.image ? (
-                <Button asChild size="sm" variant="secondary">
-                  <a
-                    href={credential.document ?? credential.image}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    View credential
-                    <ExternalLink />
-                  </a>
-                </Button>
-              ) : (
-                <Button size="sm" variant="secondary" disabled title="Document pending">
-                  View credential
-                </Button>
-              )}
-              {credential.verificationUrl && (
+            {credential.verificationUrl && (
+              <div className="flex flex-wrap justify-end gap-2">
                 <Button asChild size="sm">
                   <a href={credential.verificationUrl} target="_blank" rel="noreferrer noopener">
                     Verify credential
                     <ShieldCheck />
                   </a>
                 </Button>
-              )}
-            </div>
+              </div>
+            )}
           </>
         )}
       </DialogContent>

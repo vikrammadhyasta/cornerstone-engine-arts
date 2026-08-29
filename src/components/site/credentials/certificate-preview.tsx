@@ -10,7 +10,7 @@ import type { Credential } from "@/lib/credentials";
 export function CertificatePreview({
   credential,
   className,
-  ratio = "aspect-[4/3]",
+  ratio,
 }: {
   credential: Credential;
   className?: string;
@@ -21,8 +21,9 @@ export function CertificatePreview({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-xl border border-border bg-background/50",
+        "relative flex w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-background/50",
         ratio,
+        !ratio && "min-h-[12rem]",
         className,
       )}
     >
@@ -32,10 +33,10 @@ export function CertificatePreview({
           alt={`${credential.title} — ${credential.issuer}`}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-contain p-2"
+          className="max-h-full max-w-full object-contain p-4"
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-3 px-4 text-center">
+        <div className="flex h-full min-h-[12rem] w-full flex-col items-center justify-center gap-3 px-4 text-center">
           <span
             aria-hidden
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface/60 text-primary"
