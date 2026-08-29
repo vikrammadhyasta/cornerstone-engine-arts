@@ -13,6 +13,8 @@ import awsCloudFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud
 import awsCloudFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-foundations-badge.png.asset.json";
 import awsCloudOperationsBadgePdf from "@/assets/certificates/aws-academy-cloud-operations-badge.pdf.asset.json";
 import awsCloudOperationsBadgePng from "@/assets/certificates/aws-academy-cloud-operations-badge.png.asset.json";
+import awsCloudSecurityFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.pdf.asset.json";
+import awsCloudSecurityFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
