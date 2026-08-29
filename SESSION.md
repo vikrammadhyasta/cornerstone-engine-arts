@@ -129,7 +129,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the Azure credential addition; if approved, commit the change.
+Await user review of the AWS AI/ML credential addition; if approved, commit the change.
 
 ---
 
@@ -138,8 +138,8 @@ Await user review of the Azure credential addition; if approved, commit the chan
 - **Branch:** `main`
 - **Working tree:** modified by this session.
 - **Files changed:**
-  - `A src/assets/certificates/coursera-azure.pdf.asset.json`
-  - `A src/assets/certificates/coursera-azure.png.asset.json`
+  - `A src/assets/certificates/coursera-aws-ai-ml.pdf.asset.json`
+  - `A src/assets/certificates/coursera-aws-ai-ml.png.asset.json`
   - `M src/lib/credentials.ts`
   - `M SESSION.md`
 
