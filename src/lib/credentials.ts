@@ -207,8 +207,7 @@ export const CREDENTIALS: Credential[] = [
     category: "ai",
     date: "",
     year: 2026,
-    description:
-      "Certificate of completion for AI Fluency: Framework & Foundations by Anthropic.",
+    description: "Certificate of completion for AI Fluency: Framework & Foundations by Anthropic.",
     image: anthropicAiFluencyPng.url,
     document: anthropicAiFluencyPdf.url,
     status: "completed",
