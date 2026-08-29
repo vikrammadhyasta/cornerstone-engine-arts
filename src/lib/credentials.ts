@@ -5,6 +5,9 @@
  * No UI change should ever be required.
  */
 
+import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
+import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
+
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
 export type CredentialType =
