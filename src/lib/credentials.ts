@@ -7,6 +7,8 @@
 
 import anthropicAiFluencyPdf from "@/assets/certificates/anthropic-ai-fluency.pdf.asset.json";
 import anthropicAiFluencyPng from "@/assets/certificates/anthropic-ai-fluency.png.asset.json";
+import forageGenaiDataAnalyticsPdf from "@/assets/certificates/forage-genai-data-analytics.pdf.asset.json";
+import forageGenaiDataAnalyticsPng from "@/assets/certificates/forage-genai-data-analytics.png.asset.json";
 import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
 import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
 import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-practitioner-essentials.pdf.asset.json";
@@ -210,6 +212,20 @@ export const CREDENTIALS: Credential[] = [
     description: "Certificate of completion for AI Fluency: Framework & Foundations by Anthropic.",
     image: anthropicAiFluencyPng.url,
     document: anthropicAiFluencyPdf.url,
+    status: "completed",
+  },
+  {
+    id: "forage-genai-data-analytics",
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "Forage · Tata",
+    type: "Job Simulation",
+    category: "ai",
+    date: "June 2025",
+    year: 2025,
+    description:
+      "Completed practical tasks covering exploratory data analysis and risk profiling, predicting delinquency with AI, business reporting and data storytelling for collections strategy, and implementing an AI-driven collections strategy.",
+    image: forageGenaiDataAnalyticsPng.url,
+    document: forageGenaiDataAnalyticsPdf.url,
     status: "completed",
   },
   {
