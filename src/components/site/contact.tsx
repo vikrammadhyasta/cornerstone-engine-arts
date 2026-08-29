@@ -134,6 +134,10 @@ export function Contact() {
       <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
         {/* Left — status + channels */}
         <div className="flex flex-col gap-6 rounded-2xl border border-border bg-surface/50 p-6 backdrop-blur-sm md:p-8">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Ideas, challenges, and opportunities often begin with a conversation. If there&apos;s something worth building, solving, or improving, let&apos;s talk.
+          </p>
+
           <div>
             <h3 className="font-mono text-[0.6875rem] tracking-[0.18em] text-muted-foreground uppercase">
               Open to opportunities
