@@ -87,17 +87,17 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Validation Completed
 
-- Repository inspection: yes (targeted read of `src/lib/credentials.ts` and certificate PDF text extraction).
+- Repository inspection: yes (targeted read of `src/lib/credentials.ts`, certificate PDF text extraction, and asset pointer verification).
 - `bunx tsc --noEmit`: **PASS**.
 - `bunx eslint src/lib/credentials.ts`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Browser QA: **PASS** (Playwright verified card appears under All and AI filters, modal opens once, certificate renders at original aspect ratio `1650x1275`, no duplicate "View credential" inside modal, "Verify credential" links to `https://coursera.org/verify/DDV1GHRJQMHA` with `target="_blank"`).
+- Browser QA: **PASS** (Playwright verified card appears under All and AI filters, modal opens once, certificate renders at original aspect ratio `1650x1275`, no duplicate "View credential" inside modal, no "Verify credential" button because the certificate provides no verification URL).
 
 ---
 
 ## Known Issues
 
-### AWS AI/ML credential addition blockers (resolved)
+### Anthropic AI Fluency credential addition blockers (resolved)
 
 - **New certificate needed asset upload and data record** — completed; PDF and PNG pointers created, record added, and preview verified.
 
