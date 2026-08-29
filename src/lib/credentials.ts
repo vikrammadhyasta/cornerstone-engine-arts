@@ -215,6 +215,20 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
   {
+    id: "forage-genai-data-analytics",
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "Forage · Tata",
+    type: "Job Simulation",
+    category: "ai",
+    date: "June 2025",
+    year: 2025,
+    description:
+      "Completed practical tasks covering exploratory data analysis and risk profiling, predicting delinquency with AI, business reporting and data storytelling for collections strategy, and implementing an AI-driven collections strategy.",
+    image: forageGenaiDataAnalyticsPng.url,
+    document: forageGenaiDataAnalyticsPdf.url,
+    status: "completed",
+  },
+  {
     id: "placeholder-ai",
     title: "Placeholder credential — AI track",
     issuer: "Placeholder issuer",
