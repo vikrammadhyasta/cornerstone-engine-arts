@@ -33,10 +33,7 @@ export function CredentialDialog({
               </DialogDescription>
             </DialogHeader>
 
-            <CertificatePreview
-              credential={credential}
-              className="max-h-[min(24rem,50vh)] bg-surface/60"
-            />
+            <CertificatePreview credential={credential} className="bg-surface/60" />
 
             <dl className="grid gap-3 font-mono text-xs text-muted-foreground sm:grid-cols-2">
               <div className="flex justify-between gap-2 sm:block">
