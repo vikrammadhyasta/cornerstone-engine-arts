@@ -90,13 +90,19 @@ export function Contact() {
 
     setStatus("submitting");
     try {
-      await submit({
-        data: {
+      const response = await fetch("https://formspree.io/f/mjyvkalp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
           name: values.name.trim(),
           email: values.email.trim(),
           message: values.message.trim(),
-        },
+        }),
       });
+      if (!response.ok) throw new Error("Formspree submission failed");
       setValues({ name: "", email: "", message: "" });
       setTouched({});
       setErrors({});
