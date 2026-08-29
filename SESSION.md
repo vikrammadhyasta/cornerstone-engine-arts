@@ -6,16 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Add Forage · Tata GenAI Powered Data Analytics Job Simulation credential to Credential Registry** — added one new credential record (`GenAI Powered Data Analytics Job Simulation` by Forage · Tata) to the existing data-driven Credential Registry, using the uploaded Forage completion certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
+**Remove dummy/placeholder credential records from Credential Registry** — surgical data cleanup. Removed all placeholder records from `src/lib/credentials.ts` so the registry now contains only real certifications. No UI, layout, filters, cards, modal, or other sections were changed.
 
 ---
 
 ## Feature Status
 
-- **Forage · Tata GenAI credential addition:** COMPLETED and browser-QA verified.
-- Added `forage-genai-data-analytics.pdf.asset.json` and `forage-genai-data-analytics.png.asset.json` Lovable CDN asset pointers.
-- Added one record to `src/lib/credentials.ts` with the exact title (`GenAI Powered Data Analytics Job Simulation`), issuer (`Forage · Tata`), category (`AI`), type (`Job Simulation`), completion date (`June 2025`), status (`completed`), description, document/preview URLs, and no verification URL (the certificate provides enrolment/user codes but no direct verification URL).
-- Existing credentials, registry layout, card design, modal, and certificate viewer remain unchanged.
+- **Placeholder credential removal:** COMPLETED and verified.
+- Removed `placeholder-featured`, `placeholder-devops`, `placeholder-ai`, `placeholder-software`, and `placeholder-other` records from `src/lib/credentials.ts`.
+- Registry now contains 9 real credentials: 6 Cloud, 3 AI, 0 DevOps, 0 Software, 0 Other.
+- Category counts and filters automatically reflect the remaining real credentials.
+- No "Placeholder", "PLACEHOLDER ISSUER", or "Date pending" text remains in the Credentials section.
 
 ---
 

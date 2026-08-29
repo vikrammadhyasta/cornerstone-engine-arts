@@ -67,36 +67,7 @@ export const CREDENTIAL_CATEGORIES: { id: "all" | CredentialCategory; label: str
   { id: "other", label: "Other" },
 ];
 
-/**
- * PHASE 1 — placeholder records only.
- * These are explicitly labelled as placeholders and contain no real
- * organisations, dates or achievements. Replace one at a time.
- */
 export const CREDENTIALS: Credential[] = [
-  {
-    id: "placeholder-featured",
-    title: "Placeholder credential — featured slot",
-    issuer: "Placeholder issuer",
-    type: "Professional Certification",
-    category: "cloud",
-    date: "Date pending",
-    year: 4,
-    description:
-      "Reserved slot for the primary credential. Title, issuer, date, document and verification link will be supplied later.",
-    featured: true,
-    status: "completed",
-  },
-  {
-    id: "placeholder-devops",
-    title: "Placeholder credential — DevOps track",
-    issuer: "Placeholder issuer",
-    type: "Training Badge",
-    category: "devops",
-    date: "Date pending",
-    year: 3,
-    description: "Reserved registry slot for a delivery / automation credential.",
-    status: "completed",
-  },
   {
     id: "aws-academy-cloud-architecting",
     title: "AWS Academy Cloud Architecting",
@@ -226,39 +197,6 @@ export const CREDENTIALS: Credential[] = [
       "Completed practical tasks covering exploratory data analysis and risk profiling, predicting delinquency with AI, business reporting and data storytelling for collections strategy, and implementing an AI-driven collections strategy.",
     image: forageGenaiDataAnalyticsPng.url,
     document: forageGenaiDataAnalyticsPdf.url,
-    status: "completed",
-  },
-  {
-    id: "placeholder-ai",
-    title: "Placeholder credential — AI track",
-    issuer: "Placeholder issuer",
-    type: "Learning Program",
-    category: "ai",
-    date: "Date pending",
-    year: 2,
-    description: "Reserved registry slot for an AI-assisted engineering credential.",
-    status: "in-progress",
-  },
-  {
-    id: "placeholder-software",
-    title: "Placeholder credential — Software track",
-    issuer: "Placeholder issuer",
-    type: "Job Simulation",
-    category: "software",
-    date: "Date pending",
-    year: 2,
-    description: "Reserved registry slot for a software engineering credential.",
-    status: "completed",
-  },
-  {
-    id: "placeholder-other",
-    title: "Placeholder credential — Other",
-    issuer: "Placeholder issuer",
-    type: "Other",
-    category: "other",
-    date: "Date pending",
-    year: 1,
-    description: "Reserved registry slot for any additional professional learning record.",
     status: "completed",
   },
 ];
