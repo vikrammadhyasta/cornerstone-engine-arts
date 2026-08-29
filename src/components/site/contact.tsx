@@ -54,7 +54,10 @@ function SocialLink({
   );
 }
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export function Contact() {
+  const submit = useServerFn(submitContactMessage);
   const [values, setValues] = React.useState<Record<Field, string>>({
     name: "",
     email: "",
@@ -62,8 +65,9 @@ export function Contact() {
   });
   const [errors, setErrors] = React.useState<Errors>({});
   const [touched, setTouched] = React.useState<Partial<Record<Field, boolean>>>({});
-  const [initialized, setInitialized] = React.useState(false);
+  const [status, setStatus] = React.useState<Status>("idle");
   const [copied, setCopied] = React.useState(false);
+  const initialized = status === "success";
 
   const setField = (field: Field) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const next = { ...values, [field]: event.target.value };
