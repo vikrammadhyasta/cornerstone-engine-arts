@@ -81,8 +81,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/components/site/academic-foundation.tsx` — new Academic Foundation section component.
-- `src/routes/index.tsx` — imported and rendered `<AcademicFoundation />` between Engineering Identity and Experience.
+- `src/routes/index.tsx` — reordered homepage sections so `<AcademicFoundation />` renders immediately after `<CredentialsRegistry />`.
 - `SESSION.md` — updated current state.
 
 ---
