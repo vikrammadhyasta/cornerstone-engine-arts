@@ -7,6 +7,8 @@
 
 import awsAcademyBadgePdf from "@/assets/certificates/aws-academy-cloud-architecting-badge.pdf.asset.json";
 import awsAcademyBadgePng from "@/assets/certificates/aws-academy-cloud-architecting-badge.png.asset.json";
+import awsCloudPractitionerEssentialsPdf from "@/assets/certificates/aws-cloud-practitioner-essentials.pdf.asset.json";
+import awsCloudPractitionerEssentialsPng from "@/assets/certificates/aws-cloud-practitioner-essentials.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
@@ -94,6 +96,20 @@ export const CREDENTIALS: Credential[] = [
     document: awsAcademyBadgePdf.url,
     verificationUrl: "https://www.credly.com/go/LvxkKTch",
     status: "verified",
+  },
+  {
+    id: "aws-cloud-practitioner-essentials",
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "AWS Training and Certification",
+    type: "Course Certificate",
+    category: "cloud",
+    date: "January 2024",
+    year: 2024,
+    description:
+      "Completed AWS Cloud Practitioner Essentials, covering foundational AWS cloud concepts, core services, security, architecture, pricing, and cloud fundamentals.",
+    image: awsCloudPractitionerEssentialsPng.url,
+    document: awsCloudPractitionerEssentialsPdf.url,
+    status: "completed",
   },
   {
     id: "placeholder-ai",
