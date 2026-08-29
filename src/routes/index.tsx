@@ -6,6 +6,7 @@ import { EngineeringIdentity } from "@/components/site/engineering-identity";
 import { ProjectsShowcase } from "@/components/site/projects-showcase";
 import { ExperienceShowcase } from "@/components/site/experience-showcase";
 import { EngineeringControlPlane } from "@/components/site/control-plane";
+import { CredentialsRegistry } from "@/components/site/credentials";
 
 
 
