@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Add Azure credential to Credential Registry** — added one new credential record (`Introduction to Microsoft Azure Cloud Services`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
+**Add AWS AI/ML credential to Credential Registry** — added one new credential record (`Fundamentals of AWS AI and ML Solutions`) to the existing data-driven Credential Registry, using the uploaded Coursera certificate PDF as the document and a rendered PNG as the preview image. No UI, layout, or other credentials were changed.
 
 ---
 
