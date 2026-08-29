@@ -12,9 +12,9 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Feature Status
 
-- **Azure credential addition:** COMPLETED and browser-QA verified.
-- Added `coursera-azure.pdf.asset.json` and `coursera-azure.png.asset.json` Lovable CDN asset pointers.
-- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Microsoft · Coursera`), category (`Cloud`), type (`Course Certificate`), completion date (`October 2025`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/ULFLM8H71L2A`).
+- **AWS AI/ML credential addition:** COMPLETED and browser-QA verified.
+- Added `coursera-aws-ai-ml.pdf.asset.json` and `coursera-aws-ai-ml.png.asset.json` Lovable CDN asset pointers.
+- Added one record to `src/lib/credentials.ts` with the exact title, issuer (`Whizlabs · Coursera`), category (`AI`), type (`Course Certificate`), completion date (`March 2026`), status (`completed`), description, document/preview URLs, and verification URL (`https://coursera.org/verify/DDV1GHRJQMHA`).
 - Existing credentials, registry layout, card design, modal, and certificate viewer remain unchanged.
 
 ---
