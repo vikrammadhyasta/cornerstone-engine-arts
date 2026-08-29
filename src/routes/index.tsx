@@ -46,6 +46,7 @@ function Index() {
       <ExperienceShowcase />
       <EngineeringControlPlane />
       <ProjectsShowcase />
+      <CredentialsRegistry />
 
 
 
