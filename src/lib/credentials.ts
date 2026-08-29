@@ -13,6 +13,8 @@ import awsCloudFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud
 import awsCloudFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-foundations-badge.png.asset.json";
 import awsCloudOperationsBadgePdf from "@/assets/certificates/aws-academy-cloud-operations-badge.pdf.asset.json";
 import awsCloudOperationsBadgePng from "@/assets/certificates/aws-academy-cloud-operations-badge.png.asset.json";
+import awsCloudSecurityFoundationsBadgePdf from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.pdf.asset.json";
+import awsCloudSecurityFoundationsBadgePng from "@/assets/certificates/aws-academy-cloud-security-foundations-badge.png.asset.json";
 
 export type CredentialCategory = "cloud" | "devops" | "ai" | "software" | "other";
 
@@ -129,6 +131,21 @@ export const CREDENTIALS: Credential[] = [
     image: awsCloudFoundationsBadgePng.url,
     document: awsCloudFoundationsBadgePdf.url,
     verificationUrl: "https://www.credly.com/go/oD60W14P",
+    status: "completed",
+  },
+  {
+    id: "aws-academy-cloud-security-foundations",
+    title: "AWS Academy Graduate – Cloud Security Foundations – Training Badge",
+    issuer: "AWS Academy",
+    type: "Training Badge",
+    category: "cloud",
+    date: "May 2026",
+    year: 2026,
+    description:
+      "AWS Academy Graduate – Cloud Security Foundations training badge covering foundational cloud security concepts. 20 course hours completed.",
+    image: awsCloudSecurityFoundationsBadgePng.url,
+    document: awsCloudSecurityFoundationsBadgePdf.url,
+    verificationUrl: "https://www.credly.com/go/nq5DrYHU",
     status: "completed",
   },
   {
