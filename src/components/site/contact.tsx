@@ -57,7 +57,6 @@ function SocialLink({
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
-  const submit = useServerFn(submitContactMessage);
   const [values, setValues] = React.useState<Record<Field, string>>({
     name: "",
     email: "",
