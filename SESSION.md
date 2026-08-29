@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Homepage section reorder** — moved the existing Academic Foundation section to appear immediately after the Credentials section. No component, content, styling, or data changes were made to Academic Foundation, Credentials, or any other section.
+**Contact experience** — the placeholder "Reserved" section was replaced in place (after Academic Foundation) by `src/components/site/contact.tsx`: "Initialize connection" header, left status/contact panel (opportunities, mailto + copy, icon-only LinkedIn/GitHub links, location), and a right `connection.req` terminal form with real accessible inputs, validation, mailto fallback to vikrammadyasta@gmail.com, and READY → CONNECTION INITIALIZED status. No other section changed. `bunx tsc --noEmit` passed; Playwright desktop/mobile checks show no overflow and no console errors. Note: nav still lists stale `#platform` / `#engineering` anchors (pre-existing; nav untouched per scope).
 
 ---
 
