@@ -67,36 +67,7 @@ export const CREDENTIAL_CATEGORIES: { id: "all" | CredentialCategory; label: str
   { id: "other", label: "Other" },
 ];
 
-/**
- * PHASE 1 — placeholder records only.
- * These are explicitly labelled as placeholders and contain no real
- * organisations, dates or achievements. Replace one at a time.
- */
 export const CREDENTIALS: Credential[] = [
-  {
-    id: "placeholder-featured",
-    title: "Placeholder credential — featured slot",
-    issuer: "Placeholder issuer",
-    type: "Professional Certification",
-    category: "cloud",
-    date: "Date pending",
-    year: 4,
-    description:
-      "Reserved slot for the primary credential. Title, issuer, date, document and verification link will be supplied later.",
-    featured: true,
-    status: "completed",
-  },
-  {
-    id: "placeholder-devops",
-    title: "Placeholder credential — DevOps track",
-    issuer: "Placeholder issuer",
-    type: "Training Badge",
-    category: "devops",
-    date: "Date pending",
-    year: 3,
-    description: "Reserved registry slot for a delivery / automation credential.",
-    status: "completed",
-  },
   {
     id: "aws-academy-cloud-architecting",
     title: "AWS Academy Cloud Architecting",
