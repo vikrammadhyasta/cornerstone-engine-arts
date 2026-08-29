@@ -200,7 +200,6 @@ export const CREDENTIALS: Credential[] = [
     status: "completed",
   },
 ];
-];
 
 export function getFeaturedCredential(list: Credential[] = CREDENTIALS): Credential | undefined {
   return list.find((c) => c.featured) ?? list[0];
