@@ -134,7 +134,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the updated footer.
+Await user review of the updated Hero.
 
 ---
 
@@ -143,8 +143,7 @@ Await user review of the updated footer.
 - **Branch:** `edit/edt-4d1bbaf4-6728-4da7-978f-8c99c51e59a1`
 - **Working tree:** clean (changes auto-committed by the platform).
 - **Files changed this session:**
-  - `A src/components/site/site-footer.tsx`
-  - `M src/routes/index.tsx`
+  - `M src/components/site/hero.tsx`
   - `M SESSION.md`
 
 - **Last commits:**
