@@ -4,6 +4,7 @@ import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CloudOpsCenter } from "@/components/site/cloud-ops-center";
 import { HeroAura } from "@/components/site/hero-aura";
+import { HeroBoot } from "@/components/site/hero-boot";
 
 const SOCIAL_LINKS = [
   { href: "https://github.com/vikrammadhyasta", label: "GitHub", icon: Github, external: true },
@@ -70,8 +71,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div style={{ "--boot-delay": "900ms" } as CSSProperties} className="boot-item order-last">
-            <CloudOpsCenter />
+          <div className="order-last relative">
+            <HeroBoot />
+            <div style={{ "--boot-delay": "900ms" } as CSSProperties} className="boot-item">
+              <CloudOpsCenter />
+            </div>
           </div>
         </div>
       </div>
