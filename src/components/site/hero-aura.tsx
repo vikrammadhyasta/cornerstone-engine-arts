@@ -7,52 +7,9 @@
 export function HeroAura() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
-      <div className="aura-reveal absolute inset-0 opacity-10 sm:opacity-15 lg:opacity-20">
-        <div className="aura-anchor">
-          <div className="absolute top-1/2 left-1/2 grid [grid-template:0px/0px] place-items-center lg:left-[64%]">
-            {/* filament strands radiating from the core */}
-            <div
-              className="aura-strands [grid-area:1/1] h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full mix-blend-screen"
-              style={{
-                background:
-                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
-                maskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
-                WebkitMaskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
-                filter: "blur(3px)",
-              }}
-            />
-
-            {/* turbulent outer nebula */}
-            <div
-              className="aura-nebula [grid-area:1/1] h-[min(140vh,80rem)] w-[min(140vh,80rem)] rounded-full mix-blend-screen"
-              style={{
-                background:
-                  "conic-gradient(from 210deg at 50% 50%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 28%, color-mix(in oklab, var(--primary-glow) 30%, transparent) 52%, transparent 74%, color-mix(in oklab, var(--primary) 32%, transparent))",
-                maskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
-                WebkitMaskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
-                filter: "blur(46px)",
-              }}
-            />
-
-            {/* corona ring */}
-            <div
-              className="aura-corona [grid-area:1/1] h-[min(80vh,44rem)] w-[min(80vh,44rem)] rounded-full mix-blend-screen"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 50%, transparent 30%, color-mix(in oklab, var(--primary-glow) 85%, transparent) 41%, color-mix(in oklab, var(--primary) 55%, transparent) 52%, transparent 68%)",
-                filter: "blur(22px)",
-              }}
-            />
-
-            {/* dark core now lives inside CloudOpsCenter, structurally
-                anchored to the operator portrait so they move as one unit */}
-          </div>
-        </div>
-      </div>
+      {/* The dark core + radial sun-ray system lives inside HeroBoot, anchored
+          to the orbit/profile-photo container so it follows the orbit center
+          exactly and exists on desktop only (no tablet/mobile artifacts). */}
 
       {/* legibility scrim + edge vignette */}
       <div
