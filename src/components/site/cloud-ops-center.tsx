@@ -62,96 +62,65 @@ export function CloudOpsCenter() {
           />
         </div>
 
-        {/* capability planes — layered depth with soft parallax.
-            The innermost (observability) plane is kept static and anchored to
-            the portrait so it does not drift independently from the photo. */}
-        {LAYERS.map((layer, i) => (
-          <div
-            key={layer.id}
-            aria-hidden
-            className={`absolute rounded-full border border-border ${
-              layer.id === "observability" ? "" : "animate-core-drift motion-reduce:animate-none"
-            } ${layer.compact ? "hidden sm:block" : ""}`}
-            style={{
-              inset: layer.inset,
-              background:
-                i === 0
-                  ? "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--surface) 70%, transparent), transparent 72%)"
-                  : `color-mix(in oklab, var(--surface) ${30 - i * 5}%, transparent)`,
-              animationDelay: `${i * 2.2}s`,
-              animationDuration: `${16 + i * 4}s`,
-            }}
-          />
-        ))}
+        {/* soft ambient plane behind the portrait for depth */}
+        <div
+          aria-hidden
+          className="absolute inset-[6%] rounded-full animate-core-drift motion-reduce:animate-none"
+          style={{
+            background:
+              "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--surface) 55%, transparent), transparent 72%)",
+          }}
+        />
 
-        {/* arc system with travelling illumination */}
-        <svg aria-hidden viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
-          <defs>
-            <linearGradient id="core-arc" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
-              <stop offset="45%" stopColor="var(--primary)" stopOpacity="0.75" />
-              <stop offset="100%" stopColor="var(--primary-glow)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-
-          {LAYERS.map((layer, i) => {
-            const r = 49 - i * 6;
-            const circumference = 2 * Math.PI * r;
-            return (
-              <g key={layer.id} className={layer.compact ? "hidden sm:inline" : undefined}>
-                {/* static structural arc */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r={r}
-                  fill="none"
-                  stroke="var(--border-strong)"
-                  strokeWidth="0.35"
-                  strokeDasharray={`${circumference * (0.66 - i * 0.06)} ${circumference}`}
-                  strokeLinecap="round"
-                  transform={`rotate(${i * 42} 50 50)`}
-                />
-                {/* illumination sweeping along the arc */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r={r}
-                  fill="none"
-                  stroke="url(#core-arc)"
-                  strokeWidth="0.9"
-                  strokeLinecap="round"
-                  strokeDasharray={`${circumference * 0.14} ${circumference}`}
-                  className={
-                    layer.reverse
-                      ? "animate-arc-sweep-reverse motion-reduce:hidden"
-                      : "animate-arc-sweep motion-reduce:hidden"
-                  }
-                  style={{ animationDuration: layer.duration, transformOrigin: "50% 50%" }}
-                />
-              </g>
-            );
-          })}
-
-          {/* connecting planes between layers — architectural, not spokes */}
-          <path d="M 20 62 A 34 34 0 0 0 78 66" fill="none" stroke="var(--border)" strokeWidth="0.3" />
-          <path d="M 26 32 A 30 30 0 0 1 74 34" fill="none" stroke="var(--border)" strokeWidth="0.3" />
-        </svg>
-
-        {/* technology ecosystem — core cloud/devops rings dominate, the AI /
-            development ring sits further out and is deliberately quieter. */}
+        {/* technology ecosystem — four clean orbital rings with a clear
+            hierarchy: core → delivery → engineering → AI tooling. Rings differ
+            subtly in opacity, thickness, glow and speed for visual depth. */}
         <div aria-hidden className="absolute inset-0 hidden sm:block">
-          <OrbitRing tech={CORE_TECH} radius={32} duration={128} size="lg" delay={0} />
-          <OrbitRing tech={SUPPORTING_TECH} radius={41.5} duration={168} reverse delay={0.5} offset={26} />
-          <OrbitRing tech={AI_TECH} radius={45.5} duration={210} size="sm" muted delay={1} offset={13} />
+          <OrbitRing
+            tech={RING_CORE}
+            radius={23.5}
+            duration={150}
+            size="lg"
+            delay={0}
+            ringClassName="border-primary/25 shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
+          />
+          <OrbitRing
+            tech={RING_DELIVERY}
+            radius={31.5}
+            duration={195}
+            reverse
+            delay={0.4}
+            offset={45}
+            ringClassName="border-border-strong/60"
+          />
+          <OrbitRing
+            tech={RING_ENGINEERING}
+            radius={39}
+            duration={240}
+            delay={0.8}
+            offset={22}
+            ringClassName="border-border/70"
+          />
+          <OrbitRing
+            tech={RING_AI}
+            radius={45.5}
+            duration={285}
+            reverse
+            size="sm"
+            muted
+            delay={1.2}
+            offset={11}
+            ringClassName="border-border/40"
+          />
         </div>
 
         {/* mobile: dedicated compact composition — one ring, 7 core technologies */}
         <div aria-hidden className="absolute inset-0 sm:hidden">
-          <OrbitRing tech={CORE_TECH} radius={41} duration={140} size="lg" delay={0} />
+          <OrbitRing tech={CORE_TECH} radius={41} duration={150} size="lg" delay={0} />
         </div>
 
-        {/* operator portrait — present, not dominant */}
-        <div className="absolute inset-[40%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
+        {/* operator portrait — the primary focal point */}
+        <div className="absolute inset-[36%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
           <img
             src={profilePhoto}
             alt="Portrait of Vikram Madhyasta, cloud and platform engineer"
