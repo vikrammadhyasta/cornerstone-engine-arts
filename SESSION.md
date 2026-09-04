@@ -94,11 +94,12 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bun run build`: **PASS** (production build succeeds).
 - Playwright Hero verification:
   - Desktop + mobile screenshots captured.
-  - Headline reads "I build software and systems that work reliably."
-  - Description matches requested personal introduction.
+  - Headline reads "I build software and systems that work reliably." with larger type and gradient-emphasized final phrase.
+  - Description uses "Vikram Madhyasta" and "pursuing a Master of Engineering in Cloud Computing."
+  - GitHub `href` is exactly `https://github.com/vikrammadhyasta` and opens in a new tab.
+  - LinkedIn and Email `href`s remain correct.
   - Currently / Seeking / Focus panel absent (`<dl>` count = 0).
-  - GitHub, LinkedIn, and Email icon links present with correct `href`s and `aria-label`s.
-  - Right-side CloudOpsCenter visualization and action buttons unchanged.
+  - Right-side CloudOpsCenter visualization, action buttons, eyebrow, and all other sections unchanged.
 
 ---
 
