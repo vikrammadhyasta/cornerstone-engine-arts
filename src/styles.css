@@ -816,6 +816,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-boot {
+    display: none !important;
+  }
+  .boot-veil,
+  .boot-node,
+  .boot-link,
+  .boot-sweep,
+  .boot-status {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .boot-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Disable the hero boot overlay and content entrance animation on tablet/mobile. */
+@media (max-width: 1023px) {
+  .hero-boot {
+    display: none !important;
+  }
   .boot-veil,
   .boot-node,
   .boot-link,
