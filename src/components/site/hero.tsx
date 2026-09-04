@@ -6,7 +6,7 @@ import { CloudOpsCenter } from "@/components/site/cloud-ops-center";
 import { HeroAura } from "@/components/site/hero-aura";
 
 const SOCIAL_LINKS = [
-  { href: "https://github.com/vikrammadyasta", label: "GitHub", icon: Github, external: true },
+  { href: "https://github.com/vikrammadhyasta", label: "GitHub", icon: Github, external: true },
   { href: "https://www.linkedin.com/in/vikram-madhyasta", label: "LinkedIn", icon: Linkedin, external: true },
   { href: "mailto:vikrammadyasta@gmail.com", label: "Email", icon: Mail, external: false },
 ];
@@ -29,12 +29,15 @@ export function Hero() {
               <span className="min-w-0">Open to Cloud • DevOps • Platform roles</span>
             </span>
 
-            <h1 style={{ "--boot-delay": "760ms" } as CSSProperties} className="boot-item text-gradient-heading font-display text-[1.875rem] leading-[1.12] font-semibold text-balance sm:text-4xl xl:text-[2.9rem] xl:leading-[1.1]">
-              I build software and systems that work reliably.
+            <h1 style={{ "--boot-delay": "760ms" } as CSSProperties} className="boot-item text-gradient-heading font-display text-[2rem] leading-[1.1] font-semibold text-balance sm:text-[2.5rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]">
+              I build software and systems{" "}
+              <span className="bg-linear-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                that work reliably.
+              </span>
             </h1>
 
             <p style={{ "--boot-delay": "880ms" } as CSSProperties} className="boot-item max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Hi, I’m Vikram Madhyastha, a Cloud & DevOps Engineer with a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows.
+              Hi, I’m Vikram Madhyasta, a Cloud & DevOps Engineer pursuing a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows.
             </p>
 
             <div style={{ "--boot-delay": "1000ms" } as CSSProperties} className="boot-item flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">

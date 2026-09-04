@@ -6,15 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero update** — updated only the Hero section (`src/components/site/hero.tsx`). Replaced the headline with "I build software and systems that work reliably." and the description with the requested personal introduction. Removed the bottom Currently / Seeking / Focus information panel. Added a compact icon-only row beneath the action buttons for GitHub, LinkedIn, and Email with accessible labels, subtle hover/focus states, and correct destinations. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing system, typography, colors, animations, and all other portfolio sections.
+**Hero refinement** — updated only the Hero section (`src/components/site/hero.tsx`). Increased the headline size for stronger visual impact while preserving responsive scaling and the existing design system. Added subtle primary-to-primary-glow gradient emphasis to the final phrase "that work reliably." Updated the description to use the correct surname "Madhyasta" and "pursuing a Master of Engineering in Cloud Computing." Fixed the GitHub icon link to `https://github.com/vikrammadhyasta`. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing, animations, and all other portfolio sections.
 
 ---
 
 ## Feature Status
 
-- **Hero copy update:** COMPLETED — headline and description replaced exactly as requested.
-- **Hero facts panel removal:** COMPLETED — Currently / Seeking / Focus panel removed; natural spacing retained.
-- **Hero social icons:** COMPLETED — GitHub, LinkedIn, and Email icon links added below action buttons with `aria-label`s and existing hover styling.
+- **Hero headline refinement:** COMPLETED — headline size increased for stronger visual hierarchy; final phrase "that work reliably." emphasized with the existing primary-to-primary-glow gradient; responsive scaling preserved.
+- **Hero description update:** COMPLETED — surname corrected to "Madhyasta"; description now reads "pursuing a Master of Engineering in Cloud Computing."
+- **Hero GitHub link fix:** COMPLETED — GitHub icon now points to `https://github.com/vikrammadhyasta` and opens in a new tab.
+- **Hero social icons preserved:** LinkedIn and Email icon links remain unchanged with existing styling.
+- **Hero facts panel removal preserved:** Currently / Seeking / Focus panel remains removed.
 - **No other sections modified:** Navigation, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, Academic Foundation, Contact, and Footer remain unchanged.
 - **Hero visualization preserved:** CloudOpsCenter profile image, orbit, icons, glow, and animations untouched.
 
@@ -28,11 +30,11 @@ These are design decisions that are **already approved** and must not be changed
 
 - **Brand:** Vikram Madhyasta
 - **Availability indicator:** "Open to Cloud • DevOps • Platform Roles" (pulse dot + label, dark-first glassy pill)
-- **Headline:** "I build software and systems that work reliably."
-- **Supporting description:** "Hi, I’m Vikram Madhyastha, a Cloud & DevOps Engineer with a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows."
+- **Headline:** "I build software and systems that work reliably." — larger, stronger visual hierarchy; final phrase "that work reliably." emphasized with the existing primary-to-primary-glow gradient.
+- **Supporting description:** "Hi, I’m Vikram Madhyasta, a Cloud & DevOps Engineer pursuing a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows."
 - **Primary CTA:** "Explore Projects" (anchor → `#projects`)
 - **Secondary CTA:** "Download Resume" (downloads `/resume.pdf`)
-- **Social links:** icon-only GitHub, LinkedIn, and Email row beneath action buttons; accessible labels; subtle hover/focus states
+- **Social links:** icon-only GitHub (`https://github.com/vikrammadhyasta`), LinkedIn, and Email row beneath action buttons; accessible labels; subtle hover/focus states
 - **Signature visual:** Platform Core
   - Capability layers: Cloud (AWS) → Platform (K8s) → Delivery (IaC) → Observability (SLO)
   - Operator portrait at center
@@ -81,7 +83,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/components/site/hero.tsx` — updated headline, description, removed facts panel, added social icon links.
+- `src/components/site/hero.tsx` — increased headline size, added primary-to-primary-glow gradient emphasis to "that work reliably.", updated description with correct surname and "pursuing", fixed GitHub URL.
 - `SESSION.md` — updated current state.
 
 ---
@@ -92,11 +94,12 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - `bun run build`: **PASS** (production build succeeds).
 - Playwright Hero verification:
   - Desktop + mobile screenshots captured.
-  - Headline reads "I build software and systems that work reliably."
-  - Description matches requested personal introduction.
+  - Headline reads "I build software and systems that work reliably." with larger type and gradient-emphasized final phrase.
+  - Description uses "Vikram Madhyasta" and "pursuing a Master of Engineering in Cloud Computing."
+  - GitHub `href` is exactly `https://github.com/vikrammadhyasta` and opens in a new tab.
+  - LinkedIn and Email `href`s remain correct.
   - Currently / Seeking / Focus panel absent (`<dl>` count = 0).
-  - GitHub, LinkedIn, and Email icon links present with correct `href`s and `aria-label`s.
-  - Right-side CloudOpsCenter visualization and action buttons unchanged.
+  - Right-side CloudOpsCenter visualization, action buttons, eyebrow, and all other sections unchanged.
 
 ---
 
