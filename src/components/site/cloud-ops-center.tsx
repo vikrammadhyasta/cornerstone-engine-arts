@@ -172,6 +172,8 @@ function OrbitRing({
   muted,
   delay = 0,
   offset = 0,
+  dots = 0,
+  dotOpacity = 0.9,
   ringClassName = "border-primary/20",
 }: {
   tech: TechLogo[];
@@ -184,6 +186,9 @@ function OrbitRing({
   delay?: number;
   /** phase offset in degrees, keeps rings from colliding when frozen */
   offset?: number;
+  /** number of static luminous markers sitting on the ring path */
+  dots?: number;
+  dotOpacity?: number;
   /** ring line styling — varies opacity/thickness/glow per ring for depth */
   ringClassName?: string;
 }) {
@@ -193,6 +198,14 @@ function OrbitRing({
     size === "lg" ? "h-9 w-9 sm:h-10 sm:w-10" : size === "md" ? "h-8 w-8" : "h-7 w-7";
   const glyph = size === "lg" ? "h-5 w-5" : size === "md" ? "h-4 w-4" : "h-3.5 w-3.5";
   const wideGlyph = size === "lg" ? "h-4 w-7" : size === "md" ? "h-3.5 w-6" : "h-3 w-5";
+  const dotMarks = Array.from({ length: dots }, (_, i) => {
+    const a = ((360 / Math.max(dots, 1)) * i + offset / 2) * (Math.PI / 180);
+    return {
+      left: (50 + radius * Math.sin(a)).toFixed(3),
+      top: (50 - radius * Math.cos(a)).toFixed(3),
+    };
+  });
+
 
   return (
     <>
