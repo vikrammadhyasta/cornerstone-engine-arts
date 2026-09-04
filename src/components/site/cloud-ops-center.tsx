@@ -61,91 +61,72 @@ const ARIA_NAMES: Record<string, string> = {
 export function CloudOpsCenter() {
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="platform-core relative mx-auto aspect-square w-full max-w-[19rem] sm:max-w-[26rem] xl:max-w-[32rem]">
-        {/* ambient glow */}
-        <div
-          aria-hidden
-          className="absolute inset-[12%] rounded-full blur-3xl opacity-50 animate-core-breathe motion-reduce:animate-none"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--primary) 24%, transparent), transparent 70%)",
-          }}
-        />
-
-        {/* dark core — anchored to the portrait: both are centered children of
-            the same platform-core wrapper, so the core disc and the photo move,
-            scale and reposition together as one unit on every viewport. */}
-        <div aria-hidden className="aura-reveal absolute inset-[18.75%] opacity-45 sm:opacity-70 lg:opacity-100">
-          <div
-            className="aura-core h-full w-full rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--background) 88%, black) 42%, color-mix(in oklab, var(--primary) 26%, transparent) 80%, transparent 100%)",
-              boxShadow: "0 0 120px 24px color-mix(in oklab, var(--primary) 32%, transparent)",
-            }}
-          />
-        </div>
-
-        {/* soft ambient plane behind the portrait for depth */}
-        <div
-          aria-hidden
-          className="absolute inset-[6%] rounded-full animate-core-drift motion-reduce:animate-none"
-          style={{
-            background:
-              "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--surface) 55%, transparent), transparent 72%)",
-          }}
-        />
-
+      <div className="platform-core relative mx-auto aspect-square w-full max-w-[19rem] sm:max-w-[27rem] xl:max-w-[34rem]">
         {/* technology ecosystem — four orbital rings, hierarchy from the core
             platform outwards to the AI-native workflow. Inner rings read
             slightly brighter; outer rings stay quieter for depth. */}
         <div className="absolute inset-0 hidden sm:block">
           <OrbitRing
             tech={RING_CORE}
-            radius={26}
-            duration={170}
+            radius={28}
+            duration={190}
             size="lg"
             delay={0}
-            ringClassName="border-primary/35 shadow-[0_0_22px_-6px_color-mix(in_oklab,var(--primary)_55%,transparent)]"
+            dots={10}
+            ringClassName="border-primary/45 shadow-[0_0_14px_-6px_color-mix(in_oklab,var(--primary)_70%,transparent)]"
           />
           <OrbitRing
             tech={RING_DELIVERY}
-            radius={34}
-            duration={215}
+            radius={35}
+            duration={240}
             reverse
             delay={0.4}
             offset={36}
-            ringClassName="border-primary/22 shadow-[0_0_18px_-8px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
+            dots={12}
+            dotOpacity={0.75}
+            ringClassName="border-primary/32"
           />
           <OrbitRing
             tech={RING_ENGINEERING}
-            radius={40.5}
-            duration={260}
+            radius={41.5}
+            duration={285}
             delay={0.8}
             offset={60}
-            ringClassName="border-primary/16"
+            dots={14}
+            dotOpacity={0.6}
+            ringClassName="border-primary/22"
           />
           <OrbitRing
             tech={RING_AI}
-            radius={46.5}
-            duration={310}
+            radius={47.5}
+            duration={330}
             reverse
             size="sm"
             muted
             delay={1.2}
             offset={22}
-            ringClassName="border-primary/10"
+            dots={16}
+            dotOpacity={0.45}
+            ringClassName="border-primary/14"
           />
         </div>
 
         {/* mobile: dedicated compact composition — one ring, 5 core technologies */}
         <div className="absolute inset-0 sm:hidden">
-          <OrbitRing tech={RING_CORE} radius={42} duration={170} size="lg" delay={0} ringClassName="border-primary/30" />
+          <OrbitRing
+            tech={RING_CORE}
+            radius={42}
+            duration={190}
+            size="lg"
+            delay={0}
+            dots={10}
+            ringClassName="border-primary/40"
+          />
         </div>
 
         {/* operator portrait — the primary focal point, protected zone at the
-            centre that no orbiting node can reach (innermost radius 26%). */}
-        <div className="absolute inset-[33%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
+            centre that no orbiting node can reach (innermost radius 28%). */}
+        <div className="absolute inset-[33%] overflow-hidden rounded-full border border-primary/40 bg-surface shadow-[0_0_24px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)]">
           <img
             src={profilePhoto}
             alt="Portrait of Vikram Madhyasta, cloud and platform engineer"
@@ -153,11 +134,7 @@ export function CloudOpsCenter() {
             height={816}
             loading="eager"
             decoding="async"
-            className="h-full w-full object-cover opacity-95"
-          />
-          <span
-            aria-hidden
-            className="absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent"
+            className="h-full w-full object-cover"
           />
         </div>
       </div>
@@ -180,6 +157,7 @@ export function CloudOpsCenter() {
     </div>
   );
 }
+
 
 /**
  * A single orbital ring of technology marks. The ring rotates slowly while each
