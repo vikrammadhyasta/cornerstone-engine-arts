@@ -45,9 +45,57 @@ export function HeroBoot() {
       aria-hidden
       className="hero-boot pointer-events-none absolute inset-0 z-0 overflow-hidden hidden lg:block"
     >
-      {/* Persistent dark circular core anchored to the orbit/profile-photo
-          container. It stays stable after the entrance sequence completes. */}
+      {/* Persistent dark circular core + radial sun-ray system, anchored to the
+          orbit/profile-photo container as ONE unit. They share the same center,
+          stay stable after the entrance sequence completes (no rotation, no
+          drift), and exist on desktop only. */}
       <div className="absolute top-1/2 left-1/2 w-full max-w-[19rem] sm:max-w-[27rem] xl:max-w-[34rem] -translate-x-1/2 -translate-y-1/2">
+        <div className="aura-reveal absolute inset-0 opacity-20">
+          <div
+            className="absolute top-1/2 left-1/2 grid [grid-template:0px/0px] place-items-center"
+            style={{ transform: "translate(calc(-50% - 0.75rem), -50%)" }}
+          >
+            {/* filament strands radiating from the core — the radial rays,
+                static so they remain attached to the dark core */}
+            <div
+              className="[grid-area:1/1] h-[min(150vh,86rem)] w-[min(150vh,86rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 15%, black 26%, transparent 58%)",
+                filter: "blur(3px)",
+              }}
+            />
+
+            {/* turbulent outer nebula */}
+            <div
+              className="[grid-area:1/1] h-[min(140vh,80rem)] w-[min(140vh,80rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "conic-gradient(from 210deg at 50% 50%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 28%, color-mix(in oklab, var(--primary-glow) 30%, transparent) 52%, transparent 74%, color-mix(in oklab, var(--primary) 32%, transparent))",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, transparent 20%, black 40%, transparent 70%)",
+                filter: "blur(46px)",
+              }}
+            />
+
+            {/* corona ring */}
+            <div
+              className="[grid-area:1/1] h-[min(80vh,44rem)] w-[min(80vh,44rem)] rounded-full mix-blend-screen"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, transparent 30%, color-mix(in oklab, var(--primary-glow) 85%, transparent) 41%, color-mix(in oklab, var(--primary) 55%, transparent) 52%, transparent 68%)",
+                filter: "blur(22px)",
+              }}
+            />
+          </div>
+        </div>
+
         <div
           className="boot-core absolute top-1/2 left-1/2 aspect-square w-[52%] rounded-full"
           style={{
