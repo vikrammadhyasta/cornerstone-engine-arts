@@ -12,9 +12,11 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Feature Status
 
-- **Hero copy update:** COMPLETED — headline and description replaced exactly as requested.
-- **Hero facts panel removal:** COMPLETED — Currently / Seeking / Focus panel removed; natural spacing retained.
-- **Hero social icons:** COMPLETED — GitHub, LinkedIn, and Email icon links added below action buttons with `aria-label`s and existing hover styling.
+- **Hero headline refinement:** COMPLETED — headline size increased for stronger visual hierarchy; final phrase "that work reliably." emphasized with the existing primary-to-primary-glow gradient; responsive scaling preserved.
+- **Hero description update:** COMPLETED — surname corrected to "Madhyasta"; description now reads "pursuing a Master of Engineering in Cloud Computing."
+- **Hero GitHub link fix:** COMPLETED — GitHub icon now points to `https://github.com/vikrammadhyasta` and opens in a new tab.
+- **Hero social icons preserved:** LinkedIn and Email icon links remain unchanged with existing styling.
+- **Hero facts panel removal preserved:** Currently / Seeking / Focus panel remains removed.
 - **No other sections modified:** Navigation, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, Academic Foundation, Contact, and Footer remain unchanged.
 - **Hero visualization preserved:** CloudOpsCenter profile image, orbit, icons, glow, and animations untouched.
 
