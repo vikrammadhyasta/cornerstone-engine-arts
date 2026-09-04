@@ -75,13 +75,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
 - **Academic Foundation reorder:** Moved the section to render immediately after Credentials on the homepage.
 - **Footer update:** Added minimal premium footer with exact requested copyright/tagline copy, no extra links, and responsive dark styling.
+- **Hero update:** Replaced headline and description, removed Currently/Seeking/Focus panel, and added GitHub/LinkedIn/Email icon links while preserving visualization, CTAs, eyebrow, and styling.
 
 ---
 
 ## Files Changed
 
-- `src/components/site/site-footer.tsx` — new minimal footer component with exact requested copy.
-- `src/routes/index.tsx` — renders `<SiteFooter />` after `<Contact />` on the homepage.
+- `src/components/site/hero.tsx` — updated headline, description, removed facts panel, added social icon links.
 - `SESSION.md` — updated current state.
 
 ---
@@ -90,8 +90,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Playwright desktop footer visual QA: footer renders centered, dark background, primary copyright line and smaller muted tagline, no extra links.
-- Playwright mobile footer visual QA: text wraps cleanly and remains centered on a 390×844 viewport.
+- Playwright Hero verification:
+  - Desktop + mobile screenshots captured.
+  - Headline reads "I build software and systems that work reliably."
+  - Description matches requested personal introduction.
+  - Currently / Seeking / Focus panel absent (`<dl>` count = 0).
+  - GitHub, LinkedIn, and Email icon links present with correct `href`s and `aria-label`s.
+  - Right-side CloudOpsCenter visualization and action buttons unchanged.
 
 ---
 
