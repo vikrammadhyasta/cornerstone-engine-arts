@@ -214,6 +214,22 @@ function OrbitRing({
         className={`absolute rounded-full border ${ringClassName}`}
         style={{ inset: `${50 - radius}%` }}
       />
+      {/* static luminous markers on the orbit path — they never rotate */}
+      <div aria-hidden className="absolute inset-0">
+        {dotMarks.map((d, i) => (
+          <span
+            key={i}
+            className="absolute h-[3px] w-[3px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+            style={{
+              left: `${d.left}%`,
+              top: `${d.top}%`,
+              opacity: dotOpacity,
+              boxShadow: "0 0 6px 1px color-mix(in oklab, var(--primary) 60%, transparent)",
+            }}
+          />
+        ))}
+      </div>
+
       <ul
         className="absolute inset-0 list-none motion-reduce:animate-none"
         style={{ animation: spin, transformOrigin: "50% 50%" }}
