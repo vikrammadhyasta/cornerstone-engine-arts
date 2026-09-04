@@ -6,16 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Footer update** — added a minimal, premium `SiteFooter` component (`src/components/site/site-footer.tsx`) rendered after `<Contact />` in `src/routes/index.tsx`. Footer contains the exact requested copy: "© 2026 Vikram Madhyasta. All rights reserved." as the primary line and "Designed, built, and continuously improved as an engineering portfolio." as a smaller, muted secondary line. No navigation links or additional text. Preserves the existing dark background, typography, and subtle top-border treatment. Contact section and all other portfolio sections unchanged.
+**Hero update** — updated only the Hero section (`src/components/site/hero.tsx`). Replaced the headline with "I build software and systems that work reliably." and the description with the requested personal introduction. Removed the bottom Currently / Seeking / Focus information panel. Added a compact icon-only row beneath the action buttons for GitHub, LinkedIn, and Email with accessible labels, subtle hover/focus states, and correct destinations. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing system, typography, colors, animations, and all other portfolio sections.
 
 ---
 
 ## Feature Status
 
-- **Section reorder:** COMPLETED — `<AcademicFoundation />` now renders immediately after `<CredentialsRegistry />` in `src/routes/index.tsx`.
-- **Academic Foundation preserved:** component, heading, content, typography, cards, spacing, animations, colors, and responsive behavior unchanged.
-- **No other sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
-- **Anchor behavior preserved:** `#academic-foundation` id and scroll anchor remain intact.
+- **Hero copy update:** COMPLETED — headline and description replaced exactly as requested.
+- **Hero facts panel removal:** COMPLETED — Currently / Seeking / Focus panel removed; natural spacing retained.
+- **Hero social icons:** COMPLETED — GitHub, LinkedIn, and Email icon links added below action buttons with `aria-label`s and existing hover styling.
+- **No other sections modified:** Navigation, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, Academic Foundation, Contact, and Footer remain unchanged.
+- **Hero visualization preserved:** CloudOpsCenter profile image, orbit, icons, glow, and animations untouched.
 
 ---
 
