@@ -41,10 +41,7 @@ export function HeroBoot() {
   if (reduced) return null;
 
   return (
-    <div
-      aria-hidden
-      className="hero-boot pointer-events-none absolute inset-0 z-0 hidden lg:block"
-    >
+    <div aria-hidden className="hero-boot pointer-events-none absolute inset-0 z-0 hidden lg:block">
       {/* Persistent dark circular core + radial sun-ray system, anchored to the
           orbit/profile-photo container as ONE unit. They share the same center,
           stay stable after the entrance sequence completes (no rotation, no
