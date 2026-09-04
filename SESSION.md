@@ -6,16 +6,17 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Footer update** — added a minimal, premium `SiteFooter` component (`src/components/site/site-footer.tsx`) rendered after `<Contact />` in `src/routes/index.tsx`. Footer contains the exact requested copy: "© 2026 Vikram Madhyasta. All rights reserved." as the primary line and "Designed, built, and continuously improved as an engineering portfolio." as a smaller, muted secondary line. No navigation links or additional text. Preserves the existing dark background, typography, and subtle top-border treatment. Contact section and all other portfolio sections unchanged.
+**Hero update** — updated only the Hero section (`src/components/site/hero.tsx`). Replaced the headline with "I build software and systems that work reliably." and the description with the requested personal introduction. Removed the bottom Currently / Seeking / Focus information panel. Added a compact icon-only row beneath the action buttons for GitHub, LinkedIn, and Email with accessible labels, subtle hover/focus states, and correct destinations. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing system, typography, colors, animations, and all other portfolio sections.
 
 ---
 
 ## Feature Status
 
-- **Section reorder:** COMPLETED — `<AcademicFoundation />` now renders immediately after `<CredentialsRegistry />` in `src/routes/index.tsx`.
-- **Academic Foundation preserved:** component, heading, content, typography, cards, spacing, animations, colors, and responsive behavior unchanged.
-- **No other sections modified:** Hero, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, and Reserved sections remain unchanged.
-- **Anchor behavior preserved:** `#academic-foundation` id and scroll anchor remain intact.
+- **Hero copy update:** COMPLETED — headline and description replaced exactly as requested.
+- **Hero facts panel removal:** COMPLETED — Currently / Seeking / Focus panel removed; natural spacing retained.
+- **Hero social icons:** COMPLETED — GitHub, LinkedIn, and Email icon links added below action buttons with `aria-label`s and existing hover styling.
+- **No other sections modified:** Navigation, Engineering Identity, Experience, Engineering Control Plane, Projects, Credentials, Academic Foundation, Contact, and Footer remain unchanged.
+- **Hero visualization preserved:** CloudOpsCenter profile image, orbit, icons, glow, and animations untouched.
 
 ---
 
@@ -27,14 +28,11 @@ These are design decisions that are **already approved** and must not be changed
 
 - **Brand:** Vikram Madhyasta
 - **Availability indicator:** "Open to Cloud • DevOps • Platform Roles" (pulse dot + label, dark-first glassy pill)
-- **Headline:** "Engineering cloud platforms with Kubernetes, Infrastructure as Code, and automation."
-- **Supporting description:** "I build and automate cloud infrastructure across AWS, Kubernetes, Terraform, CI/CD and GitOps — with reliability, observability, security and maintainability built into the workflow."
+- **Headline:** "I build software and systems that work reliably."
+- **Supporting description:** "Hi, I’m Vikram Madhyastha, a Cloud & DevOps Engineer with a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows."
 - **Primary CTA:** "Explore Projects" (anchor → `#projects`)
 - **Secondary CTA:** "Download Resume" (downloads `/resume.pdf`)
-- **Recruiter facts**:
-  - Currently — M.Tech Cloud Computing
-  - Seeking — Cloud / DevOps / Platform
-  - Focus — AWS • Kubernetes • Terraform
+- **Social links:** icon-only GitHub, LinkedIn, and Email row beneath action buttons; accessible labels; subtle hover/focus states
 - **Signature visual:** Platform Core
   - Capability layers: Cloud (AWS) → Platform (K8s) → Delivery (IaC) → Observability (SLO)
   - Operator portrait at center
@@ -77,13 +75,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 - **Academic Foundation section:** Added compact two-card education section with exact provided data, existing visual system, and homepage integration.
 - **Academic Foundation reorder:** Moved the section to render immediately after Credentials on the homepage.
 - **Footer update:** Added minimal premium footer with exact requested copyright/tagline copy, no extra links, and responsive dark styling.
+- **Hero update:** Replaced headline and description, removed Currently/Seeking/Focus panel, and added GitHub/LinkedIn/Email icon links while preserving visualization, CTAs, eyebrow, and styling.
 
 ---
 
 ## Files Changed
 
-- `src/components/site/site-footer.tsx` — new minimal footer component with exact requested copy.
-- `src/routes/index.tsx` — renders `<SiteFooter />` after `<Contact />` on the homepage.
+- `src/components/site/hero.tsx` — updated headline, description, removed facts panel, added social icon links.
 - `SESSION.md` — updated current state.
 
 ---
@@ -92,8 +90,13 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 - `bunx tsc --noEmit`: **PASS**.
 - `bun run build`: **PASS** (production build succeeds).
-- Playwright desktop footer visual QA: footer renders centered, dark background, primary copyright line and smaller muted tagline, no extra links.
-- Playwright mobile footer visual QA: text wraps cleanly and remains centered on a 390×844 viewport.
+- Playwright Hero verification:
+  - Desktop + mobile screenshots captured.
+  - Headline reads "I build software and systems that work reliably."
+  - Description matches requested personal introduction.
+  - Currently / Seeking / Focus panel absent (`<dl>` count = 0).
+  - GitHub, LinkedIn, and Email icon links present with correct `href`s and `aria-label`s.
+  - Right-side CloudOpsCenter visualization and action buttons unchanged.
 
 ---
 
@@ -131,7 +134,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## NEXT EXACT STEP
 
-Await user review of the updated footer.
+Await user review of the updated Hero.
 
 ---
 
@@ -140,8 +143,7 @@ Await user review of the updated footer.
 - **Branch:** `edit/edt-4d1bbaf4-6728-4da7-978f-8c99c51e59a1`
 - **Working tree:** clean (changes auto-committed by the platform).
 - **Files changed this session:**
-  - `A src/components/site/site-footer.tsx`
-  - `M src/routes/index.tsx`
+  - `M src/components/site/hero.tsx`
   - `M SESSION.md`
 
 - **Last commits:**

@@ -1,18 +1,14 @@
 import type { CSSProperties } from "react";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { CloudOpsCenter } from "@/components/site/cloud-ops-center";
 import { HeroAura } from "@/components/site/hero-aura";
 
-const FACTS = [
-  { label: "Currently", value: "M.Tech Cloud Computing", short: "M.Tech Cloud Computing" },
-  {
-    label: "Seeking",
-    value: "Cloud / DevOps / Platform Engineering Roles",
-    short: "Cloud / DevOps / Platform",
-  },
-  { label: "Focus", value: "AWS • Kubernetes • Terraform", short: "AWS • Kubernetes • Terraform" },
+const SOCIAL_LINKS = [
+  { href: "https://github.com/vikrammadyasta", label: "GitHub", icon: Github, external: true },
+  { href: "https://www.linkedin.com/in/vikram-madhyasta", label: "LinkedIn", icon: Linkedin, external: true },
+  { href: "mailto:vikrammadyasta@gmail.com", label: "Email", icon: Mail, external: false },
 ];
 
 export function Hero() {
@@ -34,13 +30,11 @@ export function Hero() {
             </span>
 
             <h1 style={{ "--boot-delay": "760ms" } as CSSProperties} className="boot-item text-gradient-heading font-display text-[1.875rem] leading-[1.12] font-semibold text-balance sm:text-4xl xl:text-[2.9rem] xl:leading-[1.1]">
-              Engineering cloud platforms with Kubernetes, Infrastructure as Code, and automation.
+              I build software and systems that work reliably.
             </h1>
 
             <p style={{ "--boot-delay": "880ms" } as CSSProperties} className="boot-item max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              I build and automate cloud infrastructure across AWS, Kubernetes, Terraform, CI/CD and
-              GitOps — with reliability, observability, security and maintainability built into the
-              workflow.
+              Hi, I’m Vikram Madhyastha, a Cloud & DevOps Engineer with a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows.
             </p>
 
             <div style={{ "--boot-delay": "1000ms" } as CSSProperties} className="boot-item flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
@@ -58,23 +52,19 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Quick facts — compact rows on mobile, light grid on larger screens */}
-            <dl style={{ "--boot-delay": "1120ms" } as CSSProperties} className="boot-item mt-1 divide-y divide-border border-y border-border sm:mt-2 sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0 sm:overflow-hidden sm:rounded-xl sm:border sm:bg-border">
-              {FACTS.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="grid grid-cols-[minmax(0,7rem)_minmax(0,1fr)] items-baseline gap-3 py-2 sm:block sm:bg-surface/30 sm:px-4 sm:py-3.5 sm:backdrop-blur-sm"
+            <div style={{ "--boot-delay": "1080ms" } as CSSProperties} className="boot-item flex items-center gap-1">
+              {SOCIAL_LINKS.map(({ href, label, icon: Icon, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="inline-flex rounded-full p-2.5 text-muted-foreground transition-colors hover:bg-surface/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  <dt className="font-mono text-[0.5625rem] tracking-[0.16em] text-muted-foreground uppercase sm:text-[0.625rem]">
-                    {fact.label}
-                  </dt>
-                  <dd className="min-w-0 text-[0.8125rem] leading-snug font-medium text-foreground sm:mt-1.5 sm:text-sm">
-                    <span className="sm:hidden">{fact.short}</span>
-                    <span className="hidden sm:inline">{fact.value}</span>
-                  </dd>
-                </div>
+                  <Icon size={20} aria-hidden="true" />
+                </a>
               ))}
-            </dl>
+            </div>
           </div>
 
           <div style={{ "--boot-delay": "900ms" } as CSSProperties} className="boot-item order-last">
