@@ -101,7 +101,10 @@ export function Hero() {
 
           <div className="order-last relative">
             <HeroBoot />
-            <div style={{ "--boot-delay": "900ms" } as CSSProperties} className="boot-item">
+            <div
+              style={{ "--boot-delay": "900ms" } as CSSProperties}
+              className="boot-item relative z-10"
+            >
               <CloudOpsCenter />
             </div>
           </div>
