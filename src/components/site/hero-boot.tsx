@@ -64,11 +64,11 @@ export function HeroBoot() {
               className="[grid-area:1/1] h-[240%] w-[240%] rounded-full mix-blend-screen"
               style={{
                 background:
-                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 60%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
+                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 85%, transparent) 0deg 0.9deg, transparent 0.9deg 2.6deg)",
                 maskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 10%, black 20%, transparent 60%)",
+                  "radial-gradient(circle at 50% 50%, transparent 8%, black 18%, transparent 62%)",
                 WebkitMaskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 10%, black 20%, transparent 60%)",
+                  "radial-gradient(circle at 50% 50%, transparent 8%, black 18%, transparent 62%)",
                 filter: "blur(3px)",
               }}
             />
