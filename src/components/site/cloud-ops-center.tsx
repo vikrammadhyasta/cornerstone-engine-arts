@@ -168,6 +168,7 @@ function OrbitRing({
   muted,
   delay = 0,
   offset = 0,
+  ringClassName = "border-border/70",
 }: {
   tech: TechLogo[];
   /** distance from centre, in % of the square */
@@ -179,6 +180,8 @@ function OrbitRing({
   delay?: number;
   /** phase offset in degrees, keeps rings from colliding when frozen */
   offset?: number;
+  /** ring line styling — varies opacity/thickness/glow per ring for depth */
+  ringClassName?: string;
 }) {
   const spin = `orbit-spin ${duration}s linear infinite${reverse ? " reverse" : ""}`;
   const counterSpin = `orbit-spin ${duration}s linear infinite${reverse ? "" : " reverse"}`;
