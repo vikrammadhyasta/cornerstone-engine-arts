@@ -193,7 +193,7 @@ function OrbitRing({
   return (
     <>
       <div
-        className="absolute rounded-full border border-border/70"
+        className={`absolute rounded-full border ${ringClassName}`}
         style={{ inset: `${50 - radius}%` }}
       />
       <div
