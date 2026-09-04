@@ -83,7 +83,7 @@ These are **recommendations from the audit**, not yet approved. Listed for conte
 
 ## Files Changed
 
-- `src/components/site/hero.tsx` — updated headline, description, removed facts panel, added social icon links.
+- `src/components/site/hero.tsx` — increased headline size, added primary-to-primary-glow gradient emphasis to "that work reliably.", updated description with correct surname and "pursuing", fixed GitHub URL.
 - `SESSION.md` — updated current state.
 
 ---
