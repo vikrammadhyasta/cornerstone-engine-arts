@@ -43,7 +43,7 @@ export function HeroBoot() {
   ];
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 z-20 overflow-hidden hidden lg:block">
+    <div aria-hidden className="hero-boot pointer-events-none absolute inset-0 z-20 overflow-hidden hidden lg:block">
       {/* dark technical veil that dissolves into the page */}
       <div className="boot-veil absolute inset-0 bg-background/85 backdrop-blur-[2px]" />
 

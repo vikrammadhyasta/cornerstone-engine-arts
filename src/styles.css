@@ -816,6 +816,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-boot {
+    display: none !important;
+  }
   .boot-veil,
   .boot-node,
   .boot-link,
@@ -833,6 +836,9 @@
 
 /* Disable the hero boot overlay and content entrance animation on tablet/mobile. */
 @media (max-width: 1023px) {
+  .hero-boot {
+    display: none !important;
+  }
   .boot-veil,
   .boot-node,
   .boot-link,
