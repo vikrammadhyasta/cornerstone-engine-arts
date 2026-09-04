@@ -8,30 +8,55 @@ import {
   type TechLogo,
 } from "@/components/site/tech-logos";
 
-
 /**
  * Platform Core — a calm, four-ring orbital visualization of the technology
  * ecosystem around the operator portrait.
  *
- * Rings carry a clear hierarchy (core → delivery → engineering → AI tooling),
- * with subtle differences in opacity, thickness, glow and speed for depth.
- * Entirely decorative: hidden from assistive tech except the portrait.
+ * Rings carry a clear hierarchy (core platform → delivery → engineering →
+ * AI-native workflow), with graduated opacity, glow and speed for depth.
+ * Every node sits well outside a protected central zone around the portrait,
+ * so nothing ever crosses the photo while orbiting.
  *
  * Ring membership is only a visual arrangement — the technology registry in
  * tech-logos.tsx remains the single source of truth for names and icons.
  */
 
+const REGISTRY: TechLogo[] = [...CORE_TECH, ...SUPPORTING_TECH, ...AI_TECH];
+
+const byName = (name: string): TechLogo => {
+  const found = REGISTRY.find((t) => t.name === name);
+  if (!found) throw new Error(`Unknown technology: ${name}`);
+  return found;
+};
+
+const pick = (...names: string[]) => names.map(byName);
+
 /** Ring 1 (innermost) — core cloud & platform technologies. */
-const RING_CORE: TechLogo[] = [CORE_TECH[0], CORE_TECH[1], CORE_TECH[2], CORE_TECH[3]];
+const RING_CORE = pick("AWS", "Kubernetes", "Terraform", "Docker", "Linux");
 
-/** Ring 2 — CI/CD & delivery technologies. */
-const RING_DELIVERY: TechLogo[] = [CORE_TECH[4], CORE_TECH[5], SUPPORTING_TECH[0], SUPPORTING_TECH[3]];
+/** Ring 2 — delivery & automation. */
+const RING_DELIVERY = pick("Jenkins", "GitHub Actions", "GitHub", "ArgoCD", "Ansible");
 
-/** Ring 3 — engineering & development technologies. */
-const RING_ENGINEERING: TechLogo[] = [CORE_TECH[6], SUPPORTING_TECH[1], SUPPORTING_TECH[2], SUPPORTING_TECH[4]];
+/** Ring 3 — software engineering. */
+const RING_ENGINEERING = pick("Python", "Java", "SQL");
 
-/** Ring 4 (outermost) — AI & development tooling, deliberately quieter. */
-const RING_AI: TechLogo[] = AI_TECH;
+/** Ring 4 (outermost) — AI-native workflow, deliberately quieter. */
+const RING_AI = pick(
+  "Claude Code",
+  "Claude",
+  "Gemini",
+  "Codex",
+  "Hermes Agent",
+  "OpenRouter",
+  "ChatGPT",
+  "Lovable",
+);
+
+/** Accessible names for marks whose label is an abbreviation. */
+const ARIA_NAMES: Record<string, string> = {
+  AWS: "Amazon Web Services",
+  SQL: "SQL databases",
+};
 
 export function CloudOpsCenter() {
   return (
@@ -49,8 +74,7 @@ export function CloudOpsCenter() {
 
         {/* dark core — anchored to the portrait: both are centered children of
             the same platform-core wrapper, so the core disc and the photo move,
-            scale and reposition together as one unit on every viewport.
-            Keeps its original appearance, pulse and entrance settle. */}
+            scale and reposition together as one unit on every viewport. */}
         <div aria-hidden className="aura-reveal absolute inset-[18.75%] opacity-45 sm:opacity-70 lg:opacity-100">
           <div
             className="aura-core h-full w-full rounded-full"
@@ -72,55 +96,56 @@ export function CloudOpsCenter() {
           }}
         />
 
-        {/* technology ecosystem — four clean orbital rings with a clear
-            hierarchy: core → delivery → engineering → AI tooling. Rings differ
-            subtly in opacity, thickness, glow and speed for visual depth. */}
-        <div aria-hidden className="absolute inset-0 hidden sm:block">
+        {/* technology ecosystem — four orbital rings, hierarchy from the core
+            platform outwards to the AI-native workflow. Inner rings read
+            slightly brighter; outer rings stay quieter for depth. */}
+        <div className="absolute inset-0 hidden sm:block">
           <OrbitRing
             tech={RING_CORE}
-            radius={23.5}
-            duration={150}
+            radius={26}
+            duration={170}
             size="lg"
             delay={0}
-            ringClassName="border-primary/25 shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
+            ringClassName="border-primary/35 shadow-[0_0_22px_-6px_color-mix(in_oklab,var(--primary)_55%,transparent)]"
           />
           <OrbitRing
             tech={RING_DELIVERY}
-            radius={31.5}
-            duration={195}
+            radius={34}
+            duration={215}
             reverse
             delay={0.4}
-            offset={45}
-            ringClassName="border-border-strong/60"
+            offset={36}
+            ringClassName="border-primary/22 shadow-[0_0_18px_-8px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
           />
           <OrbitRing
             tech={RING_ENGINEERING}
-            radius={39}
-            duration={240}
+            radius={40.5}
+            duration={260}
             delay={0.8}
-            offset={22}
-            ringClassName="border-border/70"
+            offset={60}
+            ringClassName="border-primary/16"
           />
           <OrbitRing
             tech={RING_AI}
-            radius={45.5}
-            duration={285}
+            radius={46.5}
+            duration={310}
             reverse
             size="sm"
             muted
             delay={1.2}
-            offset={11}
-            ringClassName="border-border/40"
+            offset={22}
+            ringClassName="border-primary/10"
           />
         </div>
 
-        {/* mobile: dedicated compact composition — one ring, 7 core technologies */}
-        <div aria-hidden className="absolute inset-0 sm:hidden">
-          <OrbitRing tech={CORE_TECH} radius={41} duration={150} size="lg" delay={0} />
+        {/* mobile: dedicated compact composition — one ring, 5 core technologies */}
+        <div className="absolute inset-0 sm:hidden">
+          <OrbitRing tech={RING_CORE} radius={42} duration={170} size="lg" delay={0} ringClassName="border-primary/30" />
         </div>
 
-        {/* operator portrait — the primary focal point */}
-        <div className="absolute inset-[36%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
+        {/* operator portrait — the primary focal point, protected zone at the
+            centre that no orbiting node can reach (innermost radius 26%). */}
+        <div className="absolute inset-[33%] overflow-hidden rounded-full border border-border-strong bg-surface shadow-[var(--shadow-glow)]">
           <img
             src={profilePhoto}
             alt="Portrait of Vikram Madhyasta, cloud and platform engineer"
@@ -137,9 +162,10 @@ export function CloudOpsCenter() {
         </div>
       </div>
 
-      {/* compact secondary technology list — mobile only, keeps the orbit clean */}
-      <ul aria-hidden className="flex w-full max-w-[19rem] flex-wrap justify-center gap-1.5 sm:hidden">
-        {[...SUPPORTING_TECH, ...AI_TECH].map((tech) => (
+      {/* compact secondary technology list — mobile only, keeps the orbit clean
+          while still representing every technology. */}
+      <ul className="flex w-full max-w-[19rem] flex-wrap justify-center gap-1.5 sm:hidden">
+        {[...RING_DELIVERY, ...RING_ENGINEERING, ...RING_AI].map((tech) => (
           <li
             key={tech.name}
             className="flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-2 py-1"
@@ -168,7 +194,7 @@ function OrbitRing({
   muted,
   delay = 0,
   offset = 0,
-  ringClassName = "border-border/70",
+  ringClassName = "border-primary/20",
 }: {
   tech: TechLogo[];
   /** distance from centre, in % of the square */
@@ -193,11 +219,12 @@ function OrbitRing({
   return (
     <>
       <div
+        aria-hidden
         className={`absolute rounded-full border ${ringClassName}`}
         style={{ inset: `${50 - radius}%` }}
       />
-      <div
-        className="absolute inset-0 motion-reduce:animate-none"
+      <ul
+        className="absolute inset-0 list-none motion-reduce:animate-none"
         style={{ animation: spin, transformOrigin: "50% 50%" }}
       >
         {tech.map((item, i) => {
@@ -206,12 +233,11 @@ function OrbitRing({
           const left = (50 + radius * Math.sin(rad)).toFixed(3);
           const top = (50 - radius * Math.cos(rad)).toFixed(3);
           return (
-            <div
+            <li
               key={item.name}
               className="absolute"
               style={{ left: `${left}%`, top: `${top}%` }}
             >
-
               <div
                 className="motion-reduce:animate-none"
                 style={{ animation: counterSpin, transformOrigin: "50% 50%" }}
@@ -221,47 +247,47 @@ function OrbitRing({
                   style={{ animationDelay: `${delay + i * 0.09}s` }}
                 >
                   <div
-                    className="group -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-                    title={item.name}
+                    role="img"
+                    tabIndex={0}
+                    aria-label={ARIA_NAMES[item.name] ?? item.name}
+                    className="group -translate-x-1/2 -translate-y-1/2 flex flex-col items-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     {/* ambient halo */}
                     <span
                       aria-hidden
                       className={`pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md transition-opacity duration-300 ${
                         size === "lg" ? "h-12 w-12" : size === "md" ? "h-10 w-10" : "h-8 w-8"
-                      } ${muted ? "opacity-25 group-hover:opacity-45" : "opacity-45 group-hover:opacity-80"}`}
+                      } ${muted ? "opacity-25 group-hover:opacity-45 group-focus-visible:opacity-45" : "opacity-45 group-hover:opacity-80 group-focus-visible:opacity-80"}`}
                       style={{
                         background:
                           "radial-gradient(circle, color-mix(in oklab, var(--primary) 26%, transparent), transparent 70%)",
                       }}
                     />
                     <div
-                      className={`relative flex ${box} items-center justify-center rounded-full border bg-surface/85 backdrop-blur-sm transition-[transform,box-shadow,border-color,opacity] duration-300 group-hover:scale-110 ${
+                      className={`relative flex ${box} items-center justify-center rounded-full border bg-surface/85 backdrop-blur-sm transition-[transform,box-shadow,border-color,opacity] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 group-focus-visible:-translate-y-0.5 group-focus-visible:scale-110 ${
                         muted
-                          ? "border-border/80 opacity-70 shadow-[0_0_12px_-8px_color-mix(in_oklab,var(--primary)_60%,transparent)] group-hover:opacity-100"
+                          ? "border-border/80 opacity-70 shadow-[0_0_12px_-8px_color-mix(in_oklab,var(--primary)_60%,transparent)] group-hover:opacity-100 group-focus-visible:opacity-100"
                           : "border-border-strong/70 shadow-[0_0_18px_-6px_color-mix(in_oklab,var(--primary)_60%,transparent)] animate-node-pulse motion-reduce:animate-none"
-                      } group-hover:border-primary/60 group-hover:shadow-[0_0_26px_-4px_color-mix(in_oklab,var(--primary)_75%,transparent)]`}
+                      } group-hover:border-primary/60 group-focus-visible:border-primary/60 group-hover:shadow-[0_0_26px_-4px_color-mix(in_oklab,var(--primary)_75%,transparent)] group-focus-visible:shadow-[0_0_26px_-4px_color-mix(in_oklab,var(--primary)_75%,transparent)]`}
                       style={muted ? undefined : { animationDelay: `${i * 0.4}s` }}
                     >
                       <TechGlyph tech={item} className={item.wide ? wideGlyph : glyph} />
                     </div>
                     <span
-                      className={`mt-1 max-w-[5.5rem] text-center font-mono text-[0.4375rem] leading-tight tracking-[0.1em] whitespace-nowrap uppercase transition-colors duration-300 group-hover:text-foreground ${
+                      aria-hidden
+                      className={`mt-1 max-w-[5.5rem] text-center font-mono text-[0.4375rem] leading-tight tracking-[0.1em] whitespace-nowrap uppercase transition-colors duration-200 group-hover:text-foreground group-focus-visible:text-foreground ${
                         muted ? "text-muted-foreground/60" : "text-muted-foreground"
                       }`}
                     >
                       {item.name}
                     </span>
                   </div>
-
                 </div>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </>
   );
 }
-
-
