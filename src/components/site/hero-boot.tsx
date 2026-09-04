@@ -52,7 +52,7 @@ export function HeroBoot() {
           fully transparent well before its own edges, so the light dissolves
           into the page background with no rectangular boundary. */}
       <div className="absolute top-1/2 left-1/2 aspect-square w-full max-w-[19rem] sm:max-w-[27rem] xl:max-w-[34rem] -translate-x-1/2 -translate-y-1/2">
-        <div className="aura-reveal absolute inset-0 opacity-25">
+        <div className="aura-reveal absolute inset-0 opacity-40">
           <div
             className="absolute top-1/2 left-1/2 grid [grid-template:0px/0px] place-items-center"
             style={{ transform: "translate(calc(-50% - 0.75rem), -50%)" }}
@@ -64,11 +64,11 @@ export function HeroBoot() {
               className="[grid-area:1/1] h-[240%] w-[240%] rounded-full mix-blend-screen"
               style={{
                 background:
-                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
+                  "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 60%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
                 maskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 56%)",
+                  "radial-gradient(circle at 50% 50%, transparent 10%, black 20%, transparent 60%)",
                 WebkitMaskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 56%)",
+                  "radial-gradient(circle at 50% 50%, transparent 10%, black 20%, transparent 60%)",
                 filter: "blur(3px)",
               }}
             />
