@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import profilePhotoAsset from "@/assets/profile-photo.jpg.asset.json";
 const profilePhoto = profilePhotoAsset.url;
 import {
@@ -192,6 +194,7 @@ function OrbitRing({
   /** ring line styling — varies opacity/thickness/glow per ring for depth */
   ringClassName?: string;
 }) {
+  const reduced = usePrefersReducedMotion();
   const spin = `orbit-spin ${duration}s linear infinite${reverse ? " reverse" : ""}`;
   const counterSpin = `orbit-spin ${duration}s linear infinite${reverse ? "" : " reverse"}`;
   const box =
@@ -232,7 +235,7 @@ function OrbitRing({
 
       <ul
         className="absolute inset-0 list-none motion-reduce:animate-none"
-        style={{ animation: spin, transformOrigin: "50% 50%" }}
+        style={{ animation: reduced ? undefined : spin, transformOrigin: "50% 50%" }}
       >
         {tech.map((item, i) => {
           const angle = (360 / tech.length) * i + offset;
@@ -247,7 +250,7 @@ function OrbitRing({
             >
               <div
                 className="motion-reduce:animate-none"
-                style={{ animation: counterSpin, transformOrigin: "50% 50%" }}
+                style={{ animation: reduced ? undefined : counterSpin, transformOrigin: "50% 50%" }}
               >
                 <div
                   className="animate-reveal motion-reduce:animate-none"
@@ -297,4 +300,17 @@ function OrbitRing({
       </ul>
     </>
   );
+}
+
+/** Tracks the user's reduced-motion preference (SSR-safe). */
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return reduced;
 }
