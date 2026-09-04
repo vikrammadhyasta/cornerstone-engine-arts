@@ -30,11 +30,11 @@ These are design decisions that are **already approved** and must not be changed
 
 - **Brand:** Vikram Madhyasta
 - **Availability indicator:** "Open to Cloud • DevOps • Platform Roles" (pulse dot + label, dark-first glassy pill)
-- **Headline:** "I build software and systems that work reliably."
-- **Supporting description:** "Hi, I’m Vikram Madhyastha, a Cloud & DevOps Engineer with a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows."
+- **Headline:** "I build software and systems that work reliably." — larger, stronger visual hierarchy; final phrase "that work reliably." emphasized with the existing primary-to-primary-glow gradient.
+- **Supporting description:** "Hi, I’m Vikram Madhyasta, a Cloud & DevOps Engineer pursuing a Master of Engineering in Cloud Computing. I’m focused on building reliable cloud systems, automating software delivery, and turning infrastructure into reproducible, maintainable engineering workflows."
 - **Primary CTA:** "Explore Projects" (anchor → `#projects`)
 - **Secondary CTA:** "Download Resume" (downloads `/resume.pdf`)
-- **Social links:** icon-only GitHub, LinkedIn, and Email row beneath action buttons; accessible labels; subtle hover/focus states
+- **Social links:** icon-only GitHub (`https://github.com/vikrammadhyasta`), LinkedIn, and Email row beneath action buttons; accessible labels; subtle hover/focus states
 - **Signature visual:** Platform Core
   - Capability layers: Cloud (AWS) → Platform (K8s) → Delivery (IaC) → Observability (SLO)
   - Operator portrait at center
