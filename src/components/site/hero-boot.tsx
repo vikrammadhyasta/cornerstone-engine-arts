@@ -66,9 +66,9 @@ export function HeroBoot() {
                 background:
                   "repeating-conic-gradient(from 0deg at 50% 50%, color-mix(in oklab, var(--primary-glow) 38%, transparent) 0deg 0.6deg, transparent 0.6deg 2.4deg)",
                 maskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 46%)",
+                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 56%)",
                 WebkitMaskImage:
-                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 46%)",
+                  "radial-gradient(circle at 50% 50%, transparent 12%, black 22%, transparent 56%)",
                 filter: "blur(3px)",
               }}
             />
