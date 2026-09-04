@@ -10,76 +10,28 @@ import {
 
 
 /**
- * Platform Core — an abstract, layered visualization of a cloud platform.
+ * Platform Core — a calm, four-ring orbital visualization of the technology
+ * ecosystem around the operator portrait.
  *
- * Four concentric capability planes (CLOUD → PLATFORM → DELIVERY → OBSERVABILITY)
- * built from arcs and surfaces rather than spokes, with slow illumination sweeping
- * along the arcs, a gentle platform heartbeat and calm status transitions.
+ * Rings carry a clear hierarchy (core → delivery → engineering → AI tooling),
+ * with subtle differences in opacity, thickness, glow and speed for depth.
  * Entirely decorative: hidden from assistive tech except the portrait.
+ *
+ * Ring membership is only a visual arrangement — the technology registry in
+ * tech-logos.tsx remains the single source of truth for names and icons.
  */
 
-type Layer = {
-  id: string;
-  label: string;
-  /** short state word — never rely on color alone */
-  state: string;
-  inset: string;
-  duration: string;
-  reverse?: boolean;
-  /** marker anchor, in % of the square */
-  x: number;
-  y: number;
-  delay: string;
-  /** hidden on small screens to simplify ring detail */
-  compact?: boolean;
-};
+/** Ring 1 (innermost) — core cloud & platform technologies. */
+const RING_CORE: TechLogo[] = [CORE_TECH[0], CORE_TECH[1], CORE_TECH[2], CORE_TECH[3]];
 
-const LAYERS: Layer[] = [
-  {
-    id: "cloud",
-    label: "Cloud",
-    state: "AWS",
-    inset: "1%",
-    duration: "88s",
-    x: 12,
-    y: 20,
-    delay: "0s",
-  },
-  {
-    id: "platform",
-    label: "Platform",
-    state: "K8s",
-    inset: "13%",
-    duration: "70s",
-    reverse: true,
-    x: 88,
-    y: 26,
-    delay: "1.1s",
-    compact: true,
-  },
-  {
-    id: "delivery",
-    label: "Delivery",
-    state: "IaC",
-    inset: "25%",
-    duration: "58s",
-    x: 88,
-    y: 74,
-    delay: "2.2s",
-  },
-  {
-    id: "observability",
-    label: "Observability",
-    state: "SLO",
-    inset: "34%",
-    duration: "48s",
-    reverse: true,
-    x: 12,
-    y: 80,
-    delay: "3.3s",
-    compact: true,
-  },
-];
+/** Ring 2 — CI/CD & delivery technologies. */
+const RING_DELIVERY: TechLogo[] = [CORE_TECH[4], CORE_TECH[5], SUPPORTING_TECH[0], SUPPORTING_TECH[3]];
+
+/** Ring 3 — engineering & development technologies. */
+const RING_ENGINEERING: TechLogo[] = [CORE_TECH[6], SUPPORTING_TECH[1], SUPPORTING_TECH[2], SUPPORTING_TECH[4]];
+
+/** Ring 4 (outermost) — AI & development tooling, deliberately quieter. */
+const RING_AI: TechLogo[] = AI_TECH;
 
 export function CloudOpsCenter() {
   return (
