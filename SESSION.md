@@ -6,7 +6,7 @@ Snapshot of "where we are right now." Concise enough that a future session can r
 
 ## Current Feature
 
-**Hero update** — updated only the Hero section (`src/components/site/hero.tsx`). Replaced the headline with "I build software and systems that work reliably." and the description with the requested personal introduction. Removed the bottom Currently / Seeking / Focus information panel. Added a compact icon-only row beneath the action buttons for GitHub, LinkedIn, and Email with accessible labels, subtle hover/focus states, and correct destinations. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing system, typography, colors, animations, and all other portfolio sections.
+**Hero refinement** — updated only the Hero section (`src/components/site/hero.tsx`). Increased the headline size for stronger visual impact while preserving responsive scaling and the existing design system. Added subtle primary-to-primary-glow gradient emphasis to the final phrase "that work reliably." Updated the description to use the correct surname "Madhyasta" and "pursuing a Master of Engineering in Cloud Computing." Fixed the GitHub icon link to `https://github.com/vikrammadhyasta`. Preserved the eyebrow, CTAs, right-side CloudOpsCenter visualization, spacing, animations, and all other portfolio sections.
 
 ---
 
