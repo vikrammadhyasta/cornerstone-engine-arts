@@ -39,7 +39,7 @@ export function AcademicFoundation() {
   return (
     <Section
       bordered
-      id="academic-foundation"
+      id="education"
       className="scroll-mt-24"
       heading="Academic Foundation"
     >

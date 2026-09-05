@@ -5,21 +5,16 @@ import { Menu, ArrowUpRight, Hexagon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { NAV_SECTIONS, useActiveSection } from "@/lib/site-sections";
 
-const NAV_ITEMS = [
-  { label: "Platform", hash: "platform" },
-  { label: "Projects", hash: "projects" },
-  { label: "Engineering", hash: "engineering" },
-  { label: "Experience", hash: "experience" },
-  { label: "Contact", hash: "contact" },
-];
+const NAV_ITEMS = NAV_SECTIONS;
 
 export function SiteNav() {
   const [scrolled, setScrolled] = React.useState(false);
-  const [active, setActive] = React.useState<string>(NAV_ITEMS[0].hash);
   const [open, setOpen] = React.useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const onHome = pathname === "/";
+  const active = useActiveSection(onHome);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -28,24 +23,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active section indicator
-  React.useEffect(() => {
-    const sections = NAV_ITEMS.map((i) => document.getElementById(i.hash)).filter(
-      (el): el is HTMLElement => Boolean(el),
-    );
-    if (sections.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActive(visible.target.id);
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: [0.05, 0.25, 0.5] },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, [pathname]);
 
   return (
     <header
@@ -62,7 +39,8 @@ export function SiteNav() {
       >
         <Link
           to="/"
-          hash="top"
+          hash="home"
+          activeOptions={{ exact: true, includeHash: true }}
           className="flex min-w-0 items-center gap-2.5 rounded-md text-foreground"
           aria-label="Back to top"
         >
@@ -76,12 +54,13 @@ export function SiteNav() {
 
         <div className="ml-auto hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map((item) => {
-            const isActive = onHome && active === item.hash;
+            const isActive = onHome && active === item.id;
             return (
               <Link
-                key={item.hash}
+                key={item.id}
                 to="/"
-                hash={item.hash}
+                hash={item.id}
+                activeOptions={{ exact: true, includeHash: true }}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "relative rounded-md px-3 py-2 text-sm transition-colors duration-200",
@@ -125,13 +104,14 @@ export function SiteNav() {
               <div className="mt-8 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
                   <Link
-                    key={item.hash}
+                    key={item.id}
                     to="/"
-                    hash={item.hash}
+                    hash={item.id}
+                activeOptions={{ exact: true, includeHash: true }}
                     onClick={() => setOpen(false)}
                     className={cn(
                       "rounded-lg px-3 py-3 text-base transition-colors",
-                      onHome && active === item.hash
+                      onHome && active === item.id
                         ? "bg-surface text-foreground"
                         : "text-muted-foreground hover:bg-surface/70 hover:text-foreground",
                     )}
