@@ -30,6 +30,7 @@ export const NAV_SECTIONS: NavItem[] = [
  */
 let activeId: SectionId = "home";
 let observer: IntersectionObserver | null = null;
+let detachScrollEnd: (() => void) | null = null;
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -71,7 +72,8 @@ function start() {
     const el = document.getElementById(item.id);
     if (el) observer.observe(el);
   }
-  document.addEventListener("scrollend", resolve, { passive: true } as AddEventListenerOptions);
+  document.addEventListener("scrollend", resolve);
+  detachScrollEnd = () => document.removeEventListener("scrollend", resolve);
 }
 
 function subscribe(listener: () => void) {
@@ -82,6 +84,8 @@ function subscribe(listener: () => void) {
     if (listeners.size === 0) {
       observer?.disconnect();
       observer = null;
+      detachScrollEnd?.();
+      detachScrollEnd = null;
     }
   };
 }
