@@ -175,6 +175,7 @@ function RootComponent() {
       </a>
       <SiteNav />
       <SectionRail />
+      <BackToTop />
       <main id="main" className="relative pt-16 md:pt-20">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
