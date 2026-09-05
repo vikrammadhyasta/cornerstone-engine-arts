@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteBackground } from "@/components/site/site-background";
 import { SectionRail } from "@/components/site/section-rail";
+import { BackToTop } from "@/components/site/back-to-top";
 
 function NotFoundComponent() {
   return (
