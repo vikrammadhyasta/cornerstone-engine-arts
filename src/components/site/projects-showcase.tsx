@@ -135,7 +135,6 @@ export function ProjectsShowcase() {
     <Section
       bordered
       id="projects"
-      className="scroll-mt-24"
       label="PROJECTS"
       heading="Engineering Registry"
       description="A curated collection of cloud, DevOps, infrastructure, automation, and platform engineering systems I've built."

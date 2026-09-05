@@ -40,7 +40,6 @@ export function AcademicFoundation() {
     <Section
       bordered
       id="education"
-      className="scroll-mt-24"
       heading="Academic Foundation"
     >
       <ul className="grid list-none gap-6 md:grid-cols-2">

@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteBackground } from "@/components/site/site-background";
 import { SectionRail } from "@/components/site/section-rail";
+import { BackToTop } from "@/components/site/back-to-top";
 
 function NotFoundComponent() {
   return (
@@ -174,6 +175,7 @@ function RootComponent() {
       </a>
       <SiteNav />
       <SectionRail />
+      <BackToTop />
       <main id="main" className="relative pt-16 md:pt-20">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />

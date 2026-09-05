@@ -30,6 +30,7 @@ export const NAV_SECTIONS: NavItem[] = [
  */
 let activeId: SectionId = "home";
 let observer: IntersectionObserver | null = null;
+let detachScrollEnd: (() => void) | null = null;
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -38,32 +39,41 @@ function emit() {
 
 function start() {
   if (observer || typeof window === "undefined") return;
-  const ratios = new Map<string, number>();
+  const visible = new Set<string>();
+
+  const resolve = () => {
+    // Bottom of the document: the last section is the one being read.
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    let next: SectionId | null = atBottom ? NAV_SECTIONS[NAV_SECTIONS.length - 1]!.id : null;
+    if (!next) {
+      for (const item of NAV_SECTIONS) {
+        if (visible.has(item.id)) next = item.id;
+      }
+    }
+    if (next && next !== activeId) {
+      activeId = next;
+      emit();
+    }
+  };
+
   observer = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
-        ratios.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0);
+        if (e.isIntersecting) visible.add(e.target.id);
+        else visible.delete(e.target.id);
       }
-      let best: SectionId | null = null;
-      let bestRatio = 0;
-      for (const item of NAV_SECTIONS) {
-        const r = ratios.get(item.id) ?? 0;
-        if (r > bestRatio) {
-          bestRatio = r;
-          best = item.id;
-        }
-      }
-      if (best && best !== activeId) {
-        activeId = best;
-        emit();
-      }
+      resolve();
     },
-    { rootMargin: "-35% 0px -45% 0px", threshold: [0.01, 0.15, 0.35, 0.6] },
+    // Thin detection band just below the sticky navbar — cheap and stable.
+    { rootMargin: "-96px 0px -70% 0px", threshold: 0 },
   );
   for (const item of NAV_SECTIONS) {
     const el = document.getElementById(item.id);
     if (el) observer.observe(el);
   }
+  document.addEventListener("scrollend", resolve);
+  detachScrollEnd = () => document.removeEventListener("scrollend", resolve);
 }
 
 function subscribe(listener: () => void) {
@@ -74,6 +84,8 @@ function subscribe(listener: () => void) {
     if (listeners.size === 0) {
       observer?.disconnect();
       observer = null;
+      detachScrollEnd?.();
+      detachScrollEnd = null;
     }
   };
 }
