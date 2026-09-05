@@ -11,7 +11,6 @@ export function ExperienceShowcase() {
     <Section
       bordered
       id="experience"
-      className=""
       label="Experience"
       heading="Engineering experience beyond personal projects."
       description="Hands-on experience building, deploying, troubleshooting, and automating cloud-native systems."

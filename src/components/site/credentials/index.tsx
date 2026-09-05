@@ -41,7 +41,6 @@ export function CredentialsRegistry() {
     <Section
       bordered
       id="credentials"
-      className=""
       label="CREDENTIALS"
       heading="Credentials that support the engineering."
       description="A record of cloud, AI, and software engineering credentials earned through structured training and hands-on learning."

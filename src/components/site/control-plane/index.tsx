@@ -31,7 +31,6 @@ export function EngineeringControlPlane() {
     <Section
       bordered
       id="platform"
-      className=""
       label="Engineering control plane"
       heading={
         <>

@@ -124,7 +124,6 @@ export function Contact() {
     <Section
       id="contact"
       bordered
-      className=""
       label="Initialize connection"
       heading="Let's build what comes next."
       description="I'm open to Cloud, DevOps, Platform Engineering, and SRE opportunities."
