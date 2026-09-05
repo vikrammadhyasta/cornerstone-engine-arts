@@ -328,7 +328,15 @@
 
   html {
     scroll-behavior: smooth;
+    /* Single source of truth for sticky-nav scroll offset (navbar h-16 / md:h-20). */
+    scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 6.5rem;
+    }
   }
 
   body {
