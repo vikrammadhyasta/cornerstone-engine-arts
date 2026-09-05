@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
 export function Hero() {
   return (
     <section
-      id="hero"
+      id="home"
       className="relative isolate overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 lg:min-h-[780px] lg:pt-32 lg:pb-24"
     >
       <HeroAura />

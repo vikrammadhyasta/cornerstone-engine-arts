@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteBackground } from "@/components/site/site-background";
+import { SectionRail } from "@/components/site/section-rail";
 
 function NotFoundComponent() {
   return (
@@ -127,6 +128,7 @@ function HashScroll() {
   useEffect(() => {
     const hash = location.hash;
     if (!hash) return;
+    let cancelled = false;
     const scroll = () => {
       const el = document.getElementById(hash);
       if (!el) return false;
@@ -134,12 +136,18 @@ function HashScroll() {
       el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
       return true;
     };
-    if (scroll()) return;
-    const raf = requestAnimationFrame(() => {
-      if (!scroll()) setTimeout(scroll, 120);
-    });
-    return () => cancelAnimationFrame(raf);
+    // Retry until the target section exists (route transition, fonts, images).
+    const attempt = (n: number) => {
+      if (cancelled) return;
+      if (scroll() || n > 20) return;
+      setTimeout(() => attempt(n + 1), 80);
+    };
+    attempt(0);
+    return () => {
+      cancelled = true;
+    };
   }, [location.href, location.hash]);
+
 
   return null;
 }
@@ -158,6 +166,7 @@ function RootComponent() {
         Skip to content
       </a>
       <SiteNav />
+      <SectionRail />
       <main id="main" className="relative pt-16 md:pt-20">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />

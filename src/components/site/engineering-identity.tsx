@@ -57,7 +57,7 @@ const PRINCIPLES = [
 
 export function EngineeringIdentity() {
   return (
-    <section id="identity" className="section-y hairline-top scroll-mt-24">
+    <section id="engineering" className="section-y hairline-top scroll-mt-24">
       <div className="container-page">
         {/* Narrative — the hero of this section */}
         <header className="animate-reveal flex max-w-3xl flex-col gap-5">
