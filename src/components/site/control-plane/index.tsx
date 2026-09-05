@@ -31,7 +31,7 @@ export function EngineeringControlPlane() {
     <Section
       bordered
       id="platform"
-      className="scroll-mt-24"
+      className=""
       label="Engineering control plane"
       heading={
         <>
