@@ -139,9 +139,16 @@ function HashScroll() {
     // Retry until the target section exists (route transition, fonts, images).
     const attempt = (n: number) => {
       if (cancelled) return;
-      if (scroll() || n > 20) return;
+      if (scroll()) {
+        // Re-align after late layout shifts (fonts, images, lazy sections).
+        setTimeout(() => !cancelled && scroll(), 350);
+        setTimeout(() => !cancelled && scroll(), 900);
+        return;
+      }
+      if (n > 20) return;
       setTimeout(() => attempt(n + 1), 80);
     };
+
     attempt(0);
     return () => {
       cancelled = true;
