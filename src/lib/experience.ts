@@ -1,6 +1,3 @@
-import certificateImage from "@/assets/certificates/rooman-certificate.jpg.asset.json";
-import certificateFile from "@/assets/certificates/rooman-certificate.pdf.asset.json";
-
 export type ExperienceCertificate = {
   title: string;
   issuer: string;
@@ -67,8 +64,8 @@ export const EXPERIENCES: Experience[] = [
       issuer: "Rooman Technologies Pvt. Ltd.",
       period: "September 2024 – February 2025",
       date: "10 June 2025",
-      previewUrl: certificateImage.url,
-      fileUrl: certificateFile.url,
+      previewUrl: "/experience/roomen.png",
+      fileUrl: "/experience/roomen.pdf",
       previewAlt:
         "Certificate of Achievement for Cloud Application Developer training issued by Rooman Technologies Pvt. Ltd.",
     },
@@ -79,3 +76,4 @@ export const EXPERIENCES: Experience[] = [
 export function getExperience(slug: string): Experience | undefined {
   return EXPERIENCES.find((experience) => experience.slug === slug);
 }
+

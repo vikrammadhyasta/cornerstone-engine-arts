@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-import profilePhotoAsset from "@/assets/profile-photo.jpg.asset.json";
-const profilePhoto = profilePhotoAsset.url;
+const profilePhoto = "/profile-photo.jpg";
 import {
   AI_TECH,
   CORE_TECH,
